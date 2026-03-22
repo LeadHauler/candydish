@@ -179,3 +179,6 @@
 
 ## Feature Addition (Round 27)
 - [x] Add category filter bar to Tactics page (filter 17 posts by topic)
+
+## Visual Update (Round 28)
+- [x] Replace text/icon logo with LeadHauler logo image in all nav headers

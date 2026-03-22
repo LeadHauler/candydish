@@ -377,16 +377,12 @@ export default function Tactics() {
       {/* NAV */}
       <nav className="border-b border-border bg-card/90 backdrop-blur-sm sticky top-0 z-40">
         <div className="container flex items-center justify-between h-16">
-          <Link href="/">
-            <div className="flex items-center gap-2.5 cursor-pointer">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
-                <span className="text-sm font-black text-primary-foreground">L</span>
-              </div>
-              <div>
-                <span className="font-bold text-foreground">LeadHauler</span>
-                <span className="text-muted-foreground text-sm ml-1.5 hidden sm:inline">System</span>
-              </div>
-            </div>
+          <Link href="/" className="flex items-center">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler-logo_a788182a.png"
+              alt="LeadHauler — Marketing for Junk Removal"
+              className="h-9 sm:h-10 w-auto object-contain"
+            />
           </Link>
 
           <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
@@ -648,16 +644,12 @@ export default function Tactics() {
       <footer className="bg-primary text-primary-foreground py-10 sm:py-12 border-t border-primary/20">
         <div className="container">
           <div className="flex flex-col items-center gap-5 sm:flex-row sm:justify-between sm:gap-6">
-            <Link href="/">
-              <div className="flex items-center gap-2.5 cursor-pointer">
-                <div className="w-8 h-8 rounded-lg bg-accent/30 flex items-center justify-center flex-shrink-0">
-                  <span className="text-sm font-black text-accent">L</span>
-                </div>
-                <div>
-                  <span className="font-bold">LeadHauler</span>
-                  <span className="text-primary-foreground/60 text-sm ml-1.5">System</span>
-                </div>
-              </div>
+            <Link href="/" className="flex items-center">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler-logo_a788182a.png"
+                alt="LeadHauler"
+                className="h-8 w-auto object-contain brightness-0 invert"
+              />
             </Link>
             <p className="text-primary-foreground/50 text-sm text-center">
               Done-for-you marketing exclusively for junk removal businesses.

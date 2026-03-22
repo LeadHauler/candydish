@@ -169,15 +169,13 @@ export default function Home() {
       <nav className="border-b border-border bg-card/90 backdrop-blur-sm sticky top-0 z-40">
         <div className="container flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
-              <span className="text-sm font-black text-primary-foreground">L</span>
-            </div>
-            <div>
-              <span className="font-bold text-foreground">LeadHauler</span>
-              <span className="text-muted-foreground text-sm ml-1.5 hidden sm:inline">System</span>
-            </div>
-          </div>
+          <a href="/" className="flex items-center">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler-logo_a788182a.png"
+              alt="LeadHauler — Marketing for Junk Removal"
+              className="h-9 sm:h-10 w-auto object-contain"
+            />
+          </a>
 
           {/* Desktop nav links */}
           <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
@@ -765,14 +763,12 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
             {/* Brand column */}
             <div className="lg:col-span-1">
-              <div className="flex items-center gap-2.5 mb-4">
-                <div className="w-8 h-8 rounded-lg bg-accent/30 flex items-center justify-center flex-shrink-0">
-                  <span className="text-sm font-black text-accent">L</span>
-                </div>
-                <div>
-                  <span className="font-bold">LeadHauler</span>
-                  <span className="text-primary-foreground/60 text-sm ml-1.5">System</span>
-                </div>
+              <div className="mb-4">
+                <img
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler-logo_a788182a.png"
+                  alt="LeadHauler"
+                  className="h-8 w-auto object-contain brightness-0 invert"
+                />
               </div>
               <p className="text-primary-foreground/55 text-sm leading-relaxed">
                 The complete, done-for-you marketing system built exclusively for junk removal businesses.
