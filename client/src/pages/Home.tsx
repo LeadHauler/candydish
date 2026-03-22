@@ -175,7 +175,7 @@ export default function Home() {
             </div>
             <div>
               <span className="font-bold text-foreground">LeadHauler</span>
-              <span className="text-muted-foreground text-sm ml-1.5 hidden sm:inline">Agency</span>
+              <span className="text-muted-foreground text-sm ml-1.5 hidden sm:inline">System</span>
             </div>
           </div>
 
@@ -734,7 +734,7 @@ export default function Home() {
                 </div>
                 <div>
                   <span className="font-bold">LeadHauler</span>
-                  <span className="text-primary-foreground/60 text-sm ml-1.5">Agency</span>
+                  <span className="text-primary-foreground/60 text-sm ml-1.5">System</span>
                 </div>
               </div>
               <p className="text-primary-foreground/55 text-sm leading-relaxed">

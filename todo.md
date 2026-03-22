@@ -154,3 +154,6 @@
 
 ## Content Addition (Round 19)
 - [x] Add Google Business Profile freshness tactic post to Tactics page
+
+## Brand Fix (Round 20)
+- [x] Find and replace ALL remaining "LeadHauler Agency" with "LeadHauler System"
