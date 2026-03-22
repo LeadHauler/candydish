@@ -194,7 +194,7 @@ export default function Home() {
 
           {/* Mobile: phone + hamburger */}
           <div className="flex items-center gap-2 md:hidden">
-            <a href="tel:+12164710116">
+                  <a href="tel:+15087156385">
               <Button size="sm" variant="outline" className="bg-background px-2.5">
                 <Phone className="w-4 h-4 text-primary" />
               </Button>
@@ -671,14 +671,14 @@ export default function Home() {
                 })}
               </div>
               <div className="mt-7 pt-7 border-t border-border flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-                <a href="tel:+12164710116" className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors">
+                <a href="tel:+15087156385" className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors">
                   <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-                  (216) 471-0116
+                  (508) 715-6385
                 </a>
                 <span className="hidden sm:block text-border">|</span>
-                <a href="mailto:hello@leadhauleragency.com" className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors">
+                <a href="mailto:hello@leadhauler.com" className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors">
                   <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-                  hello@leadhauleragency.com
+                  hello@leadhauler.com
                 </a>
               </div>
             </div>
@@ -811,9 +811,9 @@ export default function Home() {
               <p className="text-xs font-bold uppercase tracking-widest text-primary-foreground/40 mb-4">Contact</p>
               <ul className="space-y-2.5 text-sm text-primary-foreground/65">
                 <li>
-                  <a href="tel:+12164710116" className="hover:text-primary-foreground transition-colors flex items-center gap-2">
+                  <a href="tel:+15087156385" className="hover:text-primary-foreground transition-colors flex items-center gap-2">
                     <Phone className="w-3.5 h-3.5 flex-shrink-0" />
-                    (216) 471-0116
+                    (508) 715-6385
                   </a>
                 </li>
                 <li>
@@ -822,12 +822,7 @@ export default function Home() {
                     hello@leadhauler.com
                   </a>
                 </li>
-                <li>
-                  <a href="#contact" className="inline-flex items-center gap-1.5 mt-2 px-4 py-2 rounded-lg bg-accent/20 border border-accent/30 text-accent hover:bg-accent/30 transition-colors font-semibold text-xs">
-                    Book Free Strategy Call
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </li>
+
               </ul>
             </div>
           </div>

@@ -191,3 +191,7 @@
 
 ## Visual Update (Round 31)
 - [x] Replace header logo with new toplogo.PNG, slightly larger than current size
+
+## Content Update (Round 32)
+- [x] Remove "Book Free Strategy Call" button from footer contact section
+- [x] Update phone to (508) 715-6385 and email to hello@leadhauler.com on all pages

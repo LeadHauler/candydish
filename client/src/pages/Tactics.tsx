@@ -405,7 +405,7 @@ export default function Tactics() {
           </a>
 
           <div className="flex items-center gap-2 md:hidden">
-            <a href="tel:+12164710116">
+            <a href="tel:+15087156385">
               <Button size="sm" variant="outline" className="bg-background px-2.5">
                 <Phone className="w-4 h-4 text-primary" />
               </Button>
@@ -579,10 +579,10 @@ export default function Tactics() {
                               <ArrowRight className="w-4 h-4 ml-1.5" />
                             </Button>
                           </a>
-                          <a href="tel:+12164710116" className="flex-1 sm:flex-none">
+                          <a href="tel:+15087156385" className="flex-1 sm:flex-none">
                             <Button variant="outline" className="w-full sm:w-auto border-white/30 text-primary-foreground hover:bg-white/10 font-semibold text-sm bg-transparent">
                               <Phone className="w-4 h-4 mr-1.5" />
-                              Call (216) 471-0116
+                              Call (508) 715-6385
                             </Button>
                           </a>
                         </div>
@@ -616,10 +616,10 @@ export default function Tactics() {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </a>
-            <a href="tel:+12164710116">
+            <a href="tel:+15087156385">
               <Button size="lg" variant="outline" className="w-full sm:w-auto border-white/30 text-primary-foreground hover:bg-white/10 font-semibold px-8 text-base bg-transparent">
                 <Phone className="w-5 h-5 mr-2" />
-                Call (216) 471-0116
+                Call (508) 715-6385
               </Button>
             </a>
           </div>
@@ -663,12 +663,12 @@ export default function Tactics() {
           <div className="mt-7 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/40">
             <span>2025 LeadHauler System. All rights reserved.</span>
             <div className="flex items-center gap-3">
-              <a href="tel:+12164710116" className="flex items-center gap-1.5 hover:text-primary-foreground/70 transition-colors">
-                <Phone className="w-3.5 h-3.5" /> (216) 471-0116
+              <a href="tel:+15087156385" className="flex items-center gap-1.5 hover:text-primary-foreground/70 transition-colors">
+                <Phone className="w-3.5 h-3.5" /> (508) 715-6385
               </a>
               <span>·</span>
-              <a href="mailto:hello@leadhauleragency.com" className="flex items-center gap-1.5 hover:text-primary-foreground/70 transition-colors">
-                <Mail className="w-3.5 h-3.5" /> hello@leadhauleragency.com
+              <a href="mailto:hello@leadhauler.com" className="flex items-center gap-1.5 hover:text-primary-foreground/70 transition-colors">
+                <Mail className="w-3.5 h-3.5" /> hello@leadhauler.com
               </a>
             </div>
           </div>
