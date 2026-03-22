@@ -195,3 +195,6 @@
 ## Content Update (Round 32)
 - [x] Remove "Book Free Strategy Call" button from footer contact section
 - [x] Update phone to (508) 715-6385 and email to hello@leadhauler.com on all pages
+
+## Content Update (Round 33)
+- [x] Add new tactic: digital social channels and local discussion groups

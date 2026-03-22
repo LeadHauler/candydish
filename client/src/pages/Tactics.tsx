@@ -341,6 +341,28 @@ const tactics = [
     readTime: "5 min read",
     ctaLine: "We handle your direct mail, neighborhood follow-up campaigns, and local marketing — so every job you run turns into more jobs nearby.",
   },
+  {
+    id: 18,
+    icon: Megaphone,
+    category: "Social Media",
+    tag: "Community Presence",
+    tagColor: "bg-rose-100 text-rose-700",
+    title: "Which Social Channels Actually Matter for Junk Removal — and Why Local Groups Are Your Secret Weapon",
+    summary:
+      "You do not need to be on every platform. You need to be on the right ones, consistently. And the single highest-ROI social move for a local junk removal business is not posting on your own page — it is showing up in the local groups where your customers already hang out.",
+    tips: [
+      "Facebook is still the most important platform for local service businesses. Your customers are homeowners, landlords, and property managers — and the vast majority of them are active on Facebook. Prioritize it above every other channel. A consistent presence here will outperform sporadic activity across five platforms.",
+      "Join every local Facebook group in your service area — neighborhood groups, buy-nothing groups, local community boards, town forums, and HOA groups. Search '[your city] community', '[your neighborhood] neighbors', '[your town] buy sell trade', and join them all. These groups have thousands of engaged local members who trust each other's recommendations.",
+      "Do not spam groups with ads. Instead, participate genuinely. When someone posts asking for a junk removal recommendation, respond immediately with a brief, helpful reply: 'We cover [city] — happy to give you a quick quote. DM me or call (508) 715-6385.' Being the first to respond to these posts is worth more than any paid ad.",
+      "Post 'job completed nearby' updates in local groups after finishing a job in that area. Keep it natural: 'Just wrapped up a full garage cleanout on [street or neighborhood] — before and after below. If anyone in the area has been putting off a cleanout, we're already in the neighborhood this week.' These posts get organic reach, comments, and saves from people who are not ready yet but will remember you.",
+      "Nextdoor is the second most important platform for local service businesses. Homeowners actively ask for contractor and service recommendations on Nextdoor. Claim your free Business Page, keep your profile complete with photos and a clear description of your service area, and respond to every mention or recommendation request within the hour.",
+      "Instagram is worth maintaining if you can commit to posting before-and-after photos consistently — at minimum three times per week. Use local hashtags (#[yourcity]junkremoval, #[yourcity]cleanout) and geotag every post. Instagram's visual format makes before-and-after content extremely shareable and helps you get discovered by people searching locally.",
+      "YouTube and TikTok are optional but powerful if you are willing to film short job videos. A 60-second 'garage cleanout timelapse' or 'what we hauled today' video can accumulate thousands of local views over time and drives inbound calls with zero ongoing ad spend. Even one video per week compounds significantly over a year.",
+      "The single most important rule: pick two or three channels and be consistent on them, rather than being inconsistent on all of them. A business that posts on Facebook and Nextdoor three times per week will always outperform one that posts everywhere once a month. Consistency signals to both algorithms and potential customers that you are active, reliable, and worth hiring.",
+    ],
+    readTime: "6 min read",
+    ctaLine: "We manage your social media presence across Facebook, Nextdoor, and Instagram — posting, engaging in local groups, and responding to leads so you never miss an opportunity.",
+  },
 ];
 
 const CATEGORIES = [
@@ -349,7 +371,7 @@ const CATEGORIES = [
   { value: "Google Ads",  label: "Google Ads" },
   { value: "Referrals",   label: "Referrals" },
   { value: "Reputation",  label: "Reputation" },
-  { value: "Social Media",label: "Social Media" },
+  { value: "Social Media", label: "Social Media" },
   { value: "Website",     label: "Website" },
   { value: "Growth",      label: "Growth" },
 ];
