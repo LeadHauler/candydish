@@ -325,9 +325,9 @@ export default function Home() {
               {/* Social proof strip */}
               <div className="rounded-2xl bg-accent/10 border border-accent/20 p-5 flex items-center gap-4">
                 <div className="flex -space-x-2">
-                  <div className="w-9 h-9 rounded-full bg-primary/20 border-2 border-background flex items-center justify-center text-xs font-bold text-primary">M</div>
-                  <div className="w-9 h-9 rounded-full bg-accent/30 border-2 border-background flex items-center justify-center text-xs font-bold text-foreground">J</div>
-                  <div className="w-9 h-9 rounded-full bg-primary/10 border-2 border-background flex items-center justify-center text-xs font-bold text-primary">D</div>
+                   <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/hero-avatar-mike-Ub4UZgCBy7TE2AVBpybWaY.webp" alt="Mike" className="w-9 h-9 rounded-full border-2 border-background object-cover" />
+                   <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/hero-avatar-jason-QEsVpNmgzTvnvzDQ5hrzuq.webp" alt="Jason" className="w-9 h-9 rounded-full border-2 border-background object-cover" />
+                   <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/hero-avatar-derek-grnTXPDz5UVywfW3nNMfjD.webp" alt="Derek" className="w-9 h-9 rounded-full border-2 border-background object-cover" />
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Trusted by junk haulers nationwide</p>

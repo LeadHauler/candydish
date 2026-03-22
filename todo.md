@@ -166,3 +166,7 @@
 
 ## UI Improvement (Round 23)
 - [x] Improve hero section layout for mobile and desktop
+
+## Visual Update (Round 24)
+- [x] Generate and upload headshot photos for hero social proof circles (M, J, D)
+- [x] Replace letter circles with photos in hero social proof strip
