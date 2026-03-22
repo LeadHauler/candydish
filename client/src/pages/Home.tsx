@@ -447,15 +447,15 @@ export default function Home() {
           <div className="text-center mb-10 sm:mb-14">
             <p className="text-sm font-bold text-primary uppercase tracking-widest mb-3">Simple process</p>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight">
-              From sign-up to leads in 14 days
+              How It Works
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 max-w-5xl mx-auto">
             {[
               { step: "01", icon: Phone, title: "Free Strategy Call", desc: "We learn your market, goals, and current situation. No pressure, no pitch — just a real conversation." },
-              { step: "02", icon: Shield, title: "Custom Game Plan", desc: "We build a marketing plan tailored to your city, competition, and budget. You approve everything." },
-              { step: "03", icon: Zap, title: "We Launch", desc: "Ads go live, your site is optimized, and your social media is set up — all within 48–72 hours." },
-              { step: "04", icon: TrendingUp, title: "Leads Flow In", desc: "You watch the dashboard fill up with calls and form fills. We optimize weekly to keep improving." },
+              { step: "02", icon: Shield, title: "Custom Game Plan", desc: "We customize and tailor our system to your city, competition, and budget. You approve everything." },
+              { step: "03", icon: Zap, title: "We Launch", desc: "Your LeadHauler system goes live, your site is optimized, and your social media is set up — all within 48–72 hours." },
+              { step: "04", icon: TrendingUp, title: "Leads Flow In", desc: "You start answering calls and following up on form fills. We optimize weekly to keep improving." },
             ].map((s, i) => {
               const Icon = s.icon;
               return (

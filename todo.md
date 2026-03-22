@@ -170,3 +170,6 @@
 ## Visual Update (Round 24)
 - [x] Generate and upload headshot photos for hero social proof circles (M, J, D)
 - [x] Replace letter circles with photos in hero social proof strip
+
+## Copy Update (Round 25)
+- [x] Replace How It Works steps with new 4-step copy
