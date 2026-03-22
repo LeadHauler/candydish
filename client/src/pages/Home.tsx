@@ -240,8 +240,8 @@ export default function Home() {
               The complete marketing system built exclusively for junk haulers
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.1] tracking-tight mb-5">
-              We Get the Leads.<br />
-              <span className="text-primary">You Haul the Junk.</span>
+              We Haul In the Leads.<br />
+              <span className="text-primary">You Haul Out the Junk.</span>
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-6 max-w-2xl">
               LeadPile is the only complete, done-for-you marketing system built exclusively for junk removal businesses. We handle <strong className="text-foreground font-semibold">everything</strong> — ads, SEO, your website, landing pages, social media, reviews, and local referral pipelines — so your phone rings and your schedule stays full.
