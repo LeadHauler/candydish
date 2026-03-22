@@ -110,3 +110,6 @@
 
 ## Copy Update (Round 6)
 - [x] Add "Your website doesn't look professional" to Sound Familiar section
+
+## Content Expansion (Round 7)
+- [x] Add more tactic posts to Tactics page (expanded from 7 to 15 posts)
