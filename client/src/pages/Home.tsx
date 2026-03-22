@@ -311,6 +311,7 @@ export default function Home() {
                   "No time to post on social media or chase reviews",
                   "Tried agencies before — they didn't understand your business",
                   "You're losing out on local referrals",
+                  "Your website doesn't look professional",
                 ].map((pain, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-red-50 border border-red-100">
                     <span className="text-red-400 font-bold text-lg leading-none mt-0.5 flex-shrink-0">✕</span>
