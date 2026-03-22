@@ -113,3 +113,6 @@
 
 ## Content Expansion (Round 7)
 - [x] Add more tactic posts to Tactics page (expanded from 7 to 15 posts)
+
+## Hero Rewrite (Round 8)
+- [x] Rewrite homepage hero to convey complete done-for-you marketing system
