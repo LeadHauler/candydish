@@ -83,18 +83,21 @@ const testimonials = [
     location: "Dallas, TX",
     text: "Before LeadHauler, I was spending $800/month on ads and getting maybe 5 calls. Now I'm getting 40+ leads a month and I don't touch any of it. They handle everything.",
     stars: 5,
+    photo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/testimonial-mike-aBwsAxv9CGakX8QyAprMo9.webp",
   },
   {
     name: "Jennifer R.",
     location: "Atlanta, GA",
     text: "I was skeptical because I'd tried agencies before. But these guys actually specialize in junk removal — they knew my business better than I did on day one.",
     stars: 5,
+    photo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/testimonial-lisa-i6R5tdPVwYdRHFaMGWN4FM.webp",
   },
   {
     name: "Derek S.",
     location: "Phoenix, AZ",
     text: "My Google ranking went from page 4 to the top 3 in my city within 6 weeks. The phone hasn't stopped ringing. Best investment I've made in my business.",
     stars: 5,
+    photo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/testimonial-jason-fH6BHHnZbCSCp8PD7ee7nm.webp",
   },
 ];
 
@@ -430,9 +433,11 @@ export default function Home() {
                 </div>
                 <p className="text-primary-foreground/90 text-sm leading-relaxed mb-5 italic">"{t.text}"</p>
                 <div className="flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-full bg-accent/30 flex items-center justify-center flex-shrink-0">
-                    <span className="text-accent font-bold text-sm">{t.name[0]}</span>
-                  </div>
+                  <img
+                    src={t.photo}
+                    alt={t.name}
+                    className="w-10 h-10 rounded-full object-cover flex-shrink-0 ring-2 ring-white/20"
+                  />
                   <div>
                     <p className="font-bold text-sm">{t.name}</p>
                     <p className="text-primary-foreground/50 text-xs flex items-center gap-1">

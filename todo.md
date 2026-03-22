@@ -137,3 +137,7 @@
 ## Brand Rename + Footer Update (Round 14)
 - - [x] Rename all LeadPile references to LeadHauler across all files
 - [x] Update footer with all navigation links
+
+## Visual Update (Round 15)
+- [x] Generate and upload headshot photos for testimonial reviewers (M, J, L)
+- [x] Replace initials avatars with photos in testimonials section
