@@ -573,7 +573,7 @@ export default function Tactics() {
             </div>
           </div>
           <div className="mt-7 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/40">
-            <span>2025 LeadHauler Agency. All rights reserved.</span>
+            <span>2025 LeadHauler System. All rights reserved.</span>
             <div className="flex items-center gap-3">
               <a href="tel:+12164710116" className="flex items-center gap-1.5 hover:text-primary-foreground/70 transition-colors">
                 <Phone className="w-3.5 h-3.5" /> (216) 471-0116

@@ -145,3 +145,6 @@
 ## Feature Addition (Round 16)
 - [x] Add remarketing/SMS/email re-engagement service card to services section
 - [x] Add remarketing bullet to LeadHauler Difference section
+
+## Brand Update (Round 17)
+- [x] Rename all "LeadHauler Agency" to "LeadHauler System"

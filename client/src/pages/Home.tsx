@@ -799,7 +799,7 @@ export default function Home() {
           </div>
           {/* Bottom bar */}
           <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/40">
-            <span>© {new Date().getFullYear()} LeadHauler Agency. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} LeadHauler System. All rights reserved.</span>
             <span>Done-for-you marketing exclusively for junk haulers.</span>
           </div>
         </div>
