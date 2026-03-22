@@ -157,3 +157,6 @@
 
 ## Brand Fix (Round 20)
 - [x] Find and replace ALL remaining "LeadHauler Agency" with "LeadHauler System"
+
+## Content Addition (Round 21)
+- [x] Add "How to connect with neighbors while on a job" tactic post to Tactics page

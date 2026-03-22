@@ -320,6 +320,27 @@ const tactics = [
     readTime: "5 min read",
     ctaLine: "We fully manage your Google Business Profile — weekly posts, photo uploads, Q&A, review responses, and profile optimization — all done for you.",
   },
+  {
+    id: 17,
+    icon: Users,
+    category: "Referrals",
+    tag: "On-the-Job Marketing",
+    tagColor: "bg-orange-100 text-orange-700",
+    title: "How to Turn Every Job Site Into a Lead Source by Connecting With Neighbors",
+    summary:
+      "Every time you pull up to a job, you are surrounded by potential customers. Neighbors are watching. Some are curious. Some have been meaning to clean out their garage for months. Here is how to turn that moment of visibility into booked jobs — without being pushy or awkward.",
+    tips: [
+      "Door-knock the three houses on each side and the three directly across the street before you start the job. Introduce yourself with something simple: 'Hey, I'm with LeadHauler — we're doing a cleanout next door today. If you've got anything you've been meaning to get rid of, we're already in the neighborhood and can usually fit in a quick pickup.' Most people won't say yes on the spot, but you've planted the seed and put a face to the business.",
+      "Leave a door hanger on every house within a two-block radius. The message should be hyper-local: 'We're working in your neighborhood today at [street name]. If you've been putting off a cleanout, now is the perfect time — we're already here.' Proximity and timing create urgency that generic mailers can't replicate.",
+      "Park your truck on the most visible street-facing position possible. Do not tuck it in a driveway or alley. The truck is a moving billboard — let it do its job. Make sure your phone number is large and readable from across the street.",
+      "Take a before-and-after photo of the job and post it to your Google Business Profile and Facebook the same day, tagging the neighborhood or city. 'Just finished a full garage cleanout in [neighborhood name] — before and after!' This creates a digital breadcrumb that shows up when neighbors search for junk removal in their area.",
+      "Carry a small stack of business cards or referral cards with a handwritten note on the back: 'Met you at [street name] — 10% off your first pickup.' Personalization makes a card worth keeping instead of tossing. Neighbors who were not ready to book today will remember you when they are.",
+      "If a neighbor stops to watch or asks what you are hauling, treat it as a warm lead. Have a quick, confident answer ready: 'Full garage cleanout — took about two hours. We do estates, foreclosures, construction debris, anything really. Want me to give you a quick quote while I'm here?' You are already on site, already trusted by their neighbor, and already in work mode. The conversion rate on these conversations is extremely high.",
+      "Follow up with a postcard to the same street two weeks after the job. The message: 'We recently completed a cleanout on your street. Spring cleaning coming up? We make it easy.' Timing the follow-up to a season or upcoming event (moving season, tax refund season, spring cleaning) dramatically increases response rates.",
+    ],
+    readTime: "5 min read",
+    ctaLine: "We handle your direct mail, neighborhood follow-up campaigns, and local marketing — so every job you run turns into more jobs nearby.",
+  },
 ];
 
 export default function Tactics() {
