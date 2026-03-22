@@ -95,3 +95,9 @@
 - [x] Fix pricing cards to single column on mobile
 - [x] Fix footer layout on mobile
 - [x] Add sticky mobile CTA bar at bottom
+
+## Feature Updates (Round 3)
+- [x] Add "We build a local pipeline of referrals for you" bullet to LeadPile Difference section
+- [x] Simplify mobile sticky CTA to single full-width "Book Free Call" button
+- [x] Build Tactics page with tip posts ending in a CTA
+- [x] Add Tactics link to navigation

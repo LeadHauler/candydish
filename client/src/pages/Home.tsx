@@ -147,6 +147,7 @@ export default function Home() {
   const navLinks = [
     { label: "Services", href: "#services" },
     { label: "Results", href: "#results" },
+    { label: "Tactics", href: "/tactics" },
     { label: "Pricing", href: "#pricing" },
     { label: "FAQ", href: "#faq" },
   ];
@@ -330,6 +331,7 @@ export default function Home() {
                   "A website and landing pages that convert visitors into booked jobs.",
                   "Social media content posted for you every week",
                   "Automated review requests after every completed job",
+                  "We build a local pipeline of referrals for you — real estate agents, contractors, and property managers sending you jobs on repeat",
                 ].map((win, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-green-50 border border-green-100">
                     <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -731,17 +733,11 @@ export default function Home() {
       </footer>
 
       {/* ── STICKY MOBILE CTA BAR ───────────────────────────────────────── */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-card border-t border-border shadow-2xl px-4 py-3 flex gap-3">
-        <a href="tel:+12164710116" className="flex-1">
-          <Button variant="outline" className="w-full font-bold bg-background border-primary text-primary hover:bg-primary/5 text-sm">
-            <Phone className="w-4 h-4 mr-1.5" />
-            Call Now
-          </Button>
-        </a>
-        <a href="#contact" className="flex-1">
-          <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-sm">
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-card border-t border-border shadow-2xl px-4 py-3">
+        <a href="#contact">
+          <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base py-3">
             Book Free Call
-            <ArrowRight className="w-4 h-4 ml-1.5" />
+            <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </a>
       </div>
