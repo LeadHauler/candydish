@@ -299,6 +299,27 @@ const tactics = [
     readTime: "3 min read",
     ctaLine: "We handle your digital marketing so your brand looks as professional online as your truck does on the street.",
   },
+  {
+    id: 16,
+    icon: Search,
+    category: "Local SEO",
+    tag: "Google Business Profile",
+    tagColor: "bg-blue-100 text-blue-700",
+    title: "Why Keeping Your Google Business Profile Fresh Is One of the Highest-ROI Things You Can Do",
+    summary:
+      "Most junk removal owners set up their Google Business Profile once and forget it. That is a mistake. Google actively rewards businesses that treat their profile like a living, breathing marketing channel — and punishes those that go quiet. Here is why freshness matters and exactly how to stay active.",
+    tips: [
+      "Post to your GBP at least once a week. Google Posts appear directly in search results and Maps listings. A recent post signals to Google — and to potential customers — that your business is active, responsive, and worth ranking. Topics can include completed jobs, seasonal promotions, tips for homeowners, or before-and-after photos.",
+      "Upload new photos consistently — aim for at least 4 to 8 per month. Businesses with fresh, high-quality photos get significantly more profile views and direction requests than those with stale or no photos. After every job, snap a quick before-and-after shot. It takes 30 seconds and compounds over time.",
+      "Answer every question in the Q&A section. Google allows anyone to ask and answer questions on your profile. If you are not answering them, a stranger might — with wrong information. Seed your own Q&A with the most common questions you get: pricing, service areas, what items you take, same-day availability.",
+      "Keep your business hours, service areas, and contact info 100% accurate and up to date. Outdated hours are one of the fastest ways to lose a customer's trust before they ever call you. Update holiday hours, add new service areas as you expand, and make sure your phone number and website link are correct.",
+      "Use the 'Services' and 'Products' sections to list every type of junk you remove. Furniture removal, appliance removal, estate cleanouts, garage cleanouts, construction debris — each one is a keyword that can help you show up in more specific searches. The more complete your profile, the more surface area you have in local search.",
+      "Respond to every review — positive and negative — within 24 hours. Google tracks your response rate and response time. A business that engages with its reviews signals to Google that it is active and trustworthy. For negative reviews, a calm, professional response often impresses future customers more than the review itself.",
+      "Monitor your profile for unauthorized edits. Google allows the public to suggest changes to your listing — including your hours, address, and even business name. Check your GBP dashboard weekly for suggested edits and approve or reject them. Unreviewed changes can go live automatically and send customers to the wrong location or phone number.",
+    ],
+    readTime: "5 min read",
+    ctaLine: "We fully manage your Google Business Profile — weekly posts, photo uploads, Q&A, review responses, and profile optimization — all done for you.",
+  },
 ];
 
 export default function Tactics() {
