@@ -376,12 +376,12 @@ export default function Tactics() {
 
       {/* NAV */}
       <nav className="border-b border-border bg-card/90 backdrop-blur-sm sticky top-0 z-40">
-        <div className="container flex items-center justify-between h-16">
+        <div className="container flex items-center justify-between h-20">
           <Link href="/" className="flex items-center">
             <img
               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler-logo_a788182a.png"
               alt="LeadHauler — Marketing for Junk Removal"
-              className="h-11 sm:h-12 w-auto object-contain"
+              className="h-14 sm:h-16 w-auto object-contain"
             />
           </Link>
 

@@ -182,3 +182,6 @@
 
 ## Visual Update (Round 28)
 - [x] Replace text/icon logo with LeadHauler logo image in all nav headers
+
+## Visual Update (Round 29)
+- [x] Make header logo larger and more prominent in nav bar on all pages
