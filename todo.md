@@ -74,3 +74,7 @@
 
 ## Service Removal
 - [x] Remove "Local Referral Lead Sources" service card
+
+## Copy Updates
+- [x] Update website service description to include "landing pages"
+- [x] Update Local SEO bullet to mention Google Business Profile

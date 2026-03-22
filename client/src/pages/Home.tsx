@@ -272,8 +272,8 @@ export default function Home() {
               <div className="space-y-4">
                 {[
                   "Google Ads campaigns optimized for junk removal keywords",
-                  "Local SEO that puts you on the map — literally",
-                  "A website that converts visitors into booked jobs",
+                  "A full optimized and automated Google Business Profile that puts you on the map — literally",
+                  "A website and landing pages that convert visitors into booked jobs.",
                   "Social media content posted for you every week",
                   "Automated review requests after every completed job",
                 ].map((win, i) => (
