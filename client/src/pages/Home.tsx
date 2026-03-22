@@ -240,28 +240,12 @@ export default function Home() {
               The complete marketing system built exclusively for junk haulers
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.1] tracking-tight mb-5">
-              Your Entire Marketing,<br />
-              <span className="text-primary">Done For You. Every Day.</span>
+              We Fill Your Schedule.<br />
+              <span className="text-primary">You Haul the Junk.</span>
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-6 max-w-2xl">
               LeadPile is the only complete, done-for-you marketing system built exclusively for junk removal businesses. We handle <strong className="text-foreground font-semibold">everything</strong> — ads, SEO, your website, landing pages, social media, reviews, and local referral pipelines — so your phone rings and your schedule stays full.
             </p>
-            {/* System components strip */}
-            <div className="flex flex-wrap gap-2 mb-8">
-              {[
-                "Google Ads",
-                "Local SEO",
-                "Website & Landing Pages",
-                "Social Media",
-                "Review Management",
-                "Referral Pipeline",
-              ].map((item, i) => (
-                <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/8 border border-primary/20 text-xs font-semibold text-primary">
-                  <CheckCircle2 className="w-3 h-3 text-green-500 flex-shrink-0" />
-                  {item}
-                </span>
-              ))}
-            </div>
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
               <a href="#contact" className="w-full sm:w-auto">
                 <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-7 text-base">

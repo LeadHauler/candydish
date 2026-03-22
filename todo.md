@@ -116,3 +116,7 @@
 
 ## Hero Rewrite (Round 8)
 - [x] Rewrite homepage hero to convey complete done-for-you marketing system
+
+## Hero Tweaks (Round 9)
+- [x] Update hero headline to "We Fill Your Schedule. You Haul the Junk."
+- [x] Remove system component pills strip from hero
