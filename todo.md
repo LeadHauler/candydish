@@ -83,3 +83,15 @@
 - [x] Replace all "CandyDish" / "Candy Dish" references with "LeadPile" across all frontend files
 - [x] Update HTML title and meta tags
 - [x] Update nav logo/brand name
+
+## Mobile Responsiveness
+- [x] Fix nav bar mobile layout (hamburger menu or collapsed nav)
+- [x] Fix hero section typography and layout on small screens
+- [x] Fix results bar to stack on mobile
+- [x] Fix services grid to single column on mobile
+- [x] Fix problem/solution two-column to single column on mobile
+- [x] Fix process steps layout on mobile
+- [x] Fix testimonials to single column on mobile
+- [x] Fix pricing cards to single column on mobile
+- [x] Fix footer layout on mobile
+- [x] Add sticky mobile CTA bar at bottom

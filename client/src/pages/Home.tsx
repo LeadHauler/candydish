@@ -1,4 +1,3 @@
-import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
@@ -19,6 +18,8 @@ import {
   Clock,
   Award,
   MapPin,
+  Menu,
+  X,
 } from "lucide-react";
 import { useState } from "react";
 import { trpc } from "@/lib/trpc";
@@ -36,7 +37,7 @@ const services = [
     icon: Globe,
     title: "Website Design & Optimization",
     description:
-      "A fast, conversion-focused website built specifically for junk removal. Booking forms, trust signals, and mobile-first design — all done for you.",
+      "A fast, conversion-focused website and landing pages built specifically for junk removal. Booking forms, trust signals, and mobile-first design — all done for you.",
     color: "bg-indigo-50 text-indigo-600",
   },
   {
@@ -122,6 +123,7 @@ const faqs = [
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [form, setForm] = useState({ name: "", business: "", phone: "", city: "" });
   const [submitted, setSubmitted] = useState(false);
 
@@ -142,70 +144,122 @@ export default function Home() {
     submitLead.mutate(form);
   };
 
+  const navLinks = [
+    { label: "Services", href: "#services" },
+    { label: "Results", href: "#results" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "FAQ", href: "#faq" },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
 
       {/* ── NAV ─────────────────────────────────────────────────────────── */}
       <nav className="border-b border-border bg-card/90 backdrop-blur-sm sticky top-0 z-40">
         <div className="container flex items-center justify-between h-16">
+          {/* Logo */}
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-sm font-black text-primary-foreground">C</span>
+            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+              <span className="text-sm font-black text-primary-foreground">L</span>
             </div>
             <div>
               <span className="font-bold text-foreground">LeadPile</span>
-              <span className="text-muted-foreground text-sm ml-1.5">Agency</span>
+              <span className="text-muted-foreground text-sm ml-1.5 hidden sm:inline">Agency</span>
             </div>
           </div>
+
+          {/* Desktop nav links */}
           <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-            <a href="#services" className="hover:text-foreground transition-colors">Services</a>
-            <a href="#results" className="hover:text-foreground transition-colors">Results</a>
-            <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
-            <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
+            {navLinks.map((l) => (
+              <a key={l.label} href={l.href} className="hover:text-foreground transition-colors">{l.label}</a>
+            ))}
           </div>
-          <a href="#contact">
+
+          {/* Desktop CTA */}
+          <a href="#contact" className="hidden md:block">
             <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
               Get Free Strategy Call
               <ArrowRight className="w-4 h-4 ml-1.5" />
             </Button>
           </a>
+
+          {/* Mobile: phone + hamburger */}
+          <div className="flex items-center gap-2 md:hidden">
+            <a href="tel:+12164710116">
+              <Button size="sm" variant="outline" className="bg-background px-2.5">
+                <Phone className="w-4 h-4 text-primary" />
+              </Button>
+            </a>
+            <Button
+              size="sm"
+              variant="outline"
+              className="bg-background px-2.5"
+              onClick={() => setMobileNavOpen(!mobileNavOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileNavOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            </Button>
+          </div>
         </div>
+
+        {/* Mobile dropdown menu */}
+        {mobileNavOpen && (
+          <div className="md:hidden border-t border-border bg-card px-4 py-4 space-y-1">
+            {navLinks.map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                onClick={() => setMobileNavOpen(false)}
+                className="block px-3 py-2.5 rounded-lg text-sm font-medium text-foreground hover:bg-muted transition-colors"
+              >
+                {l.label}
+              </a>
+            ))}
+            <div className="pt-2">
+              <a href="#contact" onClick={() => setMobileNavOpen(false)}>
+                <Button className="w-full bg-primary text-primary-foreground font-semibold">
+                  Get Free Strategy Call
+                  <ArrowRight className="w-4 h-4 ml-1.5" />
+                </Button>
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* ── HERO ────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-background">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/10 pointer-events-none" />
-        {/* Decorative grid */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{ backgroundImage: "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-        <div className="container py-20 lg:py-32">
+        <div className="container py-14 sm:py-20 lg:py-32">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/20 text-accent-foreground text-xs font-semibold mb-6 border border-accent/30">
-              <Zap className="w-3.5 h-3.5 text-amber-500" />
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/20 text-accent-foreground text-xs font-semibold mb-5 border border-accent/30">
+              <Zap className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
               Done-for-you marketing exclusively for junk removal
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.1] tracking-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.1] tracking-tight mb-5">
               We Fill Your Schedule.<br />
               <span className="text-primary">You Run the Jobs.</span>
             </h1>
-            <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-7 max-w-2xl">
               LeadPile is a full-service marketing agency built exclusively for junk removal businesses. We handle your Google Ads, SEO, website, social media, and reputation — so you can focus on hauling, not marketing.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <a href="#contact">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 text-base">
+            <div className="flex flex-col sm:flex-row gap-3 mb-8">
+              <a href="#contact" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-7 text-base">
                   Get My Free Strategy Call
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </a>
-              <a href="#results">
-                <Button size="lg" variant="outline" className="font-semibold px-8 text-base bg-background">
+              <a href="#results" className="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto font-semibold px-7 text-base bg-background">
                   See Client Results
                 </Button>
               </a>
             </div>
-            {/* Trust bar */}
-            <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            {/* Trust bar — wraps gracefully on mobile */}
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
               {[
                 "No long-term contracts",
                 "Junk removal specialists only",
@@ -223,15 +277,15 @@ export default function Home() {
       </section>
 
       {/* ── RESULTS BAR ─────────────────────────────────────────────────── */}
-      <section id="results" className="bg-primary py-14">
+      <section id="results" className="bg-primary py-10 sm:py-14">
         <div className="container">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
             {results.map((r, i) => (
               <div key={i} className="text-center">
-                <p className="text-4xl font-black text-accent mb-1">
+                <p className="text-3xl sm:text-4xl font-black text-accent mb-1">
                   {r.prefix}{r.value}{r.suffix}
                 </p>
-                <p className="text-sm text-primary-foreground/70 font-medium">{r.label}</p>
+                <p className="text-xs sm:text-sm text-primary-foreground/70 font-medium leading-snug">{r.label}</p>
               </div>
             ))}
           </div>
@@ -239,16 +293,16 @@ export default function Home() {
       </section>
 
       {/* ── PROBLEM / SOLUTION ──────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28">
+      <section className="py-16 sm:py-20 lg:py-28">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             {/* Problem side */}
             <div>
               <p className="text-sm font-bold text-primary uppercase tracking-widest mb-3">Sound familiar?</p>
-              <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6 tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-6 tracking-tight leading-tight">
                 You're great at hauling junk.<br />Marketing is a different job.
               </h2>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {[
                   "Spending money on ads that don't convert",
                   "No idea why your phone isn't ringing more",
@@ -257,7 +311,7 @@ export default function Home() {
                   "Tried agencies before — they didn't understand your business",
                 ].map((pain, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-red-50 border border-red-100">
-                    <span className="text-red-400 font-bold text-lg leading-none mt-0.5">✕</span>
+                    <span className="text-red-400 font-bold text-lg leading-none mt-0.5 flex-shrink-0">✕</span>
                     <p className="text-sm text-red-800 font-medium">{pain}</p>
                   </div>
                 ))}
@@ -266,10 +320,10 @@ export default function Home() {
             {/* Solution side */}
             <div>
               <p className="text-sm font-bold text-green-600 uppercase tracking-widest mb-3">The LeadPile difference</p>
-              <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6 tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-6 tracking-tight leading-tight">
                 We do it all.<br />You just answer the phone.
               </h2>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {[
                   "Google Ads campaigns optimized for junk removal keywords",
                   "A full optimized and automated Google Business Profile that puts you on the map — literally",
@@ -289,26 +343,26 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES ────────────────────────────────────────────────────── */}
-      <section id="services" className="py-20 lg:py-28 bg-muted/30 border-y border-border">
+      <section id="services" className="py-16 sm:py-20 lg:py-28 bg-muted/30 border-y border-border">
         <div className="container">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10 sm:mb-14">
             <p className="text-sm font-bold text-primary uppercase tracking-widest mb-3">What we do</p>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight">
               Every marketing channel. Fully managed.
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
               You get a complete marketing team — strategist, ad manager, SEO specialist, content creator, and account manager — all for less than hiring one employee.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {services.map((s, i) => {
               const Icon = s.icon;
               return (
-                <div key={i} className="bg-card border border-border rounded-xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${s.color}`}>
+                <div key={i} className="bg-card border border-border rounded-xl p-5 sm:p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+                  <div className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center mb-4 ${s.color}`}>
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-bold text-foreground mb-2">{s.title}</h3>
+                  <h3 className="font-bold text-foreground mb-2 text-sm sm:text-base">{s.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{s.description}</p>
                 </div>
               );
@@ -318,15 +372,15 @@ export default function Home() {
       </section>
 
       {/* ── HOW IT WORKS ────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28">
+      <section className="py-16 sm:py-20 lg:py-28">
         <div className="container">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10 sm:mb-14">
             <p className="text-sm font-bold text-primary uppercase tracking-widest mb-3">Simple process</p>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight">
               From sign-up to leads in 14 days
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 max-w-5xl mx-auto">
             {[
               { step: "01", icon: Phone, title: "Free Strategy Call", desc: "We learn your market, goals, and current situation. No pressure, no pitch — just a real conversation." },
               { step: "02", icon: Shield, title: "Custom Game Plan", desc: "We build a marketing plan tailored to your city, competition, and budget. You approve everything." },
@@ -339,11 +393,11 @@ export default function Home() {
                   {i < 3 && (
                     <div className="hidden md:block absolute top-8 left-[calc(50%+2.5rem)] right-0 h-px bg-border" />
                   )}
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 border-2 border-primary/20 flex items-center justify-center mx-auto mb-4 relative z-10">
-                    <Icon className="w-7 h-7 text-primary" />
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-primary/10 border-2 border-primary/20 flex items-center justify-center mx-auto mb-4 relative z-10">
+                    <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
                   </div>
                   <p className="text-xs font-black text-primary/40 uppercase tracking-widest mb-1">{s.step}</p>
-                  <h3 className="font-bold text-foreground mb-2">{s.title}</h3>
+                  <h3 className="font-bold text-foreground mb-2 text-sm sm:text-base">{s.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
                 </div>
               );
@@ -353,17 +407,17 @@ export default function Home() {
       </section>
 
       {/* ── TESTIMONIALS ────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-primary text-primary-foreground">
+      <section className="py-16 sm:py-20 lg:py-28 bg-primary text-primary-foreground">
         <div className="container">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10 sm:mb-14">
             <p className="text-sm font-bold text-accent uppercase tracking-widest mb-3">Client results</p>
-            <h2 className="text-3xl lg:text-4xl font-extrabold mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-4 tracking-tight">
               Junk removal owners love LeadPile
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {testimonials.map((t, i) => (
-              <div key={i} className="bg-white/10 rounded-2xl p-6 border border-white/10">
+              <div key={i} className="bg-white/10 rounded-2xl p-5 sm:p-6 border border-white/10">
                 <div className="flex gap-0.5 mb-4">
                   {Array.from({ length: t.stars }).map((_, j) => (
                     <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
@@ -371,7 +425,7 @@ export default function Home() {
                 </div>
                 <p className="text-primary-foreground/90 text-sm leading-relaxed mb-5 italic">"{t.text}"</p>
                 <div className="flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-full bg-accent/30 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-full bg-accent/30 flex items-center justify-center flex-shrink-0">
                     <span className="text-accent font-bold text-sm">{t.name[0]}</span>
                   </div>
                   <div>
@@ -388,18 +442,18 @@ export default function Home() {
       </section>
 
       {/* ── PRICING ─────────────────────────────────────────────────────── */}
-      <section id="pricing" className="py-20 lg:py-28">
+      <section id="pricing" className="py-16 sm:py-20 lg:py-28">
         <div className="container">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10 sm:mb-14">
             <p className="text-sm font-bold text-primary uppercase tracking-widest mb-3">Transparent pricing</p>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight">
               Simple plans. No surprises.
             </h2>
-            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+            <p className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto">
               All plans include a dedicated account manager, monthly reporting, and no long-term contracts.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 max-w-5xl mx-auto">
             {[
               {
                 name: "Starter",
@@ -451,9 +505,9 @@ export default function Home() {
             ].map((plan, i) => (
               <div
                 key={i}
-                className={`rounded-2xl p-7 border flex flex-col ${
+                className={`rounded-2xl p-6 sm:p-7 border flex flex-col ${
                   plan.highlight
-                    ? "bg-primary text-primary-foreground border-primary shadow-2xl scale-[1.03]"
+                    ? "bg-primary text-primary-foreground border-primary shadow-2xl md:scale-[1.03]"
                     : "bg-card border-border"
                 }`}
               >
@@ -466,13 +520,13 @@ export default function Home() {
                   {plan.name}
                 </h3>
                 <div className="flex items-baseline gap-1 mb-2">
-                  <span className={`text-4xl font-black ${plan.highlight ? "text-accent" : "text-primary"}`}>{plan.price}</span>
+                  <span className={`text-3xl sm:text-4xl font-black ${plan.highlight ? "text-accent" : "text-primary"}`}>{plan.price}</span>
                   <span className={`text-sm ${plan.highlight ? "text-primary-foreground/60" : "text-muted-foreground"}`}>{plan.period}</span>
                 </div>
-                <p className={`text-sm mb-6 leading-relaxed ${plan.highlight ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
+                <p className={`text-sm mb-5 leading-relaxed ${plan.highlight ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
                   {plan.desc}
                 </p>
-                <ul className="space-y-2.5 mb-8 flex-1">
+                <ul className="space-y-2.5 mb-7 flex-1">
                   {plan.features.map((f, j) => (
                     <li key={j} className="flex items-start gap-2.5 text-sm">
                       <CheckCircle2 className={`w-4 h-4 flex-shrink-0 mt-0.5 ${plan.highlight ? "text-accent" : "text-green-500"}`} />
@@ -502,11 +556,11 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ─────────────────────────────────────────────────────────── */}
-      <section id="faq" className="py-20 bg-muted/30 border-y border-border">
+      <section id="faq" className="py-16 sm:py-20 bg-muted/30 border-y border-border">
         <div className="container max-w-3xl">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10 sm:mb-12">
             <p className="text-sm font-bold text-primary uppercase tracking-widest mb-3">FAQ</p>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground tracking-tight">
               Common questions
             </h2>
           </div>
@@ -514,14 +568,14 @@ export default function Home() {
             {faqs.map((faq, i) => (
               <div key={i} className="bg-card border border-border rounded-xl overflow-hidden">
                 <button
-                  className="w-full text-left px-6 py-4 flex items-center justify-between gap-4 hover:bg-muted/30 transition-colors"
+                  className="w-full text-left px-4 sm:px-6 py-4 flex items-center justify-between gap-4 hover:bg-muted/30 transition-colors"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
-                  <span className="font-semibold text-foreground text-sm">{faq.q}</span>
+                  <span className="font-semibold text-foreground text-sm leading-snug">{faq.q}</span>
                   <ChevronRight className={`w-4 h-4 text-muted-foreground flex-shrink-0 transition-transform ${openFaq === i ? "rotate-90" : ""}`} />
                 </button>
                 {openFaq === i && (
-                  <div className="px-6 pb-5">
+                  <div className="px-4 sm:px-6 pb-5">
                     <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
                   </div>
                 )}
@@ -532,19 +586,19 @@ export default function Home() {
       </section>
 
       {/* ── CONTACT / CTA ───────────────────────────────────────────────── */}
-      <section id="contact" className="py-20 lg:py-28">
+      <section id="contact" className="py-16 sm:py-20 lg:py-28 pb-28 sm:pb-20">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-16 items-start max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start max-w-5xl mx-auto">
             {/* Left: copy */}
             <div>
               <p className="text-sm font-bold text-primary uppercase tracking-widest mb-3">Get started today</p>
-              <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight leading-tight">
                 Ready to stop guessing and start growing?
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-8">
+              <p className="text-muted-foreground leading-relaxed mb-7">
                 Book a free 30-minute strategy call. We'll review your current marketing, show you what your competitors are doing, and give you a custom growth plan — no obligation.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {[
                   { icon: Clock, text: "30-minute call, no sales pressure" },
                   { icon: BarChart3, text: "Free competitor analysis included" },
@@ -562,21 +616,21 @@ export default function Home() {
                   );
                 })}
               </div>
-              <div className="mt-8 pt-8 border-t border-border flex items-center gap-4">
+              <div className="mt-7 pt-7 border-t border-border flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                 <a href="tel:+12164710116" className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors">
-                  <Phone className="w-4 h-4 text-primary" />
+                  <Phone className="w-4 h-4 text-primary flex-shrink-0" />
                   (216) 471-0116
                 </a>
-                <span className="text-border">|</span>
+                <span className="hidden sm:block text-border">|</span>
                 <a href="mailto:hello@leadpileagency.com" className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors">
-                  <Mail className="w-4 h-4 text-primary" />
+                  <Mail className="w-4 h-4 text-primary flex-shrink-0" />
                   hello@leadpileagency.com
                 </a>
               </div>
             </div>
 
             {/* Right: form */}
-            <div className="bg-card border border-border rounded-2xl p-8 shadow-lg">
+            <div className="bg-card border border-border rounded-2xl p-6 sm:p-8 shadow-lg">
               {submitted ? (
                 <div className="text-center py-8">
                   <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
@@ -587,8 +641,8 @@ export default function Home() {
                 </div>
               ) : (
                 <>
-                  <h3 className="text-xl font-bold text-foreground mb-1">Book Your Free Strategy Call</h3>
-                  <p className="text-muted-foreground text-sm mb-6">Takes 60 seconds. We'll call you.</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1">Book Your Free Strategy Call</h3>
+                  <p className="text-muted-foreground text-sm mb-5">Takes 60 seconds. We'll call you.</p>
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                       <label className="block text-sm font-semibold text-foreground mb-1.5">Your Name *</label>
@@ -649,12 +703,12 @@ export default function Home() {
       </section>
 
       {/* ── FOOTER ──────────────────────────────────────────────────────── */}
-      <footer className="bg-primary text-primary-foreground py-12 border-t border-primary/20">
+      <footer className="bg-primary text-primary-foreground py-10 sm:py-12 border-t border-primary/20">
         <div className="container">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col items-center gap-5 sm:flex-row sm:justify-between sm:gap-6">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-accent/30 flex items-center justify-center">
-                <span className="text-sm font-black text-accent">C</span>
+              <div className="w-8 h-8 rounded-lg bg-accent/30 flex items-center justify-center flex-shrink-0">
+                <span className="text-sm font-black text-accent">L</span>
               </div>
               <div>
                 <span className="font-bold">LeadPile</span>
@@ -670,11 +724,28 @@ export default function Home() {
               <a href="#contact" className="hover:text-primary-foreground transition-colors">Contact</a>
             </div>
           </div>
-          <div className="mt-8 pt-6 border-t border-white/10 text-center text-xs text-primary-foreground/40">
+          <div className="mt-7 pt-6 border-t border-white/10 text-center text-xs text-primary-foreground/40">
             © {new Date().getFullYear()} LeadPile Agency. All rights reserved.
           </div>
         </div>
       </footer>
+
+      {/* ── STICKY MOBILE CTA BAR ───────────────────────────────────────── */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-card border-t border-border shadow-2xl px-4 py-3 flex gap-3">
+        <a href="tel:+12164710116" className="flex-1">
+          <Button variant="outline" className="w-full font-bold bg-background border-primary text-primary hover:bg-primary/5 text-sm">
+            <Phone className="w-4 h-4 mr-1.5" />
+            Call Now
+          </Button>
+        </a>
+        <a href="#contact" className="flex-1">
+          <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-sm">
+            Book Free Call
+            <ArrowRight className="w-4 h-4 ml-1.5" />
+          </Button>
+        </a>
+      </div>
+
     </div>
   );
 }
