@@ -3,6 +3,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { protectedProcedure, publicProcedure, router } from "./_core/trpc";
+import { notifyOwner } from "./_core/notification";
 import {
   getCampaigns,
   getCampaignById,
@@ -278,6 +279,25 @@ export const appRouter = router({
 
   // ─── Community ─────────────────────────────────────────────────────────────
 
+  contact: router({
+    submit: publicProcedure
+      .input(
+        z.object({
+          name: z.string(),
+          business: z.string().optional(),
+          phone: z.string(),
+          city: z.string().optional(),
+        })
+      )
+      .mutation(async ({ input }) => {
+        await notifyOwner({
+          title: `New Lead: ${input.name}`,
+          content: `Name: ${input.name}\nBusiness: ${input.business ?? "N/A"}\nPhone: ${input.phone}\nCity: ${input.city ?? "N/A"}`,
+        });
+        return { success: true };
+      }),
+  }),
+
   community: router({
     list: publicProcedure
       .input(z.object({ category: z.string().optional() }))
@@ -337,5 +357,7 @@ export const appRouter = router({
     }),
   }),
 });
+
+// ─── Contact Lead Capture ──────────────────────────────────────────────────
 
 export type AppRouter = typeof appRouter;

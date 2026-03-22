@@ -1,82 +1,152 @@
 import { Link } from "wouter";
-import { useAuth } from "@/_core/hooks/useAuth";
-import { getLoginUrl } from "@/const";
 import { Button } from "@/components/ui/button";
 import {
-  Lightbulb,
-  Target,
-  TrendingUp,
-  Users,
-  FileText,
-  MessageSquare,
   ArrowRight,
   CheckCircle2,
   Star,
+  Phone,
+  Mail,
+  ChevronRight,
+  Zap,
+  BarChart3,
+  Globe,
+  MessageSquare,
+  Search,
+  Megaphone,
+  Shield,
+  TrendingUp,
+  Users,
+  Clock,
+  Award,
+  MapPin,
 } from "lucide-react";
+import { useState } from "react";
+import { trpc } from "@/lib/trpc";
+import { toast } from "sonner";
 
-const features = [
+const services = [
   {
-    icon: Lightbulb,
-    title: "Campaign Idea Library",
+    icon: Search,
+    title: "Google Ads & Local SEO",
     description:
-      "10+ pre-built junk removal lead tactics — real estate drop-offs, contractor partnerships, door hangers, and more. Each with step-by-step guides.",
-    color: "bg-amber-50 text-amber-600",
-  },
-  {
-    icon: Target,
-    title: "Offline Tactic Tracker",
-    description:
-      "Log every activity with date, location, materials used, and contacts made. Track status from planned to completed.",
+      "We run your Google Ads campaigns and optimize your local search presence so you show up first when someone searches 'junk removal near me.'",
     color: "bg-blue-50 text-blue-600",
   },
   {
-    icon: TrendingUp,
-    title: "ROI Dashboard",
+    icon: Globe,
+    title: "Website Design & Optimization",
     description:
-      "See your cost per lead, conversion rates, and revenue attribution by tactic. Know exactly what's working.",
-    color: "bg-green-50 text-green-600",
+      "A fast, conversion-focused website built specifically for junk removal. Booking forms, trust signals, and mobile-first design — all done for you.",
+    color: "bg-indigo-50 text-indigo-600",
   },
   {
-    icon: Users,
-    title: "Partner Management",
+    icon: Megaphone,
+    title: "Social Media Management",
     description:
-      "Track real estate agents, contractors, and property managers. Log referrals and measure partner performance.",
+      "We create and post content across Facebook, Instagram, and Nextdoor to keep your brand top-of-mind in your local community.",
     color: "bg-purple-50 text-purple-600",
   },
   {
-    icon: FileText,
-    title: "Marketing Templates",
+    icon: MessageSquare,
+    title: "Review & Reputation Management",
     description:
-      "Customizable flyers, business cards, door hangers, and postcards. Fill in your details and download instantly.",
+      "Automated review requests after every job, plus monitoring and response management across Google, Yelp, and Facebook.",
     color: "bg-rose-50 text-rose-600",
   },
   {
-    icon: MessageSquare,
-    title: "Community Tips",
+    icon: BarChart3,
+    title: "Lead Tracking & Reporting",
     description:
-      "Share and discover what's working. Vote on tactics, read success stories, and learn from other junk removal owners.",
+      "A real-time dashboard showing your leads, cost per lead, and booked jobs. You always know exactly what your marketing dollars are producing.",
+    color: "bg-amber-50 text-amber-600",
+  },
+  {
+    icon: Users,
+    title: "Local Partnership Outreach",
+    description:
+      "We identify and contact real estate agents, contractors, and property managers in your area to build referral pipelines on your behalf.",
     color: "bg-teal-50 text-teal-600",
   },
 ];
 
-const tactics = [
-  "Real estate office drop-offs",
-  "Contractor partnership programs",
-  "Door hanger campaigns",
-  "Vehicle wrap strategies",
-  "Property manager outreach",
-  "Estate sale partnerships",
-  "Neighborhood Facebook groups",
-  "Seasonal postcard mailers",
+const results = [
+  { value: "47", label: "Avg. leads per month", suffix: "+" },
+  { value: "3.2", label: "Avg. cost per lead", prefix: "$", suffix: "" },
+  { value: "90", label: "Client retention rate", suffix: "%" },
+  { value: "14", label: "Days to first lead", suffix: "" },
+];
+
+const testimonials = [
+  {
+    name: "Marcus T.",
+    location: "Dallas, TX",
+    text: "Before CandyDish, I was spending $800/month on ads and getting maybe 5 calls. Now I'm getting 40+ leads a month and I don't touch any of it. They handle everything.",
+    stars: 5,
+  },
+  {
+    name: "Jennifer R.",
+    location: "Atlanta, GA",
+    text: "I was skeptical because I'd tried agencies before. But these guys actually specialize in junk removal — they knew my business better than I did on day one.",
+    stars: 5,
+  },
+  {
+    name: "Derek S.",
+    location: "Phoenix, AZ",
+    text: "My Google ranking went from page 4 to the top 3 in my city within 6 weeks. The phone hasn't stopped ringing. Best investment I've made in my business.",
+    stars: 5,
+  },
+];
+
+const faqs = [
+  {
+    q: "Do you work with junk removal businesses only?",
+    a: "Yes — 100%. We exclusively serve junk removal and hauling businesses. That means our strategies, templates, ad copy, and targeting are all built specifically for your industry.",
+  },
+  {
+    q: "How quickly will I start seeing leads?",
+    a: "Most clients see their first leads within 7–14 days of launch. Google Ads campaigns typically go live within 48 hours of onboarding.",
+  },
+  {
+    q: "Do I need to sign a long-term contract?",
+    a: "No long-term contracts. We work month-to-month because we believe our results should be the reason you stay, not a contract.",
+  },
+  {
+    q: "What if I already have a website?",
+    a: "No problem. We can optimize your existing site or build you a new one — whichever will get you better results. We'll audit it during onboarding.",
+  },
+  {
+    q: "How do I know what I'm paying for?",
+    a: "You get a live reporting dashboard showing every lead, every call, and every dollar spent. Full transparency, always.",
+  },
 ];
 
 export default function Home() {
-  const { isAuthenticated } = useAuth();
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [form, setForm] = useState({ name: "", business: "", phone: "", city: "" });
+  const [submitted, setSubmitted] = useState(false);
+
+  const submitLead = trpc.contact.submit.useMutation({
+    onSuccess: () => {
+      setSubmitted(true);
+      toast.success("We'll be in touch within 24 hours!");
+    },
+    onError: () => toast.error("Something went wrong. Please try again."),
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name || !form.phone) {
+      toast.error("Please fill in your name and phone number.");
+      return;
+    }
+    submitLead.mutate(form);
+  };
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-40">
+
+      {/* ── NAV ─────────────────────────────────────────────────────────── */}
+      <nav className="border-b border-border bg-card/90 backdrop-blur-sm sticky top-0 z-40">
         <div className="container flex items-center justify-between h-16">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
@@ -84,119 +154,162 @@ export default function Home() {
             </div>
             <div>
               <span className="font-bold text-foreground">CandyDish</span>
-              <span className="text-muted-foreground text-sm ml-1.5">Leads</span>
+              <span className="text-muted-foreground text-sm ml-1.5">Agency</span>
             </div>
           </div>
-          <div className="flex items-center gap-3">
-            <Link href="/community">
-              <Button variant="ghost" size="sm" className="hidden sm:flex">Community</Button>
-            </Link>
-            {isAuthenticated ? (
-              <Link href="/dashboard">
-                <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                  Go to Dashboard
-                  <ArrowRight className="w-4 h-4 ml-1.5" />
-                </Button>
-              </Link>
-            ) : (
-              <Button
-                size="sm"
-                className="bg-primary text-primary-foreground hover:bg-primary/90"
-                onClick={() => (window.location.href = getLoginUrl())}
-              >
-                Get Started Free
-                <ArrowRight className="w-4 h-4 ml-1.5" />
-              </Button>
-            )}
+          <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
+            <a href="#services" className="hover:text-foreground transition-colors">Services</a>
+            <a href="#results" className="hover:text-foreground transition-colors">Results</a>
+            <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
+            <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
           </div>
+          <a href="#contact">
+            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
+              Get Free Strategy Call
+              <ArrowRight className="w-4 h-4 ml-1.5" />
+            </Button>
+          </a>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="relative overflow-hidden">
+      {/* ── HERO ────────────────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-background">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/10 pointer-events-none" />
-        <div className="container py-20 lg:py-28">
-          <div className="max-w-3xl">
+        {/* Decorative grid */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          style={{ backgroundImage: "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+        <div className="container py-20 lg:py-32">
+          <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/20 text-accent-foreground text-xs font-semibold mb-6 border border-accent/30">
-              <Star className="w-3.5 h-3.5 fill-current text-amber-500" />
-              Built specifically for junk removal businesses
+              <Zap className="w-3.5 h-3.5 text-amber-500" />
+              Done-for-you marketing exclusively for junk removal
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight tracking-tight mb-6">
-              Creative Local Leads,{" "}
-              <span className="relative">
-                <span className="text-primary">Made Simple</span>
-                <span className="absolute -bottom-1 left-0 right-0 h-1 bg-accent rounded-full" />
-              </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.1] tracking-tight mb-6">
+              We Fill Your Schedule.<br />
+              <span className="text-primary">You Run the Jobs.</span>
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-2xl">
-              CandyDish Leads helps junk removal owners implement low-cost, creative local lead generation strategies — from dropping off materials at real estate offices to building contractor partnerships. Track every activity, measure ROI, and grow your business.
+            <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl">
+              CandyDish is a full-service marketing agency built exclusively for junk removal businesses. We handle your Google Ads, SEO, website, social media, and reputation — so you can focus on hauling, not marketing.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              {isAuthenticated ? (
-                <Link href="/dashboard">
-                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8">
-                    Open Dashboard
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
-                </Link>
-              ) : (
-                <Button
-                  size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8"
-                  onClick={() => (window.location.href = getLoginUrl())}
-                >
-                  Start for Free
+            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <a href="#contact">
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 text-base">
+                  Get My Free Strategy Call
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-              )}
-              <Link href="/campaigns">
-                <Button size="lg" variant="outline" className="font-semibold px-8">
-                  Browse Tactics
+              </a>
+              <a href="#results">
+                <Button size="lg" variant="outline" className="font-semibold px-8 text-base bg-background">
+                  See Client Results
                 </Button>
-              </Link>
+              </a>
+            </div>
+            {/* Trust bar */}
+            <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+              {[
+                "No long-term contracts",
+                "Junk removal specialists only",
+                "First leads in 14 days",
+                "Full transparency dashboard",
+              ].map((item, i) => (
+                <span key={i} className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Tactics ticker */}
-      <section className="border-y border-border bg-primary py-4 overflow-hidden">
-        <div className="flex gap-8 animate-none">
-          <div className="flex gap-8 items-center whitespace-nowrap px-4 flex-wrap justify-center">
-            {tactics.map((t, i) => (
-              <span key={i} className="flex items-center gap-2 text-sm font-medium text-primary-foreground/80">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
-                {t}
-              </span>
+      {/* ── RESULTS BAR ─────────────────────────────────────────────────── */}
+      <section id="results" className="bg-primary py-14">
+        <div className="container">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {results.map((r, i) => (
+              <div key={i} className="text-center">
+                <p className="text-4xl font-black text-accent mb-1">
+                  {r.prefix}{r.value}{r.suffix}
+                </p>
+                <p className="text-sm text-primary-foreground/70 font-medium">{r.label}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features grid */}
+      {/* ── PROBLEM / SOLUTION ──────────────────────────────────────────── */}
       <section className="py-20 lg:py-28">
         <div className="container">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Problem side */}
+            <div>
+              <p className="text-sm font-bold text-primary uppercase tracking-widest mb-3">Sound familiar?</p>
+              <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6 tracking-tight leading-tight">
+                You're great at hauling junk.<br />Marketing is a different job.
+              </h2>
+              <div className="space-y-4">
+                {[
+                  "Spending money on ads that don't convert",
+                  "No idea why your phone isn't ringing more",
+                  "Competitors showing up above you on Google",
+                  "No time to post on social media or chase reviews",
+                  "Tried agencies before — they didn't understand your business",
+                ].map((pain, i) => (
+                  <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-red-50 border border-red-100">
+                    <span className="text-red-400 font-bold text-lg leading-none mt-0.5">✕</span>
+                    <p className="text-sm text-red-800 font-medium">{pain}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Solution side */}
+            <div>
+              <p className="text-sm font-bold text-green-600 uppercase tracking-widest mb-3">The CandyDish difference</p>
+              <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6 tracking-tight leading-tight">
+                We do it all.<br />You just answer the phone.
+              </h2>
+              <div className="space-y-4">
+                {[
+                  "Google Ads campaigns optimized for junk removal keywords",
+                  "Local SEO that puts you on the map — literally",
+                  "A website that converts visitors into booked jobs",
+                  "Social media content posted for you every week",
+                  "Automated review requests after every completed job",
+                ].map((win, i) => (
+                  <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-green-50 border border-green-100">
+                    <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                    <p className="text-sm text-green-800 font-medium">{win}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SERVICES ────────────────────────────────────────────────────── */}
+      <section id="services" className="py-20 lg:py-28 bg-muted/30 border-y border-border">
+        <div className="container">
           <div className="text-center mb-14">
+            <p className="text-sm font-bold text-primary uppercase tracking-widest mb-3">What we do</p>
             <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight">
-              Everything you need to generate local leads
+              Every marketing channel. Fully managed.
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              A complete toolkit for junk removal owners who want to grow through offline, community-driven marketing.
+              You get a complete marketing team — strategist, ad manager, SEO specialist, content creator, and account manager — all for less than hiring one employee.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((f, i) => {
-              const Icon = f.icon;
+            {services.map((s, i) => {
+              const Icon = s.icon;
               return (
-                <div
-                  key={i}
-                  className="bg-card border border-border rounded-xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
-                >
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${f.color}`}>
+                <div key={i} className="bg-card border border-border rounded-xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${s.color}`}>
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-bold text-foreground mb-2">{f.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{f.description}</p>
+                  <h3 className="font-bold text-foreground mb-2">{s.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{s.description}</p>
                 </div>
               );
             })}
@@ -204,160 +317,361 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      {/* ── HOW IT WORKS ────────────────────────────────────────────────── */}
+      <section className="py-20 lg:py-28">
         <div className="container">
           <div className="text-center mb-14">
-            <h2 className="text-3xl lg:text-4xl font-extrabold mb-4 tracking-tight">
-              From idea to lead in 3 steps
+            <p className="text-sm font-bold text-primary uppercase tracking-widest mb-3">Simple process</p>
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight">
+              From sign-up to leads in 14 days
             </h2>
-            <p className="text-primary-foreground/70 text-lg max-w-xl mx-auto">
-              Simple enough to use daily, powerful enough to track everything.
-            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {[
-              {
-                step: "01",
-                title: "Pick a tactic",
-                desc: "Browse the campaign library and choose a strategy that fits your market and budget.",
-              },
-              {
-                step: "02",
-                title: "Execute & track",
-                desc: "Log your activities with location, materials, and contacts. Track status as you go.",
-              },
-              {
-                step: "03",
-                title: "Measure ROI",
-                desc: "See which tactics generate the most leads and revenue. Double down on what works.",
-              },
-            ].map((s, i) => (
-              <div key={i} className="text-center">
-                <div className="w-14 h-14 rounded-2xl bg-accent/20 border border-accent/30 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-accent font-black text-lg">{s.step}</span>
+              { step: "01", icon: Phone, title: "Free Strategy Call", desc: "We learn your market, goals, and current situation. No pressure, no pitch — just a real conversation." },
+              { step: "02", icon: Shield, title: "Custom Game Plan", desc: "We build a marketing plan tailored to your city, competition, and budget. You approve everything." },
+              { step: "03", icon: Zap, title: "We Launch", desc: "Ads go live, your site is optimized, and your social media is set up — all within 48–72 hours." },
+              { step: "04", icon: TrendingUp, title: "Leads Flow In", desc: "You watch the dashboard fill up with calls and form fills. We optimize weekly to keep improving." },
+            ].map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <div key={i} className="relative text-center">
+                  {i < 3 && (
+                    <div className="hidden md:block absolute top-8 left-[calc(50%+2.5rem)] right-0 h-px bg-border" />
+                  )}
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 border-2 border-primary/20 flex items-center justify-center mx-auto mb-4 relative z-10">
+                    <Icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <p className="text-xs font-black text-primary/40 uppercase tracking-widest mb-1">{s.step}</p>
+                  <h3 className="font-bold text-foreground mb-2">{s.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
                 </div>
-                <h3 className="font-bold text-xl mb-2">{s.title}</h3>
-                <p className="text-primary-foreground/70 text-sm leading-relaxed">{s.desc}</p>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── TESTIMONIALS ────────────────────────────────────────────────── */}
+      <section className="py-20 lg:py-28 bg-primary text-primary-foreground">
+        <div className="container">
+          <div className="text-center mb-14">
+            <p className="text-sm font-bold text-accent uppercase tracking-widest mb-3">Client results</p>
+            <h2 className="text-3xl lg:text-4xl font-extrabold mb-4 tracking-tight">
+              Junk removal owners love CandyDish
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t, i) => (
+              <div key={i} className="bg-white/10 rounded-2xl p-6 border border-white/10">
+                <div className="flex gap-0.5 mb-4">
+                  {Array.from({ length: t.stars }).map((_, j) => (
+                    <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <p className="text-primary-foreground/90 text-sm leading-relaxed mb-5 italic">"{t.text}"</p>
+                <div className="flex items-center gap-2">
+                  <div className="w-9 h-9 rounded-full bg-accent/30 flex items-center justify-center">
+                    <span className="text-accent font-bold text-sm">{t.name[0]}</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-sm">{t.name}</p>
+                    <p className="text-primary-foreground/50 text-xs flex items-center gap-1">
+                      <MapPin className="w-3 h-3" />{t.location}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* What's included */}
-      <section className="py-20 lg:py-28">
+      {/* ── PRICING ─────────────────────────────────────────────────────── */}
+      <section id="pricing" className="py-20 lg:py-28">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="text-center mb-14">
+            <p className="text-sm font-bold text-primary uppercase tracking-widest mb-3">Transparent pricing</p>
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight">
+              Simple plans. No surprises.
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+              All plans include a dedicated account manager, monthly reporting, and no long-term contracts.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                name: "Starter",
+                price: "$997",
+                period: "/mo",
+                desc: "Perfect for new or small junk removal operations ready to grow.",
+                features: [
+                  "Google Ads management (up to $1,500 ad spend)",
+                  "Local SEO optimization",
+                  "Google Business Profile management",
+                  "Monthly performance report",
+                  "Lead tracking dashboard",
+                ],
+                cta: "Get Started",
+                highlight: false,
+              },
+              {
+                name: "Growth",
+                price: "$1,997",
+                period: "/mo",
+                desc: "For established operators ready to dominate their local market.",
+                features: [
+                  "Everything in Starter",
+                  "Google Ads (up to $4,000 ad spend)",
+                  "Website design or optimization",
+                  "Social media management (3x/week)",
+                  "Review & reputation management",
+                  "Local partnership outreach",
+                ],
+                cta: "Most Popular — Get Started",
+                highlight: true,
+              },
+              {
+                name: "Dominator",
+                price: "$3,497",
+                period: "/mo",
+                desc: "For multi-truck operations or owners expanding to new markets.",
+                features: [
+                  "Everything in Growth",
+                  "Unlimited ad spend management",
+                  "Multi-location SEO",
+                  "Daily social media content",
+                  "Email & SMS follow-up sequences",
+                  "Bi-weekly strategy calls",
+                ],
+                cta: "Scale Up — Get Started",
+                highlight: false,
+              },
+            ].map((plan, i) => (
+              <div
+                key={i}
+                className={`rounded-2xl p-7 border flex flex-col ${
+                  plan.highlight
+                    ? "bg-primary text-primary-foreground border-primary shadow-2xl scale-[1.03]"
+                    : "bg-card border-border"
+                }`}
+              >
+                {plan.highlight && (
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent/30 text-accent text-xs font-bold mb-4 self-start border border-accent/30">
+                    <Award className="w-3.5 h-3.5" /> Most Popular
+                  </div>
+                )}
+                <h3 className={`text-xl font-extrabold mb-1 ${plan.highlight ? "text-primary-foreground" : "text-foreground"}`}>
+                  {plan.name}
+                </h3>
+                <div className="flex items-baseline gap-1 mb-2">
+                  <span className={`text-4xl font-black ${plan.highlight ? "text-accent" : "text-primary"}`}>{plan.price}</span>
+                  <span className={`text-sm ${plan.highlight ? "text-primary-foreground/60" : "text-muted-foreground"}`}>{plan.period}</span>
+                </div>
+                <p className={`text-sm mb-6 leading-relaxed ${plan.highlight ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
+                  {plan.desc}
+                </p>
+                <ul className="space-y-2.5 mb-8 flex-1">
+                  {plan.features.map((f, j) => (
+                    <li key={j} className="flex items-start gap-2.5 text-sm">
+                      <CheckCircle2 className={`w-4 h-4 flex-shrink-0 mt-0.5 ${plan.highlight ? "text-accent" : "text-green-500"}`} />
+                      <span className={plan.highlight ? "text-primary-foreground/85" : "text-foreground/80"}>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a href="#contact">
+                  <Button
+                    className={`w-full font-bold ${
+                      plan.highlight
+                        ? "bg-accent text-foreground hover:bg-accent/90"
+                        : "bg-primary text-primary-foreground hover:bg-primary/90"
+                    }`}
+                  >
+                    {plan.cta}
+                    <ChevronRight className="w-4 h-4 ml-1" />
+                  </Button>
+                </a>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-sm text-muted-foreground mt-8">
+            Ad spend is billed separately and goes directly to Google/Meta — we never mark it up.
+          </p>
+        </div>
+      </section>
+
+      {/* ── FAQ ─────────────────────────────────────────────────────────── */}
+      <section id="faq" className="py-20 bg-muted/30 border-y border-border">
+        <div className="container max-w-3xl">
+          <div className="text-center mb-12">
+            <p className="text-sm font-bold text-primary uppercase tracking-widest mb-3">FAQ</p>
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground tracking-tight">
+              Common questions
+            </h2>
+          </div>
+          <div className="space-y-3">
+            {faqs.map((faq, i) => (
+              <div key={i} className="bg-card border border-border rounded-xl overflow-hidden">
+                <button
+                  className="w-full text-left px-6 py-4 flex items-center justify-between gap-4 hover:bg-muted/30 transition-colors"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                >
+                  <span className="font-semibold text-foreground text-sm">{faq.q}</span>
+                  <ChevronRight className={`w-4 h-4 text-muted-foreground flex-shrink-0 transition-transform ${openFaq === i ? "rotate-90" : ""}`} />
+                </button>
+                {openFaq === i && (
+                  <div className="px-6 pb-5">
+                    <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CONTACT / CTA ───────────────────────────────────────────────── */}
+      <section id="contact" className="py-20 lg:py-28">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-16 items-start max-w-5xl mx-auto">
+            {/* Left: copy */}
             <div>
-              <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6 tracking-tight">
-                Built for the junk removal industry
+              <p className="text-sm font-bold text-primary uppercase tracking-widest mb-3">Get started today</p>
+              <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight leading-tight">
+                Ready to stop guessing and start growing?
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Every tactic, template, and tip in CandyDish is designed specifically for junk removal businesses. No generic marketing advice — just proven local strategies that work in your market.
+                Book a free 30-minute strategy call. We'll review your current marketing, show you what your competitors are doing, and give you a custom growth plan — no obligation.
               </p>
-              <ul className="space-y-3">
-                {[
-                  "10 pre-built campaign tactics with step-by-step guides",
-                  "ROI calculator with cost-per-lead tracking",
-                  "Partner CRM for real estate agents and contractors",
-                  "5 customizable marketing material templates",
-                  "Community forum with real owner success stories",
-                  "Mobile-friendly for use in the field",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-primary rounded-2xl p-8 text-primary-foreground">
               <div className="space-y-4">
-                <div className="bg-white/10 rounded-xl p-4">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm font-semibold">This Month's Performance</span>
-                    <span className="text-xs text-primary-foreground/60">Live</span>
-                  </div>
-                  <div className="grid grid-cols-3 gap-3">
-                    {[
-                      { label: "Leads", value: "24" },
-                      { label: "Cost/Lead", value: "$8.50" },
-                      { label: "Revenue", value: "$4,200" },
-                    ].map((m, i) => (
-                      <div key={i} className="text-center">
-                        <p className="text-2xl font-black text-accent">{m.value}</p>
-                        <p className="text-xs text-primary-foreground/60 mt-0.5">{m.label}</p>
+                {[
+                  { icon: Clock, text: "30-minute call, no sales pressure" },
+                  { icon: BarChart3, text: "Free competitor analysis included" },
+                  { icon: Shield, text: "No contracts, cancel anytime" },
+                  { icon: Zap, text: "First leads within 14 days of launch" },
+                ].map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-4 h-4 text-primary" />
                       </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  {[
-                    { tactic: "Real Estate Drop-offs", leads: 8, roi: "420%" },
-                    { tactic: "Contractor Partnerships", leads: 12, roi: "680%" },
-                    { tactic: "Door Hangers", leads: 4, roi: "210%" },
-                  ].map((t, i) => (
-                    <div key={i} className="flex items-center justify-between bg-white/5 rounded-lg px-3 py-2">
-                      <span className="text-sm text-primary-foreground/80">{t.tactic}</span>
-                      <div className="flex items-center gap-3">
-                        <span className="text-xs text-primary-foreground/50">{t.leads} leads</span>
-                        <span className="text-xs font-bold text-accent">{t.roi} ROI</span>
-                      </div>
+                      <span className="text-sm font-medium text-foreground">{item.text}</span>
                     </div>
-                  ))}
-                </div>
+                  );
+                })}
+              </div>
+              <div className="mt-8 pt-8 border-t border-border flex items-center gap-4">
+                <a href="tel:+12164710116" className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors">
+                  <Phone className="w-4 h-4 text-primary" />
+                  (216) 471-0116
+                </a>
+                <span className="text-border">|</span>
+                <a href="mailto:hello@candydishagency.com" className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors">
+                  <Mail className="w-4 h-4 text-primary" />
+                  hello@candydishagency.com
+                </a>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-accent/10 border-t border-border">
-        <div className="container text-center">
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight">
-            Ready to fill your schedule with local leads?
-          </h2>
-          <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-            Join junk removal owners who are growing their business with creative, low-cost local marketing.
-          </p>
-          {isAuthenticated ? (
-            <Link href="/dashboard">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-10">
-                Open Your Dashboard
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
-          ) : (
-            <Button
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-10"
-              onClick={() => (window.location.href = getLoginUrl())}
-            >
-              Get Started — It's Free
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          )}
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-border py-8">
-        <div className="container flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded bg-primary flex items-center justify-center">
-              <span className="text-xs font-black text-primary-foreground">C</span>
+            {/* Right: form */}
+            <div className="bg-card border border-border rounded-2xl p-8 shadow-lg">
+              {submitted ? (
+                <div className="text-center py-8">
+                  <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle2 className="w-8 h-8 text-green-500" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-2">You're on the list!</h3>
+                  <p className="text-muted-foreground text-sm">We'll reach out within 24 hours to schedule your free strategy call.</p>
+                </div>
+              ) : (
+                <>
+                  <h3 className="text-xl font-bold text-foreground mb-1">Book Your Free Strategy Call</h3>
+                  <p className="text-muted-foreground text-sm mb-6">Takes 60 seconds. We'll call you.</p>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-semibold text-foreground mb-1.5">Your Name *</label>
+                      <input
+                        type="text"
+                        placeholder="John Smith"
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-foreground mb-1.5">Business Name</label>
+                      <input
+                        type="text"
+                        placeholder="Smith's Junk Removal"
+                        value={form.business}
+                        onChange={(e) => setForm({ ...form, business: e.target.value })}
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-foreground mb-1.5">Phone Number *</label>
+                      <input
+                        type="tel"
+                        placeholder="(555) 000-0000"
+                        value={form.phone}
+                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-foreground mb-1.5">City / Service Area</label>
+                      <input
+                        type="text"
+                        placeholder="Dallas, TX"
+                        value={form.city}
+                        onChange={(e) => setForm({ ...form, city: e.target.value })}
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold py-3 text-base"
+                      disabled={submitLead.isPending}
+                    >
+                      {submitLead.isPending ? "Sending..." : "Book My Free Call →"}
+                    </Button>
+                    <p className="text-xs text-muted-foreground text-center">
+                      We respect your privacy. No spam, ever.
+                    </p>
+                  </form>
+                </>
+              )}
             </div>
-            <span className="text-sm font-semibold text-foreground">CandyDish Leads</span>
           </div>
-          <p className="text-xs text-muted-foreground">
-            Creative local lead tactics made simple for junk removal businesses.
-          </p>
-          <div className="flex gap-4">
-            <Link href="/campaigns"><span className="text-xs text-muted-foreground hover:text-foreground transition-colors">Campaigns</span></Link>
-            <Link href="/community"><span className="text-xs text-muted-foreground hover:text-foreground transition-colors">Community</span></Link>
-            <Link href="/templates"><span className="text-xs text-muted-foreground hover:text-foreground transition-colors">Templates</span></Link>
+        </div>
+      </section>
+
+      {/* ── FOOTER ──────────────────────────────────────────────────────── */}
+      <footer className="bg-primary text-primary-foreground py-12 border-t border-primary/20">
+        <div className="container">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-accent/30 flex items-center justify-center">
+                <span className="text-sm font-black text-accent">C</span>
+              </div>
+              <div>
+                <span className="font-bold">CandyDish</span>
+                <span className="text-primary-foreground/60 text-sm ml-1.5">Agency</span>
+              </div>
+            </div>
+            <p className="text-primary-foreground/50 text-sm text-center">
+              Done-for-you marketing exclusively for junk removal businesses.
+            </p>
+            <div className="flex items-center gap-4 text-sm text-primary-foreground/60">
+              <a href="#services" className="hover:text-primary-foreground transition-colors">Services</a>
+              <a href="#pricing" className="hover:text-primary-foreground transition-colors">Pricing</a>
+              <a href="#contact" className="hover:text-primary-foreground transition-colors">Contact</a>
+            </div>
+          </div>
+          <div className="mt-8 pt-6 border-t border-white/10 text-center text-xs text-primary-foreground/40">
+            © {new Date().getFullYear()} CandyDish Agency. All rights reserved.
           </div>
         </div>
       </footer>

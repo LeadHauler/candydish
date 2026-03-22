@@ -146,6 +146,21 @@ describe("templates", () => {
   });
 });
 
+// ─── Contact tests ───────────────────────────────────────────────────────────
+
+describe("contact", () => {
+  it("contact.submit is public and returns success", async () => {
+    const caller = appRouter.createCaller(makePublicCtx());
+    const result = await caller.contact.submit({
+      name: "Test Owner",
+      business: "Test Junk Removal",
+      phone: "555-0000",
+      city: "Dallas, TX",
+    });
+    expect(result.success).toBe(true);
+  });
+});
+
 // ─── Community tests ───────────────────────────────────────────────────────────
 
 describe("community", () => {

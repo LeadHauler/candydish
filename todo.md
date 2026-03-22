@@ -59,3 +59,12 @@
 - [x] Loading states and empty states for all pages
 - [x] Error handling and toast notifications
 - [x] Final checkpoint and delivery
+
+## Pivot: Agency Marketing Site
+- [x] Rebuild Home.tsx as full agency landing page (hero, services, social proof, pricing, CTA)
+- [x] Build Services page with detailed service breakdowns (embedded in landing page)
+- [x] Build Pricing page with packages/tiers (embedded in landing page)
+- [x] Build Contact/Get Started page with lead capture form (embedded in landing page)
+- [x] Update App.tsx routing for new pages
+- [x] Update AppLayout navigation for agency site
+- [x] Remove/repurpose old tool pages (Campaigns, Tactics, ROI, Partners, Templates, Community)
