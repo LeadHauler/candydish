@@ -240,49 +240,102 @@ export default function Home() {
 
       {/* ── HERO ────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-background">
+        {/* Subtle gradient + grid texture */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/10 pointer-events-none" />
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{ backgroundImage: "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-        <div className="container py-14 sm:py-20 lg:py-32">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/20 text-accent-foreground text-xs font-semibold mb-5 border border-accent/30">
-              <Zap className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
-              The complete marketing system built exclusively for junk haulers
+
+        <div className="container relative">
+          {/* Two-column layout on desktop: text left, visual right */}
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center py-16 sm:py-24 lg:py-32">
+
+            {/* ── LEFT: copy ── */}
+            <div className="flex flex-col items-start">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/20 text-accent-foreground text-xs font-semibold mb-6 border border-accent/30">
+                <Zap className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
+                The complete marketing system for junk haulers
+              </div>
+
+              {/* Headline — controlled line-break so each sentence sits on its own line */}
+              <h1 className="text-[2.6rem] leading-[1.08] sm:text-6xl sm:leading-[1.06] lg:text-6xl xl:text-7xl font-extrabold text-foreground tracking-tight mb-6">
+                We Haul In<br className="hidden sm:block" /> the Leads.<br />
+                <span className="text-primary">You Haul Out<br className="hidden sm:block" /> the Junk.</span>
+              </h1>
+
+              {/* Body copy */}
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl">
+                LeadHauler is the only complete, done-for-you marketing system built exclusively for junk removal businesses. We handle{" "}
+                <strong className="text-foreground font-semibold">everything</strong>{" "}
+                — ads, SEO, website, landing pages, social media, reviews, and local referral pipelines — so your phone rings and your schedule stays full.
+              </p>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mb-8">
+                <a href="#contact" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 py-3 text-base shadow-lg shadow-primary/25">
+                    Get My Free Strategy Call
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </a>
+                <a href="#results" className="w-full sm:w-auto">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto font-semibold px-8 py-3 text-base bg-background border-border">
+                    See Client Results
+                  </Button>
+                </a>
+              </div>
+
+              {/* Trust signals */}
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+                {[
+                  "No long-term contracts",
+                  "Junk removal specialists only",
+                  "First leads in 14 days",
+                  "Full transparency dashboard",
+                ].map((item, i) => (
+                  <span key={i} className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-foreground leading-[1.05] tracking-tight mb-5">
-              We Haul In the Leads.<br />
-              <span className="text-primary">You Haul Out the Junk.</span>
-            </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-6 max-w-2xl">
-              LeadHauler is the only complete, done-for-you marketing system built exclusively for junk removal businesses. We handle <strong className="text-foreground font-semibold">everything</strong> — ads, SEO, your website, landing pages, social media, reviews, and local referral pipelines — so your phone rings and your schedule stays full.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 mb-8">
-              <a href="#contact" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-7 text-base">
-                  Get My Free Strategy Call
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </a>
-              <a href="#results" className="w-full sm:w-auto">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto font-semibold px-7 text-base bg-background">
-                  See Client Results
-                </Button>
-              </a>
+
+            {/* ── RIGHT: stat card panel (desktop only) ── */}
+            <div className="hidden lg:flex flex-col gap-4 pl-8">
+              {/* Big stat card */}
+              <div className="rounded-2xl bg-primary p-8 text-primary-foreground shadow-2xl">
+                <p className="text-6xl font-black text-accent mb-2">312%</p>
+                <p className="text-lg font-semibold mb-1">Average lead increase</p>
+                <p className="text-primary-foreground/70 text-sm">Across active LeadHauler System clients in their first 90 days.</p>
+              </div>
+              {/* Two smaller cards */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="rounded-2xl bg-card border border-border p-6 shadow-sm">
+                  <p className="text-4xl font-black text-primary mb-1">14</p>
+                  <p className="text-sm font-semibold text-foreground">Days to first lead</p>
+                  <p className="text-xs text-muted-foreground mt-1">Guaranteed or we work free.</p>
+                </div>
+                <div className="rounded-2xl bg-card border border-border p-6 shadow-sm">
+                  <p className="text-4xl font-black text-primary mb-1">7</p>
+                  <p className="text-sm font-semibold text-foreground">Channels managed</p>
+                  <p className="text-xs text-muted-foreground mt-1">All done for you, every day.</p>
+                </div>
+              </div>
+              {/* Social proof strip */}
+              <div className="rounded-2xl bg-accent/10 border border-accent/20 p-5 flex items-center gap-4">
+                <div className="flex -space-x-2">
+                  <div className="w-9 h-9 rounded-full bg-primary/20 border-2 border-background flex items-center justify-center text-xs font-bold text-primary">M</div>
+                  <div className="w-9 h-9 rounded-full bg-accent/30 border-2 border-background flex items-center justify-center text-xs font-bold text-foreground">J</div>
+                  <div className="w-9 h-9 rounded-full bg-primary/10 border-2 border-background flex items-center justify-center text-xs font-bold text-primary">D</div>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">Trusted by junk haulers nationwide</p>
+                  <p className="text-xs text-muted-foreground">Solo operators to multi-truck fleets</p>
+                </div>
+              </div>
             </div>
-            {/* Trust bar */}
-            <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
-              {[
-                "No long-term contracts",
-                "Junk removal specialists only",
-                "First leads in 14 days",
-                "Full transparency dashboard",
-              ].map((item, i) => (
-                <span key={i} className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
-                  {item}
-                </span>
-              ))}
-            </div>
+
           </div>
         </div>
       </section>

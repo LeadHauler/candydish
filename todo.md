@@ -163,3 +163,6 @@
 
 ## UI Tweak (Round 22)
 - [x] Increase hero headline font size
+
+## UI Improvement (Round 23)
+- [x] Improve hero section layout for mobile and desktop
