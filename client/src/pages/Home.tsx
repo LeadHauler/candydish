@@ -249,7 +249,7 @@ export default function Home() {
               <Zap className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
               The complete marketing system built exclusively for junk haulers
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.1] tracking-tight mb-5">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-foreground leading-[1.05] tracking-tight mb-5">
               We Haul In the Leads.<br />
               <span className="text-primary">You Haul Out the Junk.</span>
             </h1>

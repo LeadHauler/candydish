@@ -160,3 +160,6 @@
 
 ## Content Addition (Round 21)
 - [x] Add "How to connect with neighbors while on a job" tactic post to Tactics page
+
+## UI Tweak (Round 22)
+- [x] Increase hero headline font size
