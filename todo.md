@@ -68,3 +68,6 @@
 - [x] Update App.tsx routing for new pages
 - [x] Update AppLayout navigation for agency site
 - [x] Remove/repurpose old tool pages (Campaigns, Tactics, ROI, Partners, Templates, Community)
+
+## Service Addition
+- [x] Add "Local Referral Lead Sources" service card to the services section

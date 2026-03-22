@@ -19,6 +19,7 @@ import {
   Clock,
   Award,
   MapPin,
+  Handshake,
 } from "lucide-react";
 import { useState } from "react";
 import { trpc } from "@/lib/trpc";
@@ -66,6 +67,13 @@ const services = [
     description:
       "We identify and contact real estate agents, contractors, and property managers in your area to build referral pipelines on your behalf.",
     color: "bg-teal-50 text-teal-600",
+  },
+  {
+    icon: Handshake,
+    title: "Local Referral Lead Sources",
+    description:
+      "We build and manage your local referral network — real estate offices, estate sale companies, senior living facilities, and moving companies — so you get a steady stream of warm, pre-qualified leads without spending a dollar on ads.",
+    color: "bg-orange-50 text-orange-600",
   },
 ];
 
