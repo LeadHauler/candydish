@@ -68,6 +68,13 @@ const services = [
       "We identify and contact real estate agents, contractors, and property managers in your area to build referral pipelines on your behalf.",
     color: "bg-teal-50 text-teal-600",
   },
+  {
+    icon: Mail,
+    title: "Remarketing & Re-Engagement Campaigns",
+    description:
+      "We run targeted SMS and email campaigns to past customers and warm leads — keeping your brand top-of-mind so they book again, refer a friend, or finally pull the trigger.",
+    color: "bg-green-50 text-green-600",
+  },
 ];
 
 const results = [
@@ -338,6 +345,7 @@ export default function Home() {
                   "Automated review requests after every completed job",
                   "A local pipeline of professional referrals — real estate agents, contractors, and property managers consistently sending you jobs",
                   "Targeted, direct mailers to neighborhoods you're already working in — turning nearby homes into new jobs",
+                  "Remarketing campaigns via SMS and email that re-engage past customers and warm leads — so no opportunity goes cold",
                 ].map((win, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-green-50 border border-green-100">
                     <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />

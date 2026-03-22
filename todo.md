@@ -141,3 +141,7 @@
 ## Visual Update (Round 15)
 - [x] Generate and upload headshot photos for testimonial reviewers (M, J, L)
 - [x] Replace initials avatars with photos in testimonials section
+
+## Feature Addition (Round 16)
+- [x] Add remarketing/SMS/email re-engagement service card to services section
+- [x] Add remarketing bullet to LeadHauler Difference section
