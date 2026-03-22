@@ -42,7 +42,7 @@ const tactics = [
   {
     id: 2,
     icon: Users,
-    category: "Referral Marketing",
+    category: "Referrals",
     tag: "High ROI",
     tagColor: "bg-amber-100 text-amber-700",
     title: "How to Build a Referral Machine with Real Estate Agents",
@@ -169,7 +169,7 @@ const tactics = [
   {
     id: 9,
     icon: Users,
-    category: "Referral Marketing",
+    category: "Referrals",
     tag: "High ROI",
     tagColor: "bg-amber-100 text-amber-700",
     title: "The Estate Sale Company Partnership: A Hidden Gold Mine for Junk Haulers",
@@ -343,9 +343,25 @@ const tactics = [
   },
 ];
 
+const CATEGORIES = [
+  { value: "all",         label: "All Tactics" },
+  { value: "Local SEO",   label: "Local SEO" },
+  { value: "Google Ads",  label: "Google Ads" },
+  { value: "Referrals",   label: "Referrals" },
+  { value: "Reputation",  label: "Reputation" },
+  { value: "Social Media",label: "Social Media" },
+  { value: "Website",     label: "Website" },
+  { value: "Growth",      label: "Growth" },
+];
+
 export default function Tactics() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [expandedTip, setExpandedTip] = useState<number | null>(null);
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const filteredTactics = activeCategory === "all"
+    ? tactics
+    : tactics.filter((t) => t.category === activeCategory);
 
   const navLinks = [
     { label: "Services", href: "/#services" },
@@ -459,8 +475,46 @@ export default function Tactics() {
       {/* TACTIC POSTS */}
       <section className="py-12 sm:py-16 pb-28 sm:pb-16">
         <div className="container max-w-4xl">
+
+          {/* ── CATEGORY FILTER BAR ── */}
+          <div className="mb-8 sm:mb-10">
+            <div className="flex flex-wrap gap-2">
+              {CATEGORIES.map((cat) => (
+                <button
+                  key={cat.value}
+                  onClick={() => {
+                    setActiveCategory(cat.value);
+                    setExpandedTip(null);
+                  }}
+                  className={
+                    "px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-150 " +
+                    (activeCategory === cat.value
+                      ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                      : "bg-card text-muted-foreground border-border hover:border-primary/50 hover:text-foreground")
+                  }
+                >
+                  {cat.label}
+                  {cat.value !== "all" && (
+                    <span className={
+                      "ml-1.5 text-xs font-bold " +
+                      (activeCategory === cat.value ? "text-primary-foreground/70" : "text-muted-foreground/60")
+                    }>
+                      ({tactics.filter((t) => t.category === cat.value).length})
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {filteredTactics.length === 0 && (
+            <div className="text-center py-16 text-muted-foreground">
+              No tactics in this category yet.
+            </div>
+          )}
+
           <div className="space-y-6 sm:space-y-8">
-            {tactics.map((tactic) => {
+            {filteredTactics.map((tactic) => {
               const Icon = tactic.icon;
               const isExpanded = expandedTip === tactic.id;
               return (

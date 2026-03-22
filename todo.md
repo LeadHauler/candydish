@@ -176,3 +176,6 @@
 
 ## Layout Reorder (Round 26)
 - [x] Move testimonials section directly under hero, remove stats bar section
+
+## Feature Addition (Round 27)
+- [x] Add category filter bar to Tactics page (filter 17 posts by topic)
