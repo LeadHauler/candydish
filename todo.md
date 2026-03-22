@@ -185,3 +185,6 @@
 
 ## Visual Update (Round 29)
 - [x] Make header logo larger and more prominent in nav bar on all pages
+
+## SEO Fix (Round 30)
+- [x] Fix homepage title (30-60 chars), meta description (50-160 chars), add keywords meta tag
