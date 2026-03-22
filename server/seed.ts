@@ -32,7 +32,7 @@ export async function seedCampaigns() {
         "Ask to speak with the office manager or a senior agent.",
         "Leave a small branded package: flyers, business cards, and a short handwritten note.",
         "Follow up by phone or email 1 week later to introduce yourself.",
-        "Track each office visit in CandyDish with date, contact name, and materials left.",
+        "Track each office visit in LeadPile with date, contact name, and materials left.",
       ]),
       expectedLeads: "2–5 leads per 10 offices visited",
       timeToResults: "2–4 weeks",

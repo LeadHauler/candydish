@@ -78,3 +78,8 @@
 ## Copy Updates
 - [x] Update website service description to include "landing pages"
 - [x] Update Local SEO bullet to mention Google Business Profile
+
+## Brand Rename
+- [x] Replace all "CandyDish" / "Candy Dish" references with "LeadPile" across all frontend files
+- [x] Update HTML title and meta tags
+- [x] Update nav logo/brand name

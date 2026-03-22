@@ -80,7 +80,7 @@ const testimonials = [
   {
     name: "Marcus T.",
     location: "Dallas, TX",
-    text: "Before CandyDish, I was spending $800/month on ads and getting maybe 5 calls. Now I'm getting 40+ leads a month and I don't touch any of it. They handle everything.",
+    text: "Before LeadPile, I was spending $800/month on ads and getting maybe 5 calls. Now I'm getting 40+ leads a month and I don't touch any of it. They handle everything.",
     stars: 5,
   },
   {
@@ -153,7 +153,7 @@ export default function Home() {
               <span className="text-sm font-black text-primary-foreground">C</span>
             </div>
             <div>
-              <span className="font-bold text-foreground">CandyDish</span>
+              <span className="font-bold text-foreground">LeadPile</span>
               <span className="text-muted-foreground text-sm ml-1.5">Agency</span>
             </div>
           </div>
@@ -189,7 +189,7 @@ export default function Home() {
               <span className="text-primary">You Run the Jobs.</span>
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl">
-              CandyDish is a full-service marketing agency built exclusively for junk removal businesses. We handle your Google Ads, SEO, website, social media, and reputation — so you can focus on hauling, not marketing.
+              LeadPile is a full-service marketing agency built exclusively for junk removal businesses. We handle your Google Ads, SEO, website, social media, and reputation — so you can focus on hauling, not marketing.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <a href="#contact">
@@ -265,7 +265,7 @@ export default function Home() {
             </div>
             {/* Solution side */}
             <div>
-              <p className="text-sm font-bold text-green-600 uppercase tracking-widest mb-3">The CandyDish difference</p>
+              <p className="text-sm font-bold text-green-600 uppercase tracking-widest mb-3">The LeadPile difference</p>
               <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6 tracking-tight leading-tight">
                 We do it all.<br />You just answer the phone.
               </h2>
@@ -358,7 +358,7 @@ export default function Home() {
           <div className="text-center mb-14">
             <p className="text-sm font-bold text-accent uppercase tracking-widest mb-3">Client results</p>
             <h2 className="text-3xl lg:text-4xl font-extrabold mb-4 tracking-tight">
-              Junk removal owners love CandyDish
+              Junk removal owners love LeadPile
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -568,9 +568,9 @@ export default function Home() {
                   (216) 471-0116
                 </a>
                 <span className="text-border">|</span>
-                <a href="mailto:hello@candydishagency.com" className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors">
+                <a href="mailto:hello@leadpileagency.com" className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors">
                   <Mail className="w-4 h-4 text-primary" />
-                  hello@candydishagency.com
+                  hello@leadpileagency.com
                 </a>
               </div>
             </div>
@@ -657,7 +657,7 @@ export default function Home() {
                 <span className="text-sm font-black text-accent">C</span>
               </div>
               <div>
-                <span className="font-bold">CandyDish</span>
+                <span className="font-bold">LeadPile</span>
                 <span className="text-primary-foreground/60 text-sm ml-1.5">Agency</span>
               </div>
             </div>
@@ -671,7 +671,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-8 pt-6 border-t border-white/10 text-center text-xs text-primary-foreground/40">
-            © {new Date().getFullYear()} CandyDish Agency. All rights reserved.
+            © {new Date().getFullYear()} LeadPile Agency. All rights reserved.
           </div>
         </div>
       </footer>

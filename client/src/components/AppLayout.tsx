@@ -78,7 +78,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
               <span className="text-sm font-black" style={{ color: "var(--sidebar-primary-foreground)" }}>C</span>
             </div>
             <div>
-              <p className="font-bold text-sm leading-none" style={{ color: "var(--sidebar-foreground)" }}>CandyDish</p>
+              <p className="font-bold text-sm leading-none" style={{ color: "var(--sidebar-foreground)" }}>LeadPile</p>
               <p className="text-xs mt-0.5" style={{ color: "var(--sidebar-accent-foreground)", opacity: 0.6 }}>Leads Platform</p>
             </div>
           </Link>
@@ -200,7 +200,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
             <div className="w-7 h-7 rounded-lg bg-primary flex items-center justify-center">
               <span className="text-xs font-black text-primary-foreground">C</span>
             </div>
-            <span className="font-bold text-sm">CandyDish</span>
+            <span className="font-bold text-sm">LeadPile</span>
           </Link>
           <div className="w-9" />
         </header>

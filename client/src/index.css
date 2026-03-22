@@ -43,7 +43,7 @@
 }
 
 :root {
-  /* CandyDish — Deep Navy + Amber Gold + Warm Cream */
+  /* LeadPile — Deep Navy + Amber Gold + Warm Cream */
   --radius: 0.65rem;
   --background: oklch(0.98 0.005 85);
   --foreground: oklch(0.15 0.025 260);
