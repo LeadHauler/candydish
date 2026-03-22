@@ -1,0 +1,61 @@
+# CandyDish Leads — Project TODO
+
+## Setup & Architecture
+- [x] Initialize project scaffold (tRPC + DB + Auth)
+- [x] Design and push database schema
+- [x] Seed campaign idea library with junk removal tactics
+- [x] Build all tRPC backend routers
+
+## Global UI
+- [x] Design system: color palette, typography, spacing tokens (elegant style)
+- [x] Global navigation (top nav with sidebar for authenticated users)
+- [x] Landing/home page with hero, features overview, and CTA
+- [x] Authentication flow (login/logout)
+- [x] Dashboard overview page (summary cards, recent activity)
+
+## Feature 1: Campaign Idea Library
+- [x] Campaign cards with category, difficulty, cost range, and description
+- [x] Filter by category (real estate, contractors, door hangers, etc.)
+- [x] Step-by-step guide modal/drawer for each campaign
+- [x] Save/bookmark campaigns to personal list
+- [x] Mark campaign as "active" to start tracking
+
+## Feature 2: Offline Lead Tactic Tracking
+- [x] Log tactic activity (date, location, materials used, contacts made)
+- [x] Status management (planned, active, completed, paused)
+- [x] Activity history timeline per tactic
+- [x] Notes and follow-up reminders
+
+## Feature 3: ROI Dashboard
+- [x] Summary cards: total leads, cost per lead, conversion rate, revenue
+- [x] Revenue attribution by tactic (bar chart)
+- [x] Cost vs. leads trend chart (line chart)
+- [x] ROI calculator modal (input costs, leads, conversions, revenue)
+- [x] Per-tactic ROI breakdown table
+
+## Feature 4: Local Partnership & Referral Management
+- [x] Add/edit/delete partner contacts (name, type, company, phone, email)
+- [x] Partner types: real estate agent, contractor, property manager, other
+- [x] Log referral events (date, lead name, status, revenue)
+- [x] Referral history per partner
+- [x] Partner performance summary (total referrals, revenue attributed)
+
+## Feature 5: Marketing Material Templates
+- [x] Template library (flyers, business cards, door hangers, postcards)
+- [x] Template preview with customization fields (business name, phone, tagline)
+- [x] Download/print as PDF functionality
+- [x] Template categories and search
+
+## Feature 6: Community Best Practices
+- [x] Post tips, success stories, and tactic variations
+- [x] Upvote/downvote posts
+- [x] Comment on posts
+- [x] Category tags (real estate, contractors, seasonal, etc.)
+- [x] Featured/pinned posts by admin
+
+## Testing & Polish
+- [x] Vitest unit tests for all routers (20 tests passing)
+- [x] Responsive design (mobile, tablet, desktop)
+- [x] Loading states and empty states for all pages
+- [x] Error handling and toast notifications
+- [x] Final checkpoint and delivery

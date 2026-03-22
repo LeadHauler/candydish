@@ -1,0 +1,19 @@
+{
+  "query": "SELECT COUNT(*) as post_count FROM communityPosts; SELECT COUNT(*) as user_count FROM users;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 33NtpjkUjypSfv9.8ed424bcdc54 --database JBPbRyHCe55ySNBJ7tAau7 --execute SELECT COUNT(*) as post_count FROM communityPosts; SELECT COUNT(*) as user_count FROM users;",
+  "rows": [
+    {
+      "post_count": "0"
+    },
+    {
+      "post_count": "user_count"
+    },
+    {
+      "post_count": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "post_count\n0\nuser_count\n1\n",
+  "stderr": "",
+  "execution_time_ms": 57
+}
