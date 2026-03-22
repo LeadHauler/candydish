@@ -120,3 +120,6 @@
 ## Hero Tweaks (Round 9)
 - [x] Update hero headline to "We Fill Your Schedule. You Haul the Junk."
 - [x] Remove system component pills strip from hero
+
+## Copy Update (Round 10)
+- [x] Change hero headline to "We Get the Leads. You Haul the Junk."
