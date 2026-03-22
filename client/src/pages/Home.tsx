@@ -326,7 +326,7 @@ export default function Home() {
               </h2>
               <div className="space-y-3">
                 {[
-                  "Google Ads campaigns optimized for junk removal keywords",
+                  "Targeted ad campaigns placed only on platforms where your customers are ready to book",
                   "A full optimized and automated Google Business Profile that puts you on the map — literally",
                   "A website and landing pages that convert visitors into booked jobs.",
                   "Social media content posted for you every week",

@@ -101,3 +101,6 @@
 - [x] Simplify mobile sticky CTA to single full-width "Book Free Call" button
 - [x] Build Tactics page with tip posts ending in a CTA
 - [x] Add Tactics link to navigation
+
+## Copy Update (Round 4)
+- [x] Update Google Ads bullet in LeadPile Difference section
