@@ -71,3 +71,6 @@
 
 ## Service Addition
 - [x] Add "Local Referral Lead Sources" service card to the services section
+
+## Service Removal
+- [x] Remove "Local Referral Lead Sources" service card
