@@ -333,7 +333,8 @@ export default function Home() {
                   "A website and landing pages that convert visitors into booked jobs.",
                   "Social media content posted for you every week",
                   "Automated review requests after every completed job",
-                  "We build a local pipeline of referrals for you — real estate agents, contractors, and property managers sending you jobs on repeat",
+                  "We build a local pipeline of professional referrals — real estate agents, contractors, and property managers consistently sending you jobs",
+                  "We send targeted direct mailers to neighborhoods you're already working in — reinforcing your presence and turning nearby homes into new jobs",
                 ].map((win, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-green-50 border border-green-100">
                     <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />

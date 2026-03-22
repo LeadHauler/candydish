@@ -126,3 +126,7 @@
 
 ## Copy Update (Round 11)
 - [x] Change hero headline to "We Haul In the Leads. You Haul Out the Junk."
+
+## Copy Update (Round 12)
+- [x] Update referral pipeline bullet in LeadPile Difference section
+- [x] Add direct mailers bullet to LeadPile Difference section
