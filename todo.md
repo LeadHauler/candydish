@@ -148,3 +148,6 @@
 
 ## Brand Update (Round 17)
 - [x] Rename all "LeadHauler Agency" to "LeadHauler System"
+
+## Copy Update (Round 18)
+- [x] Add "Warm leads go cold from lack of follow-up" to Sound Familiar section
