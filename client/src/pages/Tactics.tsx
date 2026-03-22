@@ -325,7 +325,7 @@ export default function Tactics() {
                 <span className="text-sm font-black text-primary-foreground">L</span>
               </div>
               <div>
-                <span className="font-bold text-foreground">LeadPile</span>
+                <span className="font-bold text-foreground">LeadHauler</span>
                 <span className="text-muted-foreground text-sm ml-1.5 hidden sm:inline">Agency</span>
               </div>
             </div>
@@ -401,7 +401,7 @@ export default function Tactics() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/20 text-accent-foreground text-xs font-semibold mb-5 border border-accent/30">
               <Zap className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
-              Free tactics from the LeadPile team
+              Free tactics from the LeadHauler team
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight tracking-tight mb-4">
               Proven Lead Tactics for<br />
@@ -558,7 +558,7 @@ export default function Tactics() {
                   <span className="text-sm font-black text-accent">L</span>
                 </div>
                 <div>
-                  <span className="font-bold">LeadPile</span>
+                  <span className="font-bold">LeadHauler</span>
                   <span className="text-primary-foreground/60 text-sm ml-1.5">Agency</span>
                 </div>
               </div>
@@ -573,14 +573,14 @@ export default function Tactics() {
             </div>
           </div>
           <div className="mt-7 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/40">
-            <span>2025 LeadPile Agency. All rights reserved.</span>
+            <span>2025 LeadHauler Agency. All rights reserved.</span>
             <div className="flex items-center gap-3">
               <a href="tel:+12164710116" className="flex items-center gap-1.5 hover:text-primary-foreground/70 transition-colors">
                 <Phone className="w-3.5 h-3.5" /> (216) 471-0116
               </a>
               <span>·</span>
-              <a href="mailto:hello@leadpileagency.com" className="flex items-center gap-1.5 hover:text-primary-foreground/70 transition-colors">
-                <Mail className="w-3.5 h-3.5" /> hello@leadpileagency.com
+              <a href="mailto:hello@leadhauleragency.com" className="flex items-center gap-1.5 hover:text-primary-foreground/70 transition-colors">
+                <Mail className="w-3.5 h-3.5" /> hello@leadhauleragency.com
               </a>
             </div>
           </div>

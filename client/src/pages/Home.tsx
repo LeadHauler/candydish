@@ -81,7 +81,7 @@ const testimonials = [
   {
     name: "Marcus T.",
     location: "Dallas, TX",
-    text: "Before LeadPile, I was spending $800/month on ads and getting maybe 5 calls. Now I'm getting 40+ leads a month and I don't touch any of it. They handle everything.",
+    text: "Before LeadHauler, I was spending $800/month on ads and getting maybe 5 calls. Now I'm getting 40+ leads a month and I don't touch any of it. They handle everything.",
     stars: 5,
   },
   {
@@ -164,7 +164,7 @@ export default function Home() {
               <span className="text-sm font-black text-primary-foreground">L</span>
             </div>
             <div>
-              <span className="font-bold text-foreground">LeadPile</span>
+              <span className="font-bold text-foreground">LeadHauler</span>
               <span className="text-muted-foreground text-sm ml-1.5 hidden sm:inline">Agency</span>
             </div>
           </div>
@@ -244,7 +244,7 @@ export default function Home() {
               <span className="text-primary">You Haul Out the Junk.</span>
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-6 max-w-2xl">
-              LeadPile is the only complete, done-for-you marketing system built exclusively for junk removal businesses. We handle <strong className="text-foreground font-semibold">everything</strong> — ads, SEO, your website, landing pages, social media, reviews, and local referral pipelines — so your phone rings and your schedule stays full.
+              LeadHauler is the only complete, done-for-you marketing system built exclusively for junk removal businesses. We handle <strong className="text-foreground font-semibold">everything</strong> — ads, SEO, your website, landing pages, social media, reviews, and local referral pipelines — so your phone rings and your schedule stays full.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
               <a href="#contact" className="w-full sm:w-auto">
@@ -322,7 +322,7 @@ export default function Home() {
             </div>
             {/* Solution side */}
             <div>
-              <p className="text-sm font-bold text-green-600 uppercase tracking-widest mb-3">The LeadPile difference</p>
+              <p className="text-sm font-bold text-green-600 uppercase tracking-widest mb-3">The LeadHauler difference</p>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-6 tracking-tight leading-tight">
                 We do it all.<br />You just answer the phone.
               </h2>
@@ -417,7 +417,7 @@ export default function Home() {
           <div className="text-center mb-10 sm:mb-14">
             <p className="text-sm font-bold text-accent uppercase tracking-widest mb-3">Client results</p>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-4 tracking-tight">
-              Junk removal owners love LeadPile
+              Junk removal owners love LeadHauler
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
@@ -627,9 +627,9 @@ export default function Home() {
                   (216) 471-0116
                 </a>
                 <span className="hidden sm:block text-border">|</span>
-                <a href="mailto:hello@leadpileagency.com" className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors">
+                <a href="mailto:hello@leadhauleragency.com" className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors">
                   <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-                  hello@leadpileagency.com
+                  hello@leadhauleragency.com
                 </a>
               </div>
             </div>
@@ -708,29 +708,86 @@ export default function Home() {
       </section>
 
       {/* ── FOOTER ──────────────────────────────────────────────────────── */}
-      <footer className="bg-primary text-primary-foreground py-10 sm:py-12 border-t border-primary/20">
+      <footer className="bg-primary text-primary-foreground pt-14 pb-8 border-t border-primary/20">
         <div className="container">
-          <div className="flex flex-col items-center gap-5 sm:flex-row sm:justify-between sm:gap-6">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-accent/30 flex items-center justify-center flex-shrink-0">
-                <span className="text-sm font-black text-accent">L</span>
+          {/* Top row: brand + columns */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+            {/* Brand column */}
+            <div className="lg:col-span-1">
+              <div className="flex items-center gap-2.5 mb-4">
+                <div className="w-8 h-8 rounded-lg bg-accent/30 flex items-center justify-center flex-shrink-0">
+                  <span className="text-sm font-black text-accent">L</span>
+                </div>
+                <div>
+                  <span className="font-bold">LeadHauler</span>
+                  <span className="text-primary-foreground/60 text-sm ml-1.5">Agency</span>
+                </div>
               </div>
-              <div>
-                <span className="font-bold">LeadPile</span>
-                <span className="text-primary-foreground/60 text-sm ml-1.5">Agency</span>
-              </div>
+              <p className="text-primary-foreground/55 text-sm leading-relaxed">
+                The complete, done-for-you marketing system built exclusively for junk removal businesses.
+              </p>
             </div>
-            <p className="text-primary-foreground/50 text-sm text-center">
-              Done-for-you marketing exclusively for junk removal businesses.
-            </p>
-            <div className="flex items-center gap-4 text-sm text-primary-foreground/60">
-              <a href="#services" className="hover:text-primary-foreground transition-colors">Services</a>
-              <a href="#pricing" className="hover:text-primary-foreground transition-colors">Pricing</a>
-              <a href="#contact" className="hover:text-primary-foreground transition-colors">Contact</a>
+            {/* Navigation column */}
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-primary-foreground/40 mb-4">Navigation</p>
+              <ul className="space-y-2.5 text-sm">
+                {[
+                  { label: "Services", href: "#services" },
+                  { label: "Results", href: "#results" },
+                  { label: "How It Works", href: "#process" },
+                  { label: "Pricing", href: "#pricing" },
+                  { label: "FAQ", href: "#faq" },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">{link.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Resources column */}
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-primary-foreground/40 mb-4">Resources</p>
+              <ul className="space-y-2.5 text-sm">
+                {[
+                  { label: "Tactics & Tips", href: "/tactics" },
+                  { label: "Get a Free Strategy Call", href: "#contact" },
+                  { label: "Client Results", href: "#results" },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">{link.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Contact column */}
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-primary-foreground/40 mb-4">Contact</p>
+              <ul className="space-y-2.5 text-sm text-primary-foreground/65">
+                <li>
+                  <a href="tel:+12164710116" className="hover:text-primary-foreground transition-colors flex items-center gap-2">
+                    <Phone className="w-3.5 h-3.5 flex-shrink-0" />
+                    (216) 471-0116
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:hello@leadhauler.com" className="hover:text-primary-foreground transition-colors flex items-center gap-2">
+                    <Mail className="w-3.5 h-3.5 flex-shrink-0" />
+                    hello@leadhauler.com
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact" className="inline-flex items-center gap-1.5 mt-2 px-4 py-2 rounded-lg bg-accent/20 border border-accent/30 text-accent hover:bg-accent/30 transition-colors font-semibold text-xs">
+                    Book Free Strategy Call
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
-          <div className="mt-7 pt-6 border-t border-white/10 text-center text-xs text-primary-foreground/40">
-            © {new Date().getFullYear()} LeadPile Agency. All rights reserved.
+          {/* Bottom bar */}
+          <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/40">
+            <span>© {new Date().getFullYear()} LeadHauler Agency. All rights reserved.</span>
+            <span>Done-for-you marketing exclusively for junk haulers.</span>
           </div>
         </div>
       </footer>

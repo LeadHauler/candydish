@@ -80,7 +80,7 @@
 - [x] Update Local SEO bullet to mention Google Business Profile
 
 ## Brand Rename
-- [x] Replace all "CandyDish" / "Candy Dish" references with "LeadPile" across all frontend files
+- [x] Replace all "CandyDish" / "Candy Dish" references with "LeadHauler" across all frontend files
 - [x] Update HTML title and meta tags
 - [x] Update nav logo/brand name
 
@@ -97,13 +97,13 @@
 - [x] Add sticky mobile CTA bar at bottom
 
 ## Feature Updates (Round 3)
-- [x] Add "We build a local pipeline of referrals for you" bullet to LeadPile Difference section
+- [x] Add "We build a local pipeline of referrals for you" bullet to LeadHauler Difference section
 - [x] Simplify mobile sticky CTA to single full-width "Book Free Call" button
 - [x] Build Tactics page with tip posts ending in a CTA
 - [x] Add Tactics link to navigation
 
 ## Copy Update (Round 4)
-- [x] Update Google Ads bullet in LeadPile Difference section
+- [x] Update Google Ads bullet in LeadHauler Difference section
 
 ## Copy Update (Round 5)
 - [x] Add "You're losing out on local referrals" to Sound Familiar section
@@ -128,8 +128,12 @@
 - [x] Change hero headline to "We Haul In the Leads. You Haul Out the Junk."
 
 ## Copy Update (Round 12)
-- [x] Update referral pipeline bullet in LeadPile Difference section
-- [x] Add direct mailers bullet to LeadPile Difference section
+- [x] Update referral pipeline bullet in LeadHauler Difference section
+- [x] Add direct mailers bullet to LeadHauler Difference section
 
 ## Copy Update (Round 13)
-- [x] Tighten referral and direct mailers bullets in LeadPile Difference section
+- [x] Tighten referral and direct mailers bullets in LeadHauler Difference section
+
+## Brand Rename + Footer Update (Round 14)
+- - [x] Rename all LeadPile references to LeadHauler across all files
+- [x] Update footer with all navigation links
