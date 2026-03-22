@@ -173,3 +173,6 @@
 
 ## Copy Update (Round 25)
 - [x] Replace How It Works steps with new 4-step copy
+
+## Layout Reorder (Round 26)
+- [x] Move testimonials section directly under hero, remove stats bar section

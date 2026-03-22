@@ -340,16 +340,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── RESULTS BAR ─────────────────────────────────────────────────── */}
-      <section id="results" className="bg-primary py-10 sm:py-14">
+      {/* ── TESTIMONIALS ────────────────────────────────────────────────── */}
+      <section id="results" className="py-16 sm:py-20 lg:py-28 bg-primary text-primary-foreground">
         <div className="container">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
-            {results.map((r, i) => (
-              <div key={i} className="text-center">
-                <p className="text-3xl sm:text-4xl font-black text-accent mb-1">
-                  {r.prefix}{r.value}{r.suffix}
-                </p>
-                <p className="text-xs sm:text-sm text-primary-foreground/70 font-medium leading-snug">{r.label}</p>
+          <div className="text-center mb-10 sm:mb-14">
+            <p className="text-sm font-bold text-accent uppercase tracking-widest mb-3">Client results</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-4 tracking-tight">
+              Junk removal owners love LeadHauler
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+            {testimonials.map((t, i) => (
+              <div key={i} className="bg-white/10 rounded-2xl p-5 sm:p-6 border border-white/10">
+                <div className="flex gap-0.5 mb-4">
+                  {Array.from({ length: t.stars }).map((_, j) => (
+                    <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <p className="text-primary-foreground/90 text-sm leading-relaxed mb-5 italic">"{t.text}"</p>
+                <div className="flex items-center gap-2">
+                  <img
+                    src={t.photo}
+                    alt={t.name}
+                    className="w-10 h-10 rounded-full object-cover flex-shrink-0 ring-2 ring-white/20"
+                  />
+                  <div>
+                    <p className="font-bold text-sm">{t.name}</p>
+                    <p className="text-primary-foreground/50 text-xs flex items-center gap-1">
+                      <MapPin className="w-3 h-3" />{t.location}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -472,43 +493,6 @@ export default function Home() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── TESTIMONIALS ────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-primary text-primary-foreground">
-        <div className="container">
-          <div className="text-center mb-10 sm:mb-14">
-            <p className="text-sm font-bold text-accent uppercase tracking-widest mb-3">Client results</p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-4 tracking-tight">
-              Junk removal owners love LeadHauler
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-            {testimonials.map((t, i) => (
-              <div key={i} className="bg-white/10 rounded-2xl p-5 sm:p-6 border border-white/10">
-                <div className="flex gap-0.5 mb-4">
-                  {Array.from({ length: t.stars }).map((_, j) => (
-                    <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="text-primary-foreground/90 text-sm leading-relaxed mb-5 italic">"{t.text}"</p>
-                <div className="flex items-center gap-2">
-                  <img
-                    src={t.photo}
-                    alt={t.name}
-                    className="w-10 h-10 rounded-full object-cover flex-shrink-0 ring-2 ring-white/20"
-                  />
-                  <div>
-                    <p className="font-bold text-sm">{t.name}</p>
-                    <p className="text-primary-foreground/50 text-xs flex items-center gap-1">
-                      <MapPin className="w-3 h-3" />{t.location}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
