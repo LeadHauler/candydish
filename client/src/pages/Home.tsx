@@ -171,9 +171,9 @@ export default function Home() {
           {/* Logo */}
           <a href="/" className="flex items-center">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler-logo_a788182a.png"
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler-toplogo_1e131e73.png"
               alt="LeadHauler — Marketing for Junk Removal"
-              className="h-14 sm:h-16 w-auto object-contain"
+              className="h-16 sm:h-[72px] w-auto object-contain"
             />
           </a>
 

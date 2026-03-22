@@ -188,3 +188,6 @@
 
 ## SEO Fix (Round 30)
 - [x] Fix homepage title (30-60 chars), meta description (50-160 chars), add keywords meta tag
+
+## Visual Update (Round 31)
+- [x] Replace header logo with new toplogo.PNG, slightly larger than current size
