@@ -16,6 +16,7 @@ import {
   Globe,
   Menu,
   X,
+  DollarSign,
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
@@ -383,6 +384,48 @@ const tactics = [
     ],
     readTime: "6 min read",
     ctaLine: "LeadHauler runs your marketing continuously — ads, SEO, social, and follow-up — so your pipeline stays full whether you are slammed with jobs or looking to grow.",
+  },
+  {
+    id: 20,
+    icon: DollarSign,
+    category: "Growth",
+    tag: "Pricing Strategy",
+    tagColor: "bg-emerald-100 text-emerald-700",
+    title: "How to Stop Competing on Price — and Start Winning on Value",
+    summary:
+      "Price shoppers are not your ideal customers. They are the ones who haggle, leave bad reviews when they feel they overpaid, and refer other price shoppers. The junk removal businesses that grow profitably are the ones that learn to anchor value, present quotes with confidence, and attract customers who care about reliability — not just the lowest number.",
+    tips: [
+      "Understand why price shopping happens. When customers call three companies and ask \"how much?\", it is usually because all three sound identical. If your phone greeting, your website, and your quote process are indistinguishable from every other hauler in town, price becomes the only differentiator. The fix is not to lower your price — it is to differentiate everything else so price becomes secondary.",
+      "Lead with your guarantee, not your price. Before you quote a number, tell the customer what they are getting: same-day availability, a two-person crew, full cleanup of the area after the job, and a satisfaction guarantee. Most competitors quote a number and stop. You quote a number and explain exactly what that number buys. That reframes the conversation from \"how cheap\" to \"how good.\"",
+      "Use price anchoring. When presenting options, always give three tiers: a minimum load, a half-load, and a full load. The middle option becomes the anchor — it feels reasonable compared to the full load and more capable than the minimum. Research consistently shows that customers presented with three options choose the middle tier far more often than customers presented with a single price. This technique alone increases average ticket size.",
+      "Never apologize for your price. Hesitation and hedging — \"I know it might seem like a lot\" or \"we can probably work something out\" — signal that your price is negotiable and that you do not believe it is fair. Quote with confidence. A flat, matter-of-fact tone communicates that your price is what it is because that is what the job is worth. Customers read confidence as competence.",
+      "Compete on speed and certainty, not price. The two things most homeowners actually want when they call a junk hauler are: someone who shows up when they say they will, and someone who will not leave a mess. If you can guarantee a two-hour arrival window and a clean sweep of the area after the job, you can charge 20 to 30 percent more than a competitor who is vague about timing and cleanup. Reliability is worth a premium to most customers.",
+      "Stop quoting over the phone when possible. Phone quotes invite price comparison. Whenever you can, offer a free on-site estimate. Once you are standing in front of the customer, the job becomes real, you become a person rather than a voice, and the probability of booking increases dramatically. On-site estimates also reduce disputes about job scope and protect your margins.",
+      "Track your close rate, not just your call volume. If you are getting 20 calls a week and booking 8 jobs, your close rate is 40 percent. A price-focused business tries to get more calls. A value-focused business works to get that close rate to 60 or 70 percent from the same call volume — which is far more profitable. Improving your quote process, your follow-up, and your value presentation is the highest-leverage activity in your business.",
+    ],
+    readTime: "6 min read",
+    ctaLine: "LeadHauler builds your brand so customers choose you before they even ask for a price — through reviews, local SEO, and a website that communicates professionalism and trust.",
+  },
+  {
+    id: 21,
+    icon: Mail,
+    category: "Growth",
+    tag: "Email & SMS",
+    tagColor: "bg-violet-100 text-violet-700",
+    title: "The Highest-ROI Channel Most Junk Haulers Ignore: Email and SMS Follow-Up",
+    summary:
+      "Most junk removal businesses spend all their marketing budget chasing new customers and nothing re-engaging the ones they already have. That is a costly mistake. A customer who has already hired you once is five times more likely to hire you again than a cold prospect — and they cost nothing to reach if you have their phone number or email address.",
+    tips: [
+      "Build your list from day one. Every job you complete is an opportunity to add a customer to your follow-up list. Collect a phone number and email address at booking and store them in a simple CRM or even a spreadsheet. Most junk haulers have hundreds of past customers they have never followed up with. That list is one of the most valuable assets in your business and most owners do not even know they have it.",
+      "The 30-day re-engagement sequence. Send a single text or email 30 days after a completed job: \"Hey [Name], it is [Your Name] from [Company]. Hope the cleanout went smoothly! If you have more to haul — or know someone who does — we are running a $25 referral credit this month. Just reply to this message.\". This one message, sent consistently to every past customer, generates a measurable lift in repeat bookings and referrals every single month.",
+      "Unconverted leads are your most overlooked asset. Every customer who called for a quote but did not book is a warm lead. They already know your name, they already have a junk problem, and they were close enough to book that they picked up the phone. A simple follow-up text two to three days after the quote — \"Hi [Name], just checking in on your cleanout project — still available this week if you need us\" — converts a meaningful percentage of these leads at zero additional ad spend.",
+      "Seasonal reactivation campaigns are high-ROI. Send a broadcast message to your entire past-customer list at the start of spring and fall: \"Spring cleanout season is here — we are booking fast. Reply BOOK to get on the schedule this week.\". These campaigns require about 20 minutes to set up and consistently produce bookings from customers who had simply forgotten about you. The cost per booking from a reactivation campaign is a fraction of the cost from paid ads.",
+      "Keep messages short, personal, and action-oriented. The best follow-up texts read like they came from a person, not a marketing department. Use the customer's first name. Reference the job if you can. Give them one clear action to take. Long messages, formal language, and multiple calls to action all reduce response rates. A two-sentence text with a clear ask outperforms a paragraph every time.",
+      "Use SMS for speed, email for depth. Text messages have a 98 percent open rate and are typically read within three minutes. Use SMS for time-sensitive follow-ups, booking confirmations, and reactivation campaigns. Use email for longer content — seasonal tips, referral program announcements, or a monthly newsletter with a discount code. Both channels work; the key is matching the medium to the message.",
+      "Automate what you can, but keep it human. Tools like Jobber, Housecall Pro, and even basic SMS platforms like SimpleTexting allow you to automate follow-up sequences so they go out without you thinking about them. Set up a 30-day post-job text, a 90-day re-engagement email, and a seasonal broadcast — then let them run. The goal is to stay top of mind with every past customer without adding hours to your week.",
+    ],
+    readTime: "7 min read",
+    ctaLine: "LeadHauler builds and manages your follow-up sequences — so every past customer and unconverted lead gets the right message at the right time, automatically.",
   },
 ];
 

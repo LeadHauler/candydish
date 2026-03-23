@@ -216,3 +216,7 @@
 
 ## Bug Fix (Round 39)
 - [x] Phone and hamburger icons still visible on desktop — raise breakpoint or change to lg:hidden
+
+## Content Update (Round 40)
+- [x] Add tactic #20: pricing strategy — stop competing on price, anchor value, present quotes confidently (Growth)
+- [x] Add tactic #21: email/SMS follow-up sequences — re-engaging past customers and unconverted leads (Growth)
