@@ -213,3 +213,6 @@
 
 ## Content Update (Round 38)
 - [x] Add new tactic: why you should always be marketing to build pipeline
+
+## Bug Fix (Round 39)
+- [x] Phone and hamburger icons still visible on desktop — raise breakpoint or change to lg:hidden
