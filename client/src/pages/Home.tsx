@@ -306,7 +306,7 @@ export default function Home() {
 
         <div className="container relative">
           {/* Two-column layout on desktop: text left, visual right */}
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center py-16 sm:py-24 lg:py-32">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center pt-10 pb-16 sm:pt-14 sm:pb-24 lg:pt-16 lg:pb-32">
 
             {/* ── LEFT: copy ── */}
             <div className="flex flex-col items-start">
