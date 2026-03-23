@@ -204,3 +204,6 @@
 
 ## UI Update (Round 35)
 - [x] Add mobile-only stats block (312%, 14 days, 7 channels, trusted badge) above client results section
+
+## UI Update (Round 36)
+- [x] Animate stat numbers with count-up effect when they become visible on screen

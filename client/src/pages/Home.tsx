@@ -21,7 +21,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 
@@ -153,6 +153,49 @@ export default function Home() {
     }
     submitLead.mutate(form);
   };
+
+  // ── Count-up animation hook ────────────────────────────────────────────
+  const useCountUp = (target: number, duration = 1800) => {
+    const [count, setCount] = useState(0);
+    const [started, setStarted] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
+
+    const start = useCallback(() => {
+      if (started) return;
+      setStarted(true);
+      const startTime = performance.now();
+      const step = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // ease-out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setCount(Math.round(eased * target));
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }, [started, target, duration]);
+
+    useEffect(() => {
+      const el = ref.current;
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) start(); },
+        { threshold: 0.3 }
+      );
+      observer.observe(el);
+      return () => observer.disconnect();
+    }, [start]);
+
+    return { count, ref };
+  };
+
+  const stat312 = useCountUp(312);
+  const stat14  = useCountUp(14, 1200);
+  const stat7   = useCountUp(7, 900);
+  // Mobile block uses separate refs so they trigger independently
+  const mStat312 = useCountUp(312);
+  const mStat14  = useCountUp(14, 1200);
+  const mStat7   = useCountUp(7, 900);
 
   const navLinks = [
     { label: "Services", href: "#services" },
@@ -302,20 +345,20 @@ export default function Home() {
             {/* ── RIGHT: stat card panel (desktop only) ── */}
             <div className="hidden lg:flex flex-col gap-4 pl-8">
               {/* Big stat card */}
-              <div className="rounded-2xl bg-primary p-8 text-primary-foreground shadow-2xl">
-                <p className="text-6xl font-black text-accent mb-2">312%</p>
+              <div ref={stat312.ref} className="rounded-2xl bg-primary p-8 text-primary-foreground shadow-2xl">
+                <p className="text-6xl font-black text-accent mb-2">{stat312.count}%</p>
                 <p className="text-lg font-semibold mb-1">Average lead increase</p>
                 <p className="text-primary-foreground/70 text-sm">Across active LeadHauler System clients in their first 90 days.</p>
               </div>
               {/* Two smaller cards */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-2xl bg-card border border-border p-6 shadow-sm">
-                  <p className="text-4xl font-black text-primary mb-1">14</p>
+                <div ref={stat14.ref} className="rounded-2xl bg-card border border-border p-6 shadow-sm">
+                  <p className="text-4xl font-black text-primary mb-1">{stat14.count}</p>
                   <p className="text-sm font-semibold text-foreground">Days to first lead</p>
                   <p className="text-xs text-muted-foreground mt-1">Guaranteed or we work free.</p>
                 </div>
-                <div className="rounded-2xl bg-card border border-border p-6 shadow-sm">
-                  <p className="text-4xl font-black text-primary mb-1">7</p>
+                <div ref={stat7.ref} className="rounded-2xl bg-card border border-border p-6 shadow-sm">
+                  <p className="text-4xl font-black text-primary mb-1">{stat7.count}</p>
                   <p className="text-sm font-semibold text-foreground">Channels managed</p>
                   <p className="text-xs text-muted-foreground mt-1">All done for you, every day.</p>
                 </div>
@@ -345,20 +388,20 @@ export default function Home() {
           {/* Mobile-only stats block — shown above client results on small screens */}
           <div className="md:hidden mb-10 space-y-3">
             {/* 312% card */}
-            <div className="rounded-2xl bg-card text-card-foreground p-6 shadow-sm border border-border">
-              <p className="text-5xl font-extrabold text-accent leading-none mb-2">312%</p>
+            <div ref={mStat312.ref} className="rounded-2xl bg-card text-card-foreground p-6 shadow-sm border border-border">
+              <p className="text-5xl font-extrabold text-accent leading-none mb-2">{mStat312.count}%</p>
               <p className="font-bold text-foreground text-base">Average lead increase</p>
               <p className="text-sm text-muted-foreground mt-1">Across active LeadHauler System clients in their first 90 days.</p>
             </div>
             {/* 14 + 7 side by side */}
             <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-2xl bg-card text-card-foreground p-5 shadow-sm border border-border">
-                <p className="text-4xl font-extrabold text-foreground leading-none mb-2">14</p>
+              <div ref={mStat14.ref} className="rounded-2xl bg-card text-card-foreground p-5 shadow-sm border border-border">
+                <p className="text-4xl font-extrabold text-foreground leading-none mb-2">{mStat14.count}</p>
                 <p className="font-semibold text-foreground text-sm">Days to first lead</p>
                 <p className="text-xs text-muted-foreground mt-1">Guaranteed or we work free.</p>
               </div>
-              <div className="rounded-2xl bg-card text-card-foreground p-5 shadow-sm border border-border">
-                <p className="text-4xl font-extrabold text-foreground leading-none mb-2">7</p>
+              <div ref={mStat7.ref} className="rounded-2xl bg-card text-card-foreground p-5 shadow-sm border border-border">
+                <p className="text-4xl font-extrabold text-foreground leading-none mb-2">{mStat7.count}</p>
                 <p className="font-semibold text-foreground text-sm">Channels managed</p>
                 <p className="text-xs text-muted-foreground mt-1">All done for you, every day.</p>
               </div>
