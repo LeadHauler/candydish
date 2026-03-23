@@ -226,3 +226,6 @@
 
 ## Bug Fix (Round 42)
 - [x] Permanently hide phone/hamburger nav icons on all non-mobile screens using pointer:coarse + max-width media query
+
+## Bug Fix (Round 43)
+- [x] Use JS device detection to show phone/hamburger only on mobile devices, never on desktop

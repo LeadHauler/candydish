@@ -442,6 +442,10 @@ const CATEGORIES = [
 
 export default function Tactics() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  // True only on real mobile devices (phones/tablets) — uses userAgent only, never maxTouchPoints
+  const isMobileDevice =
+    typeof navigator !== "undefined" &&
+    /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const [expandedTip, setExpandedTip] = useState<number | null>(null);
   const [activeCategory, setActiveCategory] = useState("all");
 
@@ -490,7 +494,8 @@ export default function Tactics() {
             </Button>
           </a>
 
-          <div className="mobile-nav-buttons flex items-center gap-2 md:hidden">
+          {isMobileDevice && (
+          <div className="flex items-center gap-2">
             <a href="tel:+15087156385">
               <Button size="sm" variant="outline" className="bg-background px-2.5">
                 <Phone className="w-4 h-4 text-primary" />
@@ -506,10 +511,11 @@ export default function Tactics() {
               {mobileNavOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </Button>
           </div>
+          )}
         </div>
 
-        {mobileNavOpen && (
-          <div className="md:hidden border-t border-border bg-card px-4 py-4 space-y-1">
+        {isMobileDevice && mobileNavOpen && (
+          <div className="border-t border-border bg-card px-4 py-4 space-y-1">
             {navLinks.map((l) => (
               <a
                 key={l.label}

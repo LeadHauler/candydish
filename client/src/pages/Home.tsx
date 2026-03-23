@@ -134,6 +134,10 @@ const faqs = [
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  // True only on real mobile devices (phones/tablets) — uses userAgent only, never maxTouchPoints
+  const isMobileDevice =
+    typeof navigator !== "undefined" &&
+    /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const [form, setForm] = useState({ name: "", business: "", phone: "", city: "" });
   const [submitted, setSubmitted] = useState(false);
 
@@ -235,8 +239,9 @@ export default function Home() {
             </Button>
           </a>
 
-          {/* Mobile: phone + hamburger */}
-          <div className="mobile-nav-buttons flex items-center gap-2 md:hidden">
+          {/* Mobile: phone + hamburger — only rendered on actual mobile devices */}
+          {isMobileDevice && (
+          <div className="flex items-center gap-2">
                   <a href="tel:+15087156385">
               <Button size="sm" variant="outline" className="bg-background px-2.5">
                 <Phone className="w-4 h-4 text-primary" />
@@ -252,11 +257,12 @@ export default function Home() {
               {mobileNavOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </Button>
           </div>
+          )}
         </div>
 
         {/* Mobile dropdown menu */}
-        {mobileNavOpen && (
-          <div className="md:hidden border-t border-border bg-card px-4 py-4 space-y-1">
+        {isMobileDevice && mobileNavOpen && (
+          <div className="border-t border-border bg-card px-4 py-4 space-y-1">
             {navLinks.map((l) => (
               <a
                 key={l.label}
