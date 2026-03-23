@@ -229,3 +229,6 @@
 
 ## Bug Fix (Round 43)
 - [x] Use JS device detection to show phone/hamburger only on mobile devices, never on desktop
+
+## Content Update (Round 44)
+- [x] Add FAQ entry about leads starting within 14 days or we work free until they do

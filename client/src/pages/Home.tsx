@@ -115,7 +115,11 @@ const faqs = [
   },
   {
     q: "How quickly will I start seeing leads?",
-    a: "Most clients see their first leads within 7–14 days of launch. Google Ads campaigns typically go live within 48 hours of onboarding.",
+    a: "Most clients see their first leads within 14 days of launch. Google Ads campaigns typically go live within 48 hours of onboarding. And if leads haven't started coming in within 14 days, we keep working — for free — until they do.",
+  },
+  {
+    q: "What is your 14-day lead guarantee?",
+    a: "Simple: if you don't receive your first lead within 14 days of your campaign going live, we work for free until you do. No asterisks, no fine print. We're confident enough in our system to put our time on the line.",
   },
   {
     q: "Do I need to sign a long-term contract?",
