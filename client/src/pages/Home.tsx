@@ -31,7 +31,7 @@ const services = [
     icon: Search,
     title: "Google Ads & Local SEO",
     description:
-      "We run your Google Ads campaigns and optimize your local search presence so you show up first when someone searches 'junk removal near me.'",
+      "We run your ad campaigns and optimize your local search presence so you show up first.",
     color: "bg-blue-50 text-blue-600",
   },
   {
