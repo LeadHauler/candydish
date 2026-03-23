@@ -235,3 +235,7 @@
 
 ## Content Update (Round 45)
 - [x] Change mobile dropdown CTA button text from "Get Free Strategy Call" to "Get your first leads in 14 days"
+
+## UI Update (Round 46)
+- [x] Add 14-day lead guarantee badge (shield icon) near hero CTA button
+- [x] Add "or we work free" guarantee language under each pricing tier

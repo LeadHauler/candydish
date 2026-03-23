@@ -20,6 +20,7 @@ import {
   MapPin,
   Menu,
   X,
+  ShieldCheck,
 } from "lucide-react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { trpc } from "@/lib/trpc";
@@ -334,6 +335,13 @@ export default function Home() {
                     See Client Results
                   </Button>
                 </a>
+              </div>
+
+              {/* 14-Day Guarantee Badge */}
+              <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-4 w-fit">
+                <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0" />
+                <span className="text-sm font-semibold text-foreground">14-Day Lead Guarantee</span>
+                <span className="text-sm text-muted-foreground">— or we work free until you do</span>
               </div>
 
               {/* Trust signals */}
@@ -689,6 +697,12 @@ export default function Home() {
                     <ChevronRight className="w-4 h-4 ml-1" />
                   </Button>
                 </a>
+                <div className={`flex items-center justify-center gap-1.5 mt-3 text-xs ${
+                  plan.highlight ? "text-primary-foreground/60" : "text-muted-foreground"
+                }`}>
+                  <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>First leads in 14 days — or we work free</span>
+                </div>
               </div>
             ))}
           </div>
