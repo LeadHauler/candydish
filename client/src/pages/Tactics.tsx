@@ -17,6 +17,7 @@ import {
   Menu,
   X,
   DollarSign,
+  Camera,
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
@@ -426,6 +427,28 @@ const tactics = [
     ],
     readTime: "7 min read",
     ctaLine: "LeadHauler builds and manages your follow-up sequences — so every past customer and unconverted lead gets the right message at the right time, automatically.",
+  },
+  {
+    id: 22,
+    icon: Camera,
+    badge: "Quick Win",
+    badgeColor: "bg-green-100 text-green-700",
+    category: "Growth",
+    title: "The Photo Quote Trick That Closes More Jobs Before You Even Answer the Phone",
+    summary:
+      "When customers can text a photo of their junk and get a price back in minutes, your close rate jumps — because you've removed the biggest friction point in the buying process.",
+    tips: [
+      "Most junk removal jobs are lost in the gap between 'I need this gone' and 'I got a price.' The longer that gap, the more likely the customer calls someone else, forgets, or talks themselves out of it. The photo-quote process collapses that gap to minutes — and minutes win jobs.",
+      "Set up a dedicated text number for photo quotes. Promote it everywhere: your Google Business Profile, website, Facebook page, and any ad you run. The call to action is simple: 'Text a photo of your junk to [number] and get a price in 10 minutes.' That specificity — 10 minutes — sets an expectation and makes you stand out from competitors who say 'we'll call you back.'",
+      "When the photo comes in, respond fast. Speed is the conversion lever here. A quote returned in under 10 minutes signals professionalism and urgency. A quote returned the next day signals the opposite. If you can't monitor the number yourself during business hours, assign someone or use an answering service trained on your pricing.",
+      "Keep your quote format simple and confident. Don't send a paragraph of caveats. Send a price range and a booking link: 'Based on your photo, we can haul that for $175–$225. Want to lock in a time? [link].' A clean, confident quote converts far better than a hedged one. Customers want certainty — give it to them.",
+      "Use photos to upsell at the door. When you arrive and the job is larger than the photo showed, you already have the customer's trust because you quoted quickly and showed up on time. A calm, professional explanation — 'The photo showed the couch but not the boxes behind it, so we're looking at $X more' — lands much better than a surprise at the end of the job.",
+      "Track your photo-quote close rate separately from your other lead sources. Most operators who implement this see a 20–40% higher close rate on photo quotes versus phone estimates — because the customer has already self-qualified, shared their situation, and received a number. They're warmer. Knowing this number helps you justify promoting the channel more aggressively.",
+      "Automate the follow-up. If a customer texts a photo but doesn't book, send a follow-up text 2 hours later: 'Hey, just checking — did you want to lock in a time for that pickup? We have openings tomorrow.' Then another the next morning. Two follow-ups on a warm photo-quote lead will recover 15–25% of jobs that would otherwise go cold. Most operators never follow up at all — this alone is a significant competitive edge.",
+      "Promote the photo-quote option in your Google Ads and Facebook ads as the primary call to action. 'Text a photo, get a price in 10 minutes' is a more compelling ad hook than 'Call us for a free quote' — because it's faster, lower friction, and more specific. Test it against your current CTA and watch your cost per lead drop.",
+    ],
+    readTime: "6 min read",
+    ctaLine: "LeadHauler sets up and promotes your photo-quote system across every channel — so you're capturing leads and closing jobs faster than any competitor in your market.",
   },
 ];
 

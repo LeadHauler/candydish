@@ -239,3 +239,6 @@
 ## UI Update (Round 46)
 - [x] Add 14-day lead guarantee badge (shield icon) near hero CTA button
 - [x] Add "or we work free" guarantee language under each pricing tier
+
+## Content Update (Round 47)
+- [x] Add tactic: photo-to-quote via text — customers text a photo and get an instant quote, increases conversions
