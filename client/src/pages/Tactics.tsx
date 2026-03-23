@@ -490,7 +490,7 @@ export default function Tactics() {
             </Button>
           </a>
 
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="mobile-nav-buttons flex items-center gap-2 md:hidden">
             <a href="tel:+15087156385">
               <Button size="sm" variant="outline" className="bg-background px-2.5">
                 <Phone className="w-4 h-4 text-primary" />

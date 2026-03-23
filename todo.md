@@ -223,3 +223,6 @@
 
 ## Bug Fix (Round 41)
 - [x] Mobile nav icons (phone + hamburger) must only show on true mobile — hide at all desktop sizes
+
+## Bug Fix (Round 42)
+- [x] Permanently hide phone/hamburger nav icons on all non-mobile screens using pointer:coarse + max-width media query

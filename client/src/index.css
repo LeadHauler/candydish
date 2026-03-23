@@ -1,6 +1,19 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Hide mobile nav buttons on any device with a fine pointer (mouse/trackpad = desktop) */
+@media (pointer: fine) {
+  .mobile-nav-buttons {
+    display: none !important;
+  }
+}
+/* Also hide on large screens regardless of pointer device */
+@media (min-width: 768px) {
+  .mobile-nav-buttons {
+    display: none !important;
+  }
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
