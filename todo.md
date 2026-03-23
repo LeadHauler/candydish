@@ -207,3 +207,9 @@
 
 ## UI Update (Round 36)
 - [x] Animate stat numbers with count-up effect when they become visible on screen
+
+## UI Fix (Round 37)
+- [ ] Hide phone icon and hamburger menu buttons on desktop (md:hidden already set, verify both pages)
+
+## Content Update (Round 38)
+- [x] Add new tactic: why you should always be marketing to build pipeline

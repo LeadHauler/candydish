@@ -363,6 +363,27 @@ const tactics = [
     readTime: "6 min read",
     ctaLine: "We manage your social media presence across Facebook, Nextdoor, and Instagram — posting, engaging in local groups, and responding to leads so you never miss an opportunity.",
   },
+  {
+    id: 19,
+    icon: TrendingUp,
+    category: "Growth",
+    tag: "Pipeline Mindset",
+    tagColor: "bg-teal-100 text-teal-700",
+    title: "Why You Should Never Stop Marketing — Even When You're Fully Booked",
+    summary:
+      "Most junk removal owners only market when they need jobs. That is exactly backwards. The businesses that grow consistently are the ones that market constantly — even when the schedule is full. Here is why always-on marketing is the single most important habit you can build, and what happens to businesses that stop.",
+    tips: [
+      "Marketing has a lag. The leads you generate today will not all convert this week. Some will call in two weeks. Some in two months. Some will save your number and call six months from now when they finally clean out the garage. If you stop marketing the moment you get busy, you are cutting off the pipeline that fills your schedule three months from now. Busy seasons end. The businesses that stay booked year-round are the ones that never stopped feeding the top of the funnel.",
+      "The feast-or-famine cycle is caused by inconsistent marketing, not bad luck. The pattern is predictable: you get slow, you panic and start marketing, leads come in, you get busy, you stop marketing to focus on jobs, you get slow again. Breaking this cycle requires treating marketing as a fixed operating cost — like fuel and insurance — not a variable you turn on and off based on how full your calendar looks today.",
+      "Your competitors are marketing right now. Every day you are not visible in Google search, in local Facebook groups, on Nextdoor, and in your Google Business Profile is a day a competitor is capturing the customers who would have called you. Visibility is cumulative. A business that has been consistently active for 12 months will always outrank and out-convert one that has been on and off. The gap compounds over time.",
+      "Brand recall takes repeated exposure. Research consistently shows that most buyers need to encounter a brand 5 to 7 times before they take action. A homeowner who sees your truck in the neighborhood, then sees a Facebook post, then sees a Google review, then gets a door hanger is far more likely to call you than one who saw a single ad. Consistent marketing builds the layer of familiarity that makes you the obvious choice when the need arises.",
+      "Reviews and referrals require a steady flow of new customers. If you stop marketing and your job volume drops, you get fewer reviews, fewer referrals, and less word-of-mouth. Your Google ranking starts to slip. Your profile goes quiet. The compounding effect works in reverse just as powerfully as it works forward. Maintaining a baseline of new customer acquisition keeps the entire flywheel spinning.",
+      "Set a non-negotiable monthly marketing budget and treat it as overhead. Even in your busiest months, keep your Google Ads running at minimum spend, keep posting to your Google Business Profile and social media, and keep following up with past customers. The goal is not to generate more jobs than you can handle — it is to ensure you always have a full pipeline waiting when capacity opens up.",
+      "Track your pipeline, not just your bookings. A booked calendar feels like success, but it tells you nothing about next month. The metric that actually predicts your future revenue is the number of leads currently in your pipeline — people who have inquired, gotten a quote, or shown interest but have not yet booked. If that number is shrinking, you have a problem that will show up in your revenue 30 to 60 days from now. Always-on marketing keeps that number healthy.",
+    ],
+    readTime: "6 min read",
+    ctaLine: "LeadHauler runs your marketing continuously — ads, SEO, social, and follow-up — so your pipeline stays full whether you are slammed with jobs or looking to grow.",
+  },
 ];
 
 const CATEGORIES = [
