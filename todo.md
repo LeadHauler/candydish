@@ -198,3 +198,6 @@
 
 ## Content Update (Round 33)
 - [x] Add new tactic: digital social channels and local discussion groups
+
+## Visual Update (Round 34)
+- [x] Replace nav logo with new gold/color logo (leadhauler_top-removebg-preview.png) on all pages, also add to footer

@@ -171,7 +171,7 @@ export default function Home() {
           {/* Logo */}
           <a href="/" className="flex items-center">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler-toplogo_1e131e73.png"
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler_top-removebg-preview_eb70e94b.png"
               alt="LeadHauler — Marketing for Junk Removal"
               className="h-16 sm:h-[72px] w-auto object-contain"
             />
@@ -765,9 +765,9 @@ export default function Home() {
             <div className="lg:col-span-1">
               <div className="mb-4">
                 <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler-logo_a788182a.png"
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler_top-removebg-preview_eb70e94b.png"
                   alt="LeadHauler"
-                  className="h-8 w-auto object-contain brightness-0 invert"
+                  className="h-10 w-auto object-contain"
                 />
               </div>
               <p className="text-primary-foreground/55 text-sm leading-relaxed">
