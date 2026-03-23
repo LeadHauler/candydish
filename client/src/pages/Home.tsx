@@ -341,6 +341,42 @@ export default function Home() {
       {/* ── TESTIMONIALS ────────────────────────────────────────────────── */}
       <section id="results" className="py-16 sm:py-20 lg:py-28 bg-primary text-primary-foreground">
         <div className="container">
+
+          {/* Mobile-only stats block — shown above client results on small screens */}
+          <div className="md:hidden mb-10 space-y-3">
+            {/* 312% card */}
+            <div className="rounded-2xl bg-card text-card-foreground p-6 shadow-sm border border-border">
+              <p className="text-5xl font-extrabold text-accent leading-none mb-2">312%</p>
+              <p className="font-bold text-foreground text-base">Average lead increase</p>
+              <p className="text-sm text-muted-foreground mt-1">Across active LeadHauler System clients in their first 90 days.</p>
+            </div>
+            {/* 14 + 7 side by side */}
+            <div className="grid grid-cols-2 gap-3">
+              <div className="rounded-2xl bg-card text-card-foreground p-5 shadow-sm border border-border">
+                <p className="text-4xl font-extrabold text-foreground leading-none mb-2">14</p>
+                <p className="font-semibold text-foreground text-sm">Days to first lead</p>
+                <p className="text-xs text-muted-foreground mt-1">Guaranteed or we work free.</p>
+              </div>
+              <div className="rounded-2xl bg-card text-card-foreground p-5 shadow-sm border border-border">
+                <p className="text-4xl font-extrabold text-foreground leading-none mb-2">7</p>
+                <p className="font-semibold text-foreground text-sm">Channels managed</p>
+                <p className="text-xs text-muted-foreground mt-1">All done for you, every day.</p>
+              </div>
+            </div>
+            {/* Trusted badge */}
+            <div className="rounded-2xl bg-accent/10 border border-accent/20 p-4 flex items-center gap-4">
+              <div className="flex -space-x-2 flex-shrink-0">
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/hero-avatar-mike-Ub4UZgCBy7TE2AVBpybWaY.webp" alt="Mike" className="w-9 h-9 rounded-full border-2 border-background object-cover" />
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/hero-avatar-jason-QEsVpNmgzTvnvzDQ5hrzuq.webp" alt="Jason" className="w-9 h-9 rounded-full border-2 border-background object-cover" />
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/hero-avatar-derek-grnTXPDz5UVywfW3nNMfjD.webp" alt="Derek" className="w-9 h-9 rounded-full border-2 border-background object-cover" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-primary-foreground">Trusted by junk haulers nationwide</p>
+                <p className="text-xs text-primary-foreground/60">Solo operators to multi-truck fleets</p>
+              </div>
+            </div>
+          </div>
+
           <div className="text-center mb-10 sm:mb-14">
             <p className="text-sm font-bold text-accent uppercase tracking-widest mb-3">Client results</p>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-4 tracking-tight">

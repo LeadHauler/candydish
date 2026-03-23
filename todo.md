@@ -201,3 +201,6 @@
 
 ## Visual Update (Round 34)
 - [x] Replace nav logo with new gold/color logo (leadhauler_top-removebg-preview.png) on all pages, also add to footer
+
+## UI Update (Round 35)
+- [x] Add mobile-only stats block (312%, 14 days, 7 channels, trusted badge) above client results section
