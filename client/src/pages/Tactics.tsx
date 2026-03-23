@@ -18,6 +18,7 @@ import {
   X,
   DollarSign,
   Camera,
+  CalendarDays,
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
@@ -449,6 +450,28 @@ const tactics = [
     ],
     readTime: "6 min read",
     ctaLine: "LeadHauler sets up and promotes your photo-quote system across every channel — so you're capturing leads and closing jobs faster than any competitor in your market.",
+  },
+  {
+    id: 23,
+    icon: CalendarDays,
+    badge: "Strategy",
+    badgeColor: "bg-blue-100 text-blue-700",
+    category: "Growth",
+    title: "How to Use Seasonal Demand Spikes to Fill Your Schedule Weeks in Advance",
+    summary:
+      "Spring cleanouts, estate hauls, and post-holiday purges are predictable demand windows. Junk removal owners who market into them early fill their calendars before competitors even start their campaigns.",
+    tips: [
+      "Junk removal has a seasonal rhythm, and most operators ignore it entirely. They run the same ads year-round, post the same content, and wonder why some months are slow. The owners who understand the calendar — and market ahead of it — consistently outbook their competitors because they're in front of customers before the urge to clean strikes, not after.",
+      "Spring is your biggest window. March through May is when homeowners tackle garages, basements, and attics after months of winter. Start your spring push in late February — before the season begins. Run Google Ads targeting 'spring cleanout junk removal,' post before-and-after content on Facebook and Nextdoor, and send an email or text blast to past customers with a spring discount or priority booking offer. The operators who start early capture the early bookers and the referrals that flow from them.",
+      "Estate cleanouts spike in spring and fall. When a family member passes or downsizes, the estate often needs a full cleanout on a tight timeline. These jobs are large, high-margin, and often come with referrals to neighbors and friends. Target estate attorneys, senior living facilities, and real estate agents in your area — introduce yourself, leave cards, and ask to be their go-to referral for cleanouts. A few strong referral relationships in this channel can add tens of thousands of dollars a year.",
+      "Post-holiday hauls run from late December through January. After Christmas, people are surrounded by boxes, old furniture being replaced by new gifts, and a general desire to declutter. Run a 'New Year, New Space' campaign starting December 26. A simple Facebook post or Google ad with that hook — timed to when people are already in a purging mindset — can generate a strong January pipeline at a time when many competitors go quiet.",
+      "Back-to-school season (July–August) drives apartment and dorm moves. College towns and suburban areas see a surge in furniture disposal as students move in and out. If you're in or near a college town, this is a reliable annual spike. Run ads targeting moving-related keywords, partner with local moving companies for referrals, and promote your same-day or next-day availability — move-out timelines are tight and speed wins the job.",
+      "Fall is the second cleanout season. September and October bring another round of garage and basement cleanouts as people prepare for winter. It's also when homeowners finishing summer renovation projects need debris hauled. Run a 'Fall Cleanout Special' campaign in late August and keep it running through October. Pair it with a referral incentive — 'Refer a neighbor and both of you save $25' — to amplify reach during a naturally active period.",
+      "Build a seasonal content calendar at the start of each year. Map the six demand windows — spring cleanout, estate season, post-holiday, back-to-school, fall cleanout, and holiday prep — and plan your ads, emails, and social posts around them. A simple spreadsheet with campaign start dates, ad copy, and budget allocations is enough. The goal is to never be caught flat-footed by a demand spike you knew was coming.",
+      "Use seasonal campaigns to build your review base. After each busy season, send a follow-up text to every customer from that period asking for a Google review. Busy seasons generate volume; volume generates reviews; reviews generate the next busy season. Operators who close this loop consistently outrank competitors on Google Maps within 12–18 months, regardless of how long those competitors have been in the market.",
+    ],
+    readTime: "6 min read",
+    ctaLine: "LeadHauler plans and executes your seasonal campaigns for you — so every demand window is captured with the right ads, content, and follow-up running at exactly the right time.",
   },
 ];
 

@@ -242,3 +242,6 @@
 
 ## Content Update (Round 47)
 - [x] Add tactic: photo-to-quote via text — customers text a photo and get an instant quote, increases conversions
+
+## Content Update (Round 48)
+- [x] Add tactic #23: seasonal marketing — spring cleanouts, estate cleanouts, post-holiday hauls, timing campaigns
