@@ -220,3 +220,6 @@
 ## Content Update (Round 40)
 - [x] Add tactic #20: pricing strategy — stop competing on price, anchor value, present quotes confidently (Growth)
 - [x] Add tactic #21: email/SMS follow-up sequences — re-engaging past customers and unconverted leads (Growth)
+
+## Bug Fix (Round 41)
+- [x] Mobile nav icons (phone + hamburger) must only show on true mobile — hide at all desktop sizes

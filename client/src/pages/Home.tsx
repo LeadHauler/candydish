@@ -216,19 +216,19 @@ export default function Home() {
             <img
               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler_top-removebg-preview_eb70e94b.png"
               alt="LeadHauler — Marketing for Junk Removal"
-              className="h-16 sm:h-[72px] w-auto object-contain"
+              className="h-12 md:h-14 lg:h-[72px] w-auto object-contain"
             />
           </a>
 
           {/* Desktop nav links */}
-          <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-muted-foreground">
+          <div className="hidden md:flex items-center gap-5 text-sm font-medium text-muted-foreground">
             {navLinks.map((l) => (
               <a key={l.label} href={l.href} className="hover:text-foreground transition-colors">{l.label}</a>
             ))}
           </div>
 
           {/* Desktop CTA */}
-          <a href="#contact" className="hidden lg:block">
+          <a href="#contact" className="hidden md:block">
             <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
               Get Free Strategy Call
               <ArrowRight className="w-4 h-4 ml-1.5" />
@@ -236,7 +236,7 @@ export default function Home() {
           </a>
 
           {/* Mobile: phone + hamburger */}
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-2 md:hidden">
                   <a href="tel:+15087156385">
               <Button size="sm" variant="outline" className="bg-background px-2.5">
                 <Phone className="w-4 h-4 text-primary" />
@@ -256,7 +256,7 @@ export default function Home() {
 
         {/* Mobile dropdown menu */}
         {mobileNavOpen && (
-          <div className="lg:hidden border-t border-border bg-card px-4 py-4 space-y-1">
+          <div className="md:hidden border-t border-border bg-card px-4 py-4 space-y-1">
             {navLinks.map((l) => (
               <a
                 key={l.label}
