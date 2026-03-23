@@ -248,3 +248,6 @@
 
 ## Content Update (Round 49)
 - [x] Update Google Ads & Local SEO service description to shorter version
+
+## Content Update (Round 50)
+- [x] Update Google Ads card description (add platform list), add new Google Business Profile card

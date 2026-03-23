@@ -31,8 +31,15 @@ const services = [
     icon: Search,
     title: "Google Ads & Local SEO",
     description:
-      "We run your ad campaigns and optimize your local search presence so you show up first.",
+      "We run your ad campaigns and optimize your local search presence so you show up first on Google, Angi, Nextdoor, or Facebook.",
     color: "bg-blue-50 text-blue-600",
+  },
+  {
+    icon: MapPin,
+    title: "Google Business Profile Optimization",
+    description:
+      "We fully optimize your Google Business Profile and keep it active with fresh posts, photos, and updates — so Google keeps ranking you higher every week.",
+    color: "bg-emerald-50 text-emerald-600",
   },
   {
     icon: Globe,
