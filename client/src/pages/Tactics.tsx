@@ -529,7 +529,7 @@ export default function Tactics() {
             <div className="pt-2">
               <a href="/#contact" onClick={() => setMobileNavOpen(false)}>
                 <Button className="w-full bg-primary text-primary-foreground font-semibold">
-                  Get Free Strategy Call
+                  Get your first leads in 14 days
                   <ArrowRight className="w-4 h-4 ml-1.5" />
                 </Button>
               </a>

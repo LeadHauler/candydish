@@ -232,3 +232,6 @@
 
 ## Content Update (Round 44)
 - [x] Add FAQ entry about leads starting within 14 days or we work free until they do
+
+## Content Update (Round 45)
+- [x] Change mobile dropdown CTA button text from "Get Free Strategy Call" to "Get your first leads in 14 days"
