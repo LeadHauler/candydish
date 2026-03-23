@@ -941,7 +941,7 @@ export default function Home() {
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-card border-t border-border shadow-2xl px-4 py-3">
         <a href="#contact">
           <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base py-3">
-            Book Free Call
+            Try us risk-free
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </a>
