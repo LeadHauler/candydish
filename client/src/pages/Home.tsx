@@ -159,6 +159,10 @@ export default function Home() {
     onSuccess: () => {
       setSubmitted(true);
       toast.success("We'll be in touch within 24 hours!");
+      // Fire Meta Pixel Lead event
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "Lead");
+      }
     },
     onError: () => toast.error("Something went wrong. Please try again."),
   });
