@@ -22,6 +22,7 @@ import {
   X,
   ShieldCheck,
   Facebook,
+  Youtube,
 } from "lucide-react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { trpc } from "@/lib/trpc";
@@ -937,6 +938,12 @@ export default function Home() {
                   <a href="https://www.facebook.com/leadhauler" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors flex items-center gap-2">
                     <Facebook className="w-3.5 h-3.5 flex-shrink-0" />
                     facebook.com/leadhauler
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/@LeadHauler" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors flex items-center gap-2">
+                    <Youtube className="w-3.5 h-3.5 flex-shrink-0" />
+                    youtube.com/@LeadHauler
                   </a>
                 </li>
 
