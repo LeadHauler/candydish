@@ -163,6 +163,13 @@ export default function Home() {
       if (typeof window !== "undefined" && (window as any).fbq) {
         (window as any).fbq("track", "Lead");
       }
+      // Fire GA4 conversion event
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        (window as any).gtag("event", "generate_lead", {
+          event_category: "contact_form",
+          event_label: "Book Free Call",
+        });
+      }
     },
     onError: () => toast.error("Something went wrong. Please try again."),
   });
