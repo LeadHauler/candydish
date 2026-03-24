@@ -21,6 +21,7 @@ import {
   Menu,
   X,
   ShieldCheck,
+  Facebook,
 } from "lucide-react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { trpc } from "@/lib/trpc";
@@ -930,6 +931,12 @@ export default function Home() {
                   <a href="mailto:hello@leadhauler.com" className="hover:text-primary-foreground transition-colors flex items-center gap-2">
                     <Mail className="w-3.5 h-3.5 flex-shrink-0" />
                     hello@leadhauler.com
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/leadhauler" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors flex items-center gap-2">
+                    <Facebook className="w-3.5 h-3.5 flex-shrink-0" />
+                    facebook.com/leadhauler
                   </a>
                 </li>
 
