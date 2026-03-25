@@ -644,6 +644,7 @@ export default function Home() {
                   "Local SEO optimization",
                   "Google Business Profile management",
                   "Local partnership outreach",
+                  "Remarketing & re-engagement campaigns",
                   "Monthly performance report",
                   "Lead tracking dashboard",
                 ],
