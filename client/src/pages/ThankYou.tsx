@@ -101,7 +101,7 @@ export default function ThankYou() {
           </p>
 
           {/* Bold CTA back to main site */}
-          <div className="mt-10 rounded-2xl bg-primary/5 border-2 border-primary/30 p-6 sm:p-8 text-center">
+          <div className="mt-10 rounded-2xl border-2 p-6 sm:p-8 text-center" style={{backgroundColor: 'rgba(245,166,35,0.12)', borderColor: 'rgba(245,166,35,0.35)'}}>
             <p className="text-xs font-bold text-primary uppercase tracking-widest mb-2">
               Done-For-You Service
             </p>
