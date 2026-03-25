@@ -67,12 +67,17 @@ export default function FreeGuide() {
           </h1>
 
           {/* ── HERO IMAGE ── */}
-          <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
-            <img
-              src={HERO_IMAGE}
-              alt="LeadHauler — Mike pointing at the free guide"
-              className="w-full block object-cover transition-transform duration-500 ease-out hover:scale-105"
-            />
+          <div className="mb-10">
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <img
+                src={HERO_IMAGE}
+                alt="LeadHauler — Mike pointing at the free guide"
+                className="w-full block object-cover transition-transform duration-500 ease-out hover:scale-105"
+              />
+            </div>
+            <p className="mt-3 text-center text-sm italic text-muted-foreground">
+              The exact lead source 90% of junk haulers are ignoring.
+            </p>
           </div>
 
           {/* Body copy */}
