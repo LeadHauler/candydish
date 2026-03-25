@@ -43,10 +43,10 @@ export default function FreeGuide() {
       <header className="h-16 flex items-center justify-center border-b border-border bg-background/95 backdrop-blur-sm sticky top-0 z-40">
         <a href="/" className="flex items-center gap-2">
           <span className="text-xl font-extrabold tracking-tight text-foreground">
-            Lead<span className="text-primary">Hauler</span>
+            Lead<span className="text-[#f5a623]">Hauler</span>
           </span>
           <span className="hidden sm:block text-[10px] font-semibold text-muted-foreground uppercase tracking-widest mt-0.5">
-            Marketing for Junk Removal
+            Smarter Marketing for Junk Removal
           </span>
         </a>
       </header>
