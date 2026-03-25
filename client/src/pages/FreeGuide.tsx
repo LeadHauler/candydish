@@ -341,9 +341,7 @@ export default function FreeGuide() {
                   Limited-Time Offer
                 </p>
                 <p className="text-xs text-muted-foreground mt-0.5">
-                  Download free today — we only review{" "}
-                  <span className="font-semibold text-foreground">10 new businesses per week</span>.
-                  Spots are filling up.
+                  Download free today.
                 </p>
               </div>
             </div>
