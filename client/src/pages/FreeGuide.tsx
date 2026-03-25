@@ -223,8 +223,8 @@ export default function FreeGuide() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.phone.trim() || !form.email.trim()) {
-      toast.error("Please fill in your name, phone number, and email.");
+    if (!form.name.trim() || !form.phone.trim() || !form.email.trim() || !form.business.trim()) {
+      toast.error("Please fill in all required fields.");
       return;
     }
     submit.mutate(form);
@@ -394,8 +394,7 @@ export default function FreeGuide() {
               </div>
               <div>
                 <label className="block text-xs font-semibold text-muted-foreground mb-1.5 uppercase tracking-wide">
-                  Business Name{" "}
-                  <span className="text-muted-foreground/60 normal-case font-normal">(optional)</span>
+                  Business Name <span className="text-primary">*</span>
                 </label>
                 <input
                   type="text"
@@ -403,6 +402,7 @@ export default function FreeGuide() {
                   value={form.business}
                   onChange={(e) => setForm({ ...form, business: e.target.value })}
                   className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/20 transition"
+                  required
                 />
               </div>
               <button

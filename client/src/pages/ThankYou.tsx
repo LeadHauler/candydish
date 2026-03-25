@@ -100,16 +100,23 @@ export default function ThankYou() {
             Opens in Google Drive. No sign-in required to view.
           </p>
 
-          {/* Soft CTA back to main site */}
-          <div className="mt-10 pt-8 border-t border-border">
-            <p className="text-sm text-muted-foreground mb-3">
-              Want us to run this system for you — done for you, every day?
+          {/* Bold CTA back to main site */}
+          <div className="mt-10 rounded-2xl bg-primary/5 border-2 border-primary/30 p-6 sm:p-8 text-center">
+            <p className="text-xs font-bold text-primary uppercase tracking-widest mb-2">
+              Done-For-You Service
+            </p>
+            <p className="text-lg sm:text-xl font-extrabold text-foreground leading-snug mb-2">
+              Want us to run this system for you —{" "}
+              <span className="text-primary">done for you, every day?</span>
+            </p>
+            <p className="text-sm text-muted-foreground mb-5">
+              We handle everything — finding leads, responding, and booking jobs — while you focus on running your business.
             </p>
             <a
               href="/#contact"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+              className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold py-3.5 px-8 rounded-xl text-sm transition-all duration-150 shadow-md"
             >
-              Get a free strategy call
+              Get a Free Strategy Call
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
