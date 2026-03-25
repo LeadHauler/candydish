@@ -657,6 +657,7 @@ export default function Home() {
                 features: [
                   "Everything in Starter",
                   "Google Ads (up to $4,000 ad spend)",
+                  "Google Local Service Ads management",
                   "Website design or optimization",
                   "Social media management (3x/week)",
                   "Review & reputation management",
