@@ -23,6 +23,7 @@ import {
   ShieldCheck,
   Facebook,
   Youtube,
+  BadgeCheck,
 } from "lucide-react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { trpc } from "@/lib/trpc";
@@ -84,6 +85,13 @@ const services = [
     description:
       "We run targeted SMS and email campaigns to past customers and warm leads — keeping your brand top-of-mind so they book again, refer a friend, or finally pull the trigger.",
     color: "bg-green-50 text-green-600",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Google Local Service Ads",
+    description:
+      "We set up and manage your Google Local Service Ads — the pay-per-lead placements that appear above everything else on Google, complete with the Google Guaranteed badge that builds instant trust.",
+    color: "bg-sky-50 text-sky-600",
   },
 ];
 
