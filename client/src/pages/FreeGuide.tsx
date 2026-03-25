@@ -1,15 +1,46 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, Clock } from "lucide-react";
 
 const HERO_IMAGE =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/tease_277cfc70.PNG";
 
+// Countdown: 24-hour timer from first visit, persisted in sessionStorage
+function useCountdown() {
+  const getExpiry = () => {
+    if (typeof window === "undefined") return Date.now() + 86400000;
+    const stored = sessionStorage.getItem("fg_expiry");
+    if (stored) return parseInt(stored, 10);
+    const expiry = Date.now() + 24 * 60 * 60 * 1000;
+    sessionStorage.setItem("fg_expiry", String(expiry));
+    return expiry;
+  };
+
+  const [timeLeft, setTimeLeft] = useState(() => {
+    const diff = getExpiry() - Date.now();
+    return diff > 0 ? diff : 0;
+  });
+
+  useEffect(() => {
+    const tick = setInterval(() => {
+      const diff = getExpiry() - Date.now();
+      setTimeLeft(diff > 0 ? diff : 0);
+    }, 1000);
+    return () => clearInterval(tick);
+  }, []);
+
+  const h = Math.floor(timeLeft / 3600000);
+  const m = Math.floor((timeLeft % 3600000) / 60000);
+  const s = Math.floor((timeLeft % 60000) / 1000);
+  return { h, m, s, expired: timeLeft === 0 };
+}
+
 export default function FreeGuide() {
   const [form, setForm] = useState({ name: "", phone: "", email: "", business: "" });
   const [, navigate] = useLocation();
+  const countdown = useCountdown();
 
   const submit = trpc.contact.submitGuide.useMutation({
     onSuccess: () => {
@@ -38,8 +69,24 @@ export default function FreeGuide() {
     submit.mutate(form);
   };
 
+  const pad = (n: number) => String(n).padStart(2, "0");
+
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
+
+      {/* URGENCY BANNER */}
+      {!countdown.expired && (
+        <div className="bg-primary text-primary-foreground text-center py-2.5 px-4 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2">
+          <Clock className="w-3.5 h-3.5 flex-shrink-0" />
+          <span>
+            Limited offer — this free breakdown expires in{" "}
+            <span className="font-extrabold tabular-nums">
+              {pad(countdown.h)}:{pad(countdown.m)}:{pad(countdown.s)}
+            </span>
+          </span>
+        </div>
+      )}
+
       {/* NAV */}
       <header className="h-16 flex items-center justify-center border-b border-border bg-background/95 backdrop-blur-sm sticky top-0 z-40">
         <a href="/" className="flex items-center gap-2">
@@ -55,6 +102,7 @@ export default function FreeGuide() {
       {/* MAIN */}
       <main className="flex-1 py-12 sm:py-20 px-4">
         <div className="max-w-2xl mx-auto">
+
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
             Free Resource — Junk Removal Owners
@@ -115,6 +163,22 @@ export default function FreeGuide() {
 
           {/* Form */}
           <div className="rounded-2xl bg-card border border-border shadow-sm p-6 sm:p-8">
+
+            {/* Limited-time offer badge above form */}
+            <div className="flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-xl px-4 py-3 mb-5">
+              <Clock className="w-4 h-4 text-primary flex-shrink-0" />
+              <div>
+                <p className="text-xs font-bold text-primary uppercase tracking-wide">
+                  Limited-Time Offer
+                </p>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  Download free today — we only review{" "}
+                  <span className="font-semibold text-foreground">10 new businesses per week</span>.
+                  Spots are filling up.
+                </p>
+              </div>
+            </div>
+
             <p className="text-foreground font-bold text-lg mb-1">Download it free</p>
             <p className="text-muted-foreground text-sm mb-6">
               Enter your info below and we'll send it right over.
@@ -216,6 +280,7 @@ export default function FreeGuide() {
               </div>
             </form>
           </div>
+
         </div>
       </main>
 
