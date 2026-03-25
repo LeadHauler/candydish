@@ -20,6 +20,7 @@ import {
   Camera,
   CalendarDays,
   BadgeCheck,
+  Flame,
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
@@ -496,6 +497,28 @@ const tactics = [
     readTime: "7 min read",
     ctaLine: "LeadHauler sets up and manages your Google Local Service Ads — including verification, profile optimization, and weekly bid management — so you get the cheapest possible cost-per-lead from the most trusted ad placement on Google.",
   },
+  {
+    id: 25,
+    icon: Flame,
+    badge: "Low Cost",
+    badgeColor: "bg-orange-100 text-orange-700",
+    category: "Guerrilla Marketing",
+    title: "The Zero-Budget Visibility Playbook: How to Get Your Truck Seen by Thousands Without Spending a Dollar on Ads",
+    summary:
+      "The most effective junk removal marketing doesn't always come from Google or Facebook. Sometimes it comes from a door hanger, a chalk arrow, a truck parked in the right spot, or a $20 yard sign. Guerrilla marketing is about using creativity, timing, and local presence to generate leads that digital ads can't reach.",
+    tips: [
+      "Your truck is a moving billboard — treat it like one. A clean, fully wrapped truck with your phone number in large readable text parked in a busy neighborhood generates calls. But most operators park at home or at a storage unit. Instead, park your truck on a high-traffic street near a shopping center, hardware store, or neighborhood entrance during your lunch break or after a job. You're not paying for that impression. A well-placed truck in a neighborhood for 30 minutes can generate more local awareness than a week of Facebook posts.",
+      "Door hangers in the neighborhoods where you just completed a job are one of the highest-converting low-cost tactics in junk removal. After every job, walk 20–30 houses in each direction and leave a door hanger that says something like: 'We just hauled junk from your neighbor's house at [street name]. If you've been putting off a cleanout, here's $25 off your first load — call us today.' Neighbors who see your truck and then find a hanger are already warm. Conversion rates on these are dramatically higher than cold outreach.",
+      "Yard signs work — but placement is everything. A $3 corrugated yard sign with your number placed at a busy intersection or near a dumpster rental site can generate 5–10 calls per week in a mid-size market. Ask permission from local businesses to place signs in their parking lots. Offer a small referral fee or free service in exchange. Rotate signs every few weeks to keep them visible and prevent them from being ignored. The key is volume and placement — 20 signs in the right spots outperform 200 signs in random locations.",
+      "Chalk marketing sounds gimmicky until you try it. After completing a job in a neighborhood, use sidewalk chalk to write your business name, phone number, and a simple message — 'Junk Removed Fast. Call [number]' — near the curb where you worked. It washes away in the rain, it's free, and in dense neighborhoods it gets noticed. Pair it with a door hanger drop on the same block for a one-two punch that costs under $5 and takes 10 minutes.",
+      "Partner with dumpster rental companies in your area. Dumpster companies and junk removal companies serve the same customers at different stages of the same project. When a homeowner's dumpster is full and they still have junk left, they need you. When a customer calls a junk removal company but has a volume that requires a dumpster, you need them. Reach out to every dumpster rental company in your market, introduce yourself, and propose a mutual referral arrangement. A handshake deal with two or three dumpster companies can add 10–20 jobs per month with zero ad spend.",
+      "Leave cards at every thrift store, consignment shop, and donation center in your area. These businesses regularly turn away items they can't accept — furniture that's too worn, electronics, mattresses. When they can't take it, they need to send the customer somewhere. A stack of your cards at the front desk with a note to the staff ('If you can't take it, we'll haul it') positions you as the solution. Visit monthly to refresh your cards and build a relationship with the staff. This channel is almost entirely ignored by competitors.",
+      "Show up at estate sales on the last day. Estate sale companies always have leftover items that didn't sell — furniture, appliances, boxes of miscellaneous goods. On the last day of the sale, introduce yourself to the estate sale organizer and offer to haul whatever's left at a discounted rate. You get a paid job, they get a clean house, and the family avoids the stress of disposal. Many estate sale companies will add you to their regular rotation if you show up reliably and do good work. This is a recurring, low-competition channel most junk haulers never tap.",
+      "Create a 'neighborhood cleanout event' once a quarter. Partner with a neighborhood association, HOA, or community Facebook group to host a free or discounted cleanout day. Promote it as a community service — 'We're in [neighborhood] on Saturday, April 12. First 5 households get $50 off a full load.' You'll book 5–10 jobs in a single day in a concentrated area, generate photos and video content, collect reviews from multiple customers at once, and build word-of-mouth in a neighborhood that now knows your name. The cost is a small discount. The return is a neighborhood that thinks of you first.",
+    ],
+    readTime: "7 min read",
+    ctaLine: "LeadHauler builds your complete local visibility system — combining digital ads with the offline tactics your competitors are ignoring — so your phone rings from every direction, not just Google.",
+  },
 ];
 
 const CATEGORIES = [
@@ -507,6 +530,7 @@ const CATEGORIES = [
   { value: "Social Media", label: "Social Media" },
   { value: "Website",     label: "Website" },
   { value: "Growth",      label: "Growth" },
+  { value: "Guerrilla Marketing", label: "Guerrilla Marketing" },
 ];
 
 export default function Tactics() {
