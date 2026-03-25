@@ -296,6 +296,23 @@ export const appRouter = router({
         });
         return { success: true };
       }),
+
+    submitGuide: publicProcedure
+      .input(
+        z.object({
+          name: z.string(),
+          phone: z.string(),
+          email: z.string().optional(),
+          business: z.string().optional(),
+        })
+      )
+      .mutation(async ({ input }) => {
+        await notifyOwner({
+          title: `🎯 Free Guide Lead: ${input.name}`,
+          content: `Name: ${input.name}\nPhone: ${input.phone}\nEmail: ${input.email ?? "N/A"}\nBusiness: ${input.business ?? "N/A"}\nSource: Hidden Ads Landing Page`,
+        });
+        return { success: true };
+      }),
   }),
 
   community: router({
