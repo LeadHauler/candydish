@@ -67,12 +67,11 @@ export default function FreeGuide() {
           </h1>
 
           {/* ── HERO IMAGE ── */}
-          <div className="relative mb-10">
-            <div className="absolute inset-0 -m-4 rounded-3xl bg-primary/5 blur-2xl pointer-events-none" />
+          <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
             <img
               src={HERO_IMAGE}
               alt="LeadHauler — Mike pointing at the free guide"
-              className="relative w-full max-w-lg mx-auto block rounded-2xl shadow-xl object-cover rotate-[-2deg] hover:rotate-0 transition-transform duration-500"
+              className="w-full block object-cover transition-transform duration-500 ease-out hover:scale-105"
             />
           </div>
 
