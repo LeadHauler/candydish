@@ -53,191 +53,179 @@ export default function FreeGuide() {
 
       {/* ── MAIN ── */}
       <main className="flex-1 py-12 sm:py-20 px-4">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16">
+        <div className="max-w-2xl mx-auto">
 
-            {/* ── IMAGE COLUMN ── */}
-            <div className="flex-shrink-0 flex justify-center w-full lg:w-auto lg:sticky lg:top-24">
-              <div className="relative">
-                <div className="absolute inset-0 -m-6 rounded-3xl bg-primary/5 blur-2xl pointer-events-none" />
-                <img
-                  src={HERO_IMAGE}
-                  alt="LeadHauler — Mike pointing at the free guide"
-                  className="relative w-64 sm:w-72 lg:w-80 rounded-2xl shadow-xl object-cover rotate-[-3deg] hover:rotate-0 transition-transform duration-500"
-                />
-              </div>
-            </div>
-
-            {/* ── CONTENT COLUMN ── */}
-            <div className="flex-1 min-w-0">
-
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                Free Resource — Junk Removal Owners
-              </div>
-
-              {/* Headline */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-foreground">
-                Your Competitors Are Missing{" "}
-                <span className="text-primary">This Local Lead Source</span>
-              </h1>
-
-              {/* Body copy */}
-              <div className="text-muted-foreground text-base sm:text-lg leading-relaxed space-y-4 mb-10">
-                <p>Most junk removal companies are fighting over the same leads…</p>
-                <p className="text-foreground font-semibold">
-                  Google Ads.<br />
-                  Facebook Ads.<br />
-                  LSAs.
-                </p>
-                <p>
-                  Meanwhile, there's a quiet stream of homeowners actively asking for junk removal
-                  help… and barely anyone is responding.
-                </p>
-                <p>
-                  We put together a{" "}
-                  <span className="text-foreground font-semibold">free breakdown</span> showing:
-                </p>
-                <ul className="space-y-3 pl-1">
-                  {[
-                    "Where these requests are happening",
-                    "How to find them daily",
-                    "What to say to turn them into booked jobs",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-muted-foreground text-sm">
-                  No fluff. Just a simple system you can start using today.
-                </p>
-              </div>
-
-              {/* ── FORM ── */}
-              {submitted ? (
-                <div className="rounded-2xl bg-primary/5 border border-primary/20 p-8 text-center">
-                  <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle2 className="w-7 h-7 text-primary" />
-                  </div>
-                  <h2 className="text-xl font-extrabold text-foreground mb-2">You're all set!</h2>
-                  <p className="text-muted-foreground text-sm">
-                    We'll be in touch shortly with your free breakdown. Check your phone — we may reach out via text.
-                  </p>
-                </div>
-              ) : (
-                <div className="rounded-2xl bg-card border border-border shadow-sm p-6 sm:p-8">
-                  <p className="text-foreground font-bold text-lg mb-1">Download it free</p>
-                  <p className="text-muted-foreground text-sm mb-6">
-                    Enter your info below and we'll send it right over.
-                  </p>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-semibold text-muted-foreground mb-1.5 uppercase tracking-wide">
-                          Your Name <span className="text-primary">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="John Smith"
-                          value={form.name}
-                          onChange={(e) => setForm({ ...form, name: e.target.value })}
-                          className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/20 transition"
-                          required
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs font-semibold text-muted-foreground mb-1.5 uppercase tracking-wide">
-                          Phone Number <span className="text-primary">*</span>
-                        </label>
-                        <input
-                          type="tel"
-                          placeholder="(555) 000-0000"
-                          value={form.phone}
-                          onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                          className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/20 transition"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-xs font-semibold text-muted-foreground mb-1.5 uppercase tracking-wide">
-                        Email Address <span className="text-primary">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        placeholder="john@yourcompany.com"
-                        value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/20 transition"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-semibold text-muted-foreground mb-1.5 uppercase tracking-wide">
-                        Business Name{" "}
-                        <span className="text-muted-foreground/60 normal-case font-normal">(optional)</span>
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Acme Junk Removal"
-                        value={form.business}
-                        onChange={(e) => setForm({ ...form, business: e.target.value })}
-                        className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/20 transition"
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      disabled={submit.isPending}
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold py-4 rounded-xl text-base transition-all duration-150 disabled:opacity-60 disabled:cursor-not-allowed shadow-md flex items-center justify-center gap-2"
-                    >
-                      {submit.isPending ? (
-                        "Sending…"
-                      ) : (
-                        <>
-                          Send Me the Free Breakdown
-                          <ArrowRight className="w-4 h-4" />
-                        </>
-                      )}
-                    </button>
-
-                    {/* Social proof */}
-                    <div className="flex flex-col items-center gap-3 pt-1">
-                      <div className="flex items-center gap-2">
-                        <div className="flex -space-x-2">
-                          {["M", "T", "D"].map((initial) => (
-                            <div
-                              key={initial}
-                              className="w-7 h-7 rounded-full bg-primary/10 border-2 border-background flex items-center justify-center text-[10px] font-bold text-primary"
-                            >
-                              {initial}
-                            </div>
-                          ))}
-                        </div>
-                        <p className="text-xs text-muted-foreground font-medium">
-                          Join <span className="text-foreground font-bold">200+ junk haulers</span> already using this system
-                        </p>
-                      </div>
-                      <blockquote className="w-full text-xs text-muted-foreground italic border-l-2 border-primary/30 pl-3">
-                        "This one tip alone booked us 4 extra jobs in the first week."
-                        <span className="not-italic font-semibold text-foreground block mt-0.5">— Marcus T., Dallas TX</span>
-                      </blockquote>
-                      <p className="text-center text-muted-foreground text-xs">
-                        No spam. Just the breakdown. We may follow up by text or phone.
-                      </p>
-                    </div>
-                  </form>
-                </div>
-              )}
-
-            </div>
-            {/* end content column */}
-
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+            Free Resource — Junk Removal Owners
           </div>
-          {/* end flex row */}
+
+          {/* Headline */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-8 text-foreground">
+            Your Competitors Are Missing{" "}
+            <span className="text-primary">This Local Lead Source</span>
+          </h1>
+
+          {/* ── HERO IMAGE ── */}
+          <div className="relative mb-10">
+            <div className="absolute inset-0 -m-4 rounded-3xl bg-primary/5 blur-2xl pointer-events-none" />
+            <img
+              src={HERO_IMAGE}
+              alt="LeadHauler — Mike pointing at the free guide"
+              className="relative w-full max-w-lg mx-auto block rounded-2xl shadow-xl object-cover rotate-[-2deg] hover:rotate-0 transition-transform duration-500"
+            />
+          </div>
+
+          {/* Body copy */}
+          <div className="text-muted-foreground text-base sm:text-lg leading-relaxed space-y-4 mb-10">
+            <p>Most junk removal companies are fighting over the same leads…</p>
+            <p className="text-foreground font-semibold">
+              Google Ads.<br />
+              Facebook Ads.<br />
+              LSAs.
+            </p>
+            <p>
+              Meanwhile, there's a quiet stream of homeowners actively asking for junk removal
+              help… and barely anyone is responding.
+            </p>
+            <p>
+              We put together a{" "}
+              <span className="text-foreground font-semibold">free breakdown</span> showing:
+            </p>
+            <ul className="space-y-3 pl-1">
+              {[
+                "Where these requests are happening",
+                "How to find them daily",
+                "What to say to turn them into booked jobs",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-muted-foreground text-sm">
+              No fluff. Just a simple system you can start using today.
+            </p>
+          </div>
+
+          {/* ── FORM ── */}
+          {submitted ? (
+            <div className="rounded-2xl bg-primary/5 border border-primary/20 p-8 text-center">
+              <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle2 className="w-7 h-7 text-primary" />
+              </div>
+              <h2 className="text-xl font-extrabold text-foreground mb-2">You're all set!</h2>
+              <p className="text-muted-foreground text-sm">
+                We'll be in touch shortly with your free breakdown. Check your phone — we may reach out via text.
+              </p>
+            </div>
+          ) : (
+            <div className="rounded-2xl bg-card border border-border shadow-sm p-6 sm:p-8">
+              <p className="text-foreground font-bold text-lg mb-1">Download it free</p>
+              <p className="text-muted-foreground text-sm mb-6">
+                Enter your info below and we'll send it right over.
+              </p>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-muted-foreground mb-1.5 uppercase tracking-wide">
+                      Your Name <span className="text-primary">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="John Smith"
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/20 transition"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-muted-foreground mb-1.5 uppercase tracking-wide">
+                      Phone Number <span className="text-primary">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      placeholder="(555) 000-0000"
+                      value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                      className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/20 transition"
+                      required
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-muted-foreground mb-1.5 uppercase tracking-wide">
+                    Email Address <span className="text-primary">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="john@yourcompany.com"
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/20 transition"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-muted-foreground mb-1.5 uppercase tracking-wide">
+                    Business Name{" "}
+                    <span className="text-muted-foreground/60 normal-case font-normal">(optional)</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Acme Junk Removal"
+                    value={form.business}
+                    onChange={(e) => setForm({ ...form, business: e.target.value })}
+                    className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/20 transition"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={submit.isPending}
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold py-4 rounded-xl text-base transition-all duration-150 disabled:opacity-60 disabled:cursor-not-allowed shadow-md flex items-center justify-center gap-2"
+                >
+                  {submit.isPending ? (
+                    "Sending…"
+                  ) : (
+                    <>
+                      Send Me the Free Breakdown
+                      <ArrowRight className="w-4 h-4" />
+                    </>
+                  )}
+                </button>
+
+                {/* Social proof */}
+                <div className="flex flex-col items-center gap-3 pt-1">
+                  <div className="flex items-center gap-2">
+                    <div className="flex -space-x-2">
+                      {["M", "T", "D"].map((initial) => (
+                        <div
+                          key={initial}
+                          className="w-7 h-7 rounded-full bg-primary/10 border-2 border-background flex items-center justify-center text-[10px] font-bold text-primary"
+                        >
+                          {initial}
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-xs text-muted-foreground font-medium">
+                      Join <span className="text-foreground font-bold">200+ junk haulers</span> already using this system
+                    </p>
+                  </div>
+                  <blockquote className="w-full text-xs text-muted-foreground italic border-l-2 border-primary/30 pl-3">
+                    "This one tip alone booked us 4 extra jobs in the first week."
+                    <span className="not-italic font-semibold text-foreground block mt-0.5">— Marcus T., Dallas TX</span>
+                  </blockquote>
+                  <p className="text-center text-muted-foreground text-xs">
+                    No spam. Just the breakdown. We may follow up by text or phone.
+                  </p>
+                </div>
+              </form>
+            </div>
+          )}
+
         </div>
-        {/* end max-w-5xl */}
       </main>
 
       {/* ── FOOTER ── */}
