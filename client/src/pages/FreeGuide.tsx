@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
-import { CheckCircle2, ArrowRight, Clock } from "lucide-react";
+import { CheckCircle2, ArrowRight, Clock, X } from "lucide-react";
 
 const HERO_IMAGE =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/tease_277cfc70.PNG";
@@ -37,22 +37,155 @@ function useCountdown() {
   return { h, m, s, expired: timeLeft === 0 };
 }
 
+// Exit-intent popup component
+function ExitIntentPopup({
+  onClose,
+  onSubmit,
+  isPending,
+}: {
+  onClose: () => void;
+  onSubmit: (data: { name: string; phone: string; email: string; business: string }) => void;
+  isPending: boolean;
+}) {
+  const [popupForm, setPopupForm] = useState({ name: "", phone: "", email: "", business: "" });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!popupForm.name.trim() || !popupForm.phone.trim() || !popupForm.email.trim()) {
+      toast.error("Please fill in your name, phone, and email.");
+      return;
+    }
+    onSubmit(popupForm);
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+    >
+      <div className="relative bg-card border border-border rounded-2xl shadow-2xl w-full max-w-md p-6 sm:p-8 animate-in fade-in zoom-in-95 duration-200">
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition"
+          aria-label="Close"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        {/* Header */}
+        <div className="mb-5 pr-6">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest mb-3">
+            Wait — Don't Leave Yet
+          </div>
+          <h2 className="text-xl sm:text-2xl font-extrabold text-foreground leading-tight">
+            Your Competitors Are Already{" "}
+            <span className="text-primary">Using This Lead Source</span>
+          </h2>
+          <p className="text-muted-foreground text-sm mt-2">
+            Grab the free breakdown before you go — it takes 10 seconds and could change how you get jobs this week.
+          </p>
+        </div>
+
+        {/* Bullet points */}
+        <ul className="space-y-2 mb-5">
+          {[
+            "Find homeowners actively asking for junk removal help",
+            "Respond faster than every competitor in your area",
+            "Turn simple posts into booked jobs — starting today",
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-2 text-sm text-foreground">
+              <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <input
+              type="text"
+              placeholder="Your name *"
+              value={popupForm.name}
+              onChange={(e) => setPopupForm({ ...popupForm, name: e.target.value })}
+              className="w-full bg-background border border-border rounded-lg px-3 py-2.5 text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/20 transition"
+              required
+            />
+            <input
+              type="tel"
+              placeholder="Phone number *"
+              value={popupForm.phone}
+              onChange={(e) => setPopupForm({ ...popupForm, phone: e.target.value })}
+              className="w-full bg-background border border-border rounded-lg px-3 py-2.5 text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/20 transition"
+              required
+            />
+          </div>
+          <input
+            type="email"
+            placeholder="Email address *"
+            value={popupForm.email}
+            onChange={(e) => setPopupForm({ ...popupForm, email: e.target.value })}
+            className="w-full bg-background border border-border rounded-lg px-3 py-2.5 text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/20 transition"
+            required
+          />
+          <button
+            type="submit"
+            disabled={isPending}
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold py-3.5 rounded-xl text-sm transition-all duration-150 disabled:opacity-60 disabled:cursor-not-allowed shadow-md flex items-center justify-center gap-2"
+          >
+            {isPending ? "Sending…" : (
+              <>
+                Send Me the Free Breakdown
+                <ArrowRight className="w-4 h-4" />
+              </>
+            )}
+          </button>
+          <p className="text-center text-muted-foreground text-xs">
+            No spam. We may follow up by text or phone.
+          </p>
+        </form>
+      </div>
+    </div>
+  );
+}
+
 export default function FreeGuide() {
   const [form, setForm] = useState({ name: "", phone: "", email: "", business: "" });
   const [, navigate] = useLocation();
   const countdown = useCountdown();
 
+  // Exit-intent state
+  const [showExitPopup, setShowExitPopup] = useState(false);
+  const exitFired = useRef(false);
+
+  useEffect(() => {
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 10 && !exitFired.current) {
+        exitFired.current = true;
+        setShowExitPopup(true);
+      }
+    };
+    document.addEventListener("mouseleave", handleMouseLeave);
+    return () => document.removeEventListener("mouseleave", handleMouseLeave);
+  }, []);
+
+  const fireConversionEvents = () => {
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq("track", "Lead", { content_name: "Free Guide Download" });
+    }
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "generate_lead", {
+        event_category: "Landing Page",
+        event_label: "Free Guide Download",
+      });
+    }
+  };
+
   const submit = trpc.contact.submitGuide.useMutation({
     onSuccess: () => {
-      if (typeof window !== "undefined" && (window as any).fbq) {
-        (window as any).fbq("track", "Lead", { content_name: "Free Guide Download" });
-      }
-      if (typeof window !== "undefined" && (window as any).gtag) {
-        (window as any).gtag("event", "generate_lead", {
-          event_category: "Landing Page",
-          event_label: "Free Guide Download",
-        });
-      }
+      fireConversionEvents();
       navigate("/thank-you");
     },
     onError: (err: { message?: string }) => {
@@ -73,6 +206,15 @@ export default function FreeGuide() {
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
+
+      {/* EXIT INTENT POPUP */}
+      {showExitPopup && (
+        <ExitIntentPopup
+          onClose={() => setShowExitPopup(false)}
+          onSubmit={(data) => submit.mutate(data)}
+          isPending={submit.isPending}
+        />
+      )}
 
       {/* URGENCY BANNER */}
       {!countdown.expired && (
@@ -163,8 +305,7 @@ export default function FreeGuide() {
 
           {/* Form */}
           <div className="rounded-2xl bg-card border border-border shadow-sm p-6 sm:p-8">
-
-            {/* Limited-time offer badge above form */}
+            {/* Limited-time offer badge */}
             <div className="flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-xl px-4 py-3 mb-5">
               <Clock className="w-4 h-4 text-primary flex-shrink-0" />
               <div>
