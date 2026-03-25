@@ -19,6 +19,7 @@ import {
   DollarSign,
   Camera,
   CalendarDays,
+  BadgeCheck,
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
@@ -472,6 +473,28 @@ const tactics = [
     ],
     readTime: "6 min read",
     ctaLine: "LeadHauler plans and executes your seasonal campaigns for you — so every demand window is captured with the right ads, content, and follow-up running at exactly the right time.",
+  },
+  {
+    id: 24,
+    icon: BadgeCheck,
+    badge: "High ROI",
+    badgeColor: "bg-green-100 text-green-700",
+    category: "Google Ads",
+    title: "How Google Local Service Ads Can Become Your Cheapest Source of Booked Jobs",
+    summary:
+      "Google Local Service Ads (LSAs) put your business above everything else on the search results page — above regular Google Ads, above the map pack. And you only pay when a customer actually calls or messages you. For junk removal, this is one of the highest-ROI ad formats available.",
+    tips: [
+      "Most junk removal owners have heard of Google Ads but have never heard of Local Service Ads — and that's a competitive advantage waiting to be taken. LSAs are a separate product from regular Google Ads. They appear at the very top of Google search results, above the map pack and above standard pay-per-click ads, with a green 'Google Screened' or 'Google Guaranteed' badge next to your name. That badge alone dramatically increases click-through rates because it signals trust before a customer even reads your listing.",
+      "The biggest difference between LSAs and regular Google Ads is how you pay. With standard Google Ads, you pay every time someone clicks your ad — whether they call you, bounce immediately, or never intended to hire anyone. With LSAs, you only pay when a customer contacts you directly through the ad (a call or a message). This pay-per-lead model means your budget goes toward actual potential customers, not wasted clicks. For junk removal, where average job values run $200–$600+, even a $30–$60 cost-per-lead is extremely profitable.",
+      "To run LSAs, you need to pass Google's verification process. This includes a background check on the business owner, proof of a valid business license, and proof of general liability insurance. The process takes 1–2 weeks but is worth every minute. Once verified, you receive the 'Google Guaranteed' badge — Google will refund customers up to $2,000 if they're unsatisfied with your service. This guarantee is displayed on your ad and is one of the strongest trust signals in local advertising.",
+      "Setting up your LSA profile correctly is critical. Use a professional photo of your truck or team (not a stock image), write a clear business description that mentions your service area and what you haul, and select every relevant job type — furniture removal, appliance removal, yard waste, estate cleanouts, construction debris, and more. The more job types you select, the more searches your ad is eligible to appear for. Many operators leave job types unchecked and wonder why their ad volume is low.",
+      "Bid strategy matters. LSAs use a bidding system where you set a weekly budget and Google distributes your leads within that budget. Start with a modest weekly budget ($150–$300) to gather data on your cost-per-lead, then scale up once you know your numbers. Google also offers an automated bidding option that optimizes for lead volume — this works well once your profile has enough history (typically 20+ leads). In the early weeks, monitor your leads closely and dispute any that are clearly wrong numbers, spam, or outside your service area — Google will credit you for invalid leads.",
+      "Respond to every LSA lead within minutes. Google tracks your response rate and response time, and these metrics directly affect how often your ad is shown. Operators with fast response rates get more ad impressions for the same budget. Set up the Google Local Services app on your phone so you get instant notifications for new leads. If you miss a call, call back within 5 minutes — speed is the single biggest factor in converting LSA leads into booked jobs.",
+      "Use LSAs alongside — not instead of — regular Google Ads. LSAs cover high-intent searches like 'junk removal near me' and 'haul away old furniture,' but they don't cover every keyword. Regular Google Ads let you target a broader set of searches, run retargeting campaigns, and control your messaging more precisely. The strongest Google strategy for junk removal combines LSAs for top-of-page trust placement with standard search ads for broader keyword coverage. Together, they dominate the entire top section of Google search results.",
+      "Track your LSA performance weekly. Log into your LSA dashboard and review your cost-per-lead, lead volume, and booking rate. If your cost-per-lead is rising, check whether competitors have entered your market or whether your response rate has dropped. If lead volume is low, consider expanding your service area radius or adding more job types. LSAs reward active management — operators who check in weekly and make small adjustments consistently outperform those who set it and forget it.",
+    ],
+    readTime: "7 min read",
+    ctaLine: "LeadHauler sets up and manages your Google Local Service Ads — including verification, profile optimization, and weekly bid management — so you get the cheapest possible cost-per-lead from the most trusted ad placement on Google.",
   },
 ];
 
