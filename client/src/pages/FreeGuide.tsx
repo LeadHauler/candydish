@@ -424,13 +424,17 @@ export default function FreeGuide() {
               <div className="flex flex-col items-center gap-3 pt-1">
                 <div className="flex items-center gap-2">
                   <div className="flex -space-x-2">
-                    {["M", "T", "D"].map((initial) => (
-                      <div
-                        key={initial}
-                        className="w-7 h-7 rounded-full bg-primary/10 border-2 border-background flex items-center justify-center text-[10px] font-bold text-primary"
-                      >
-                        {initial}
-                      </div>
+                    {[
+                      "https://randomuser.me/api/portraits/men/32.jpg",
+                      "https://randomuser.me/api/portraits/men/45.jpg",
+                      "https://randomuser.me/api/portraits/men/67.jpg",
+                    ].map((src, i) => (
+                      <img
+                        key={i}
+                        src={src}
+                        alt="LeadHauler customer"
+                        className="w-8 h-8 rounded-full border-2 border-background object-cover"
+                      />
                     ))}
                   </div>
                   <p className="text-xs text-muted-foreground font-medium">
