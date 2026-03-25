@@ -27,8 +27,8 @@ export default function FreeGuide() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.phone.trim()) {
-      toast.error("Please enter your name and phone number.");
+    if (!form.name.trim() || !form.phone.trim() || !form.email.trim()) {
+      toast.error("Please fill in your name, phone number, and email.");
       return;
     }
     submit.mutate(form);
@@ -145,8 +145,7 @@ export default function FreeGuide() {
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-muted-foreground mb-1.5 uppercase tracking-wide">
-                    Email Address{" "}
-                    <span className="text-muted-foreground/60 normal-case font-normal">(optional)</span>
+                    Email Address <span className="text-primary">*</span>
                   </label>
                   <input
                     type="email"
@@ -154,6 +153,7 @@ export default function FreeGuide() {
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/20 transition"
+                    required
                   />
                 </div>
                 <div>
@@ -183,9 +183,31 @@ export default function FreeGuide() {
                     </>
                   )}
                 </button>
-                <p className="text-center text-muted-foreground text-xs">
-                  No spam. No pitch. Just the breakdown. We may follow up by text or phone.
-                </p>
+                {/* Social proof */}
+                <div className="flex flex-col items-center gap-3 pt-1">
+                  <div className="flex items-center gap-2">
+                    <div className="flex -space-x-2">
+                      {["M", "T", "D"].map((initial) => (
+                        <div
+                          key={initial}
+                          className="w-7 h-7 rounded-full bg-primary/10 border-2 border-background flex items-center justify-center text-[10px] font-bold text-primary"
+                        >
+                          {initial}
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-xs text-muted-foreground font-medium">
+                      Join <span className="text-foreground font-bold">200+ junk haulers</span> already using this system
+                    </p>
+                  </div>
+                  <blockquote className="text-center text-xs text-muted-foreground italic border-l-2 border-primary/30 pl-3 text-left">
+                    "This one tip alone booked us 4 extra jobs in the first week."
+                    <span className="not-italic font-semibold text-foreground block mt-0.5">— Marcus T., Dallas TX</span>
+                  </blockquote>
+                  <p className="text-center text-muted-foreground text-xs">
+                    No spam. Just the breakdown. We may follow up by text or phone.
+                  </p>
+                </div>
               </form>
             </div>
           )}
