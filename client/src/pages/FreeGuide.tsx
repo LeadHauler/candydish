@@ -428,6 +428,7 @@ export default function FreeGuide() {
                       "https://randomuser.me/api/portraits/men/32.jpg",
                       "https://randomuser.me/api/portraits/men/45.jpg",
                       "https://randomuser.me/api/portraits/men/67.jpg",
+                      "https://randomuser.me/api/portraits/men/12.jpg",
                     ].map((src, i) => (
                       <img
                         key={i}
