@@ -124,6 +124,27 @@ const testimonials = [
     stars: 5,
     photo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/testimonial-jason-fH6BHHnZbCSCp8PD7ee7nm.webp",
   },
+  {
+    name: "Chris M.",
+    location: "Nashville, TN",
+    text: "I was running everything myself — ads, calls, follow-ups. LeadHauler took it all off my plate. Now I just show up and do the work. Revenue is up 60% since we started.",
+    stars: 5,
+    photo: "https://randomuser.me/api/portraits/men/54.jpg",
+  },
+  {
+    name: "Tony B.",
+    location: "Denver, CO",
+    text: "The LSA setup alone was worth every penny. We got the Google Guaranteed badge in two weeks and the leads started coming in immediately. Highly recommend.",
+    stars: 5,
+    photo: "https://randomuser.me/api/portraits/men/78.jpg",
+  },
+  {
+    name: "Ray V.",
+    location: "Charlotte, NC",
+    text: "Three months in and we've doubled our monthly jobs. The remarketing campaigns bring back customers we thought were gone for good. Solid team, real results.",
+    stars: 5,
+    photo: "https://randomuser.me/api/portraits/men/23.jpg",
+  },
 ];
 
 const faqs = [
