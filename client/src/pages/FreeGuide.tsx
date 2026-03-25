@@ -159,7 +159,10 @@ export default function FreeGuide() {
   // Exit-intent state
   const [showExitPopup, setShowExitPopup] = useState(false);
   const exitFired = useRef(false);
+  const lastScrollY = useRef(0);
+  const maxScrollY = useRef(0);
 
+  // Desktop: mouseleave at top of viewport
   useEffect(() => {
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 10 && !exitFired.current) {
@@ -169,6 +172,31 @@ export default function FreeGuide() {
     };
     document.addEventListener("mouseleave", handleMouseLeave);
     return () => document.removeEventListener("mouseleave", handleMouseLeave);
+  }, []);
+
+  // Mobile: fire popup when user scrolls back up after reaching 30% depth
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPct = docHeight > 0 ? currentY / docHeight : 0;
+
+      if (scrollPct > maxScrollY.current) maxScrollY.current = scrollPct;
+
+      const scrolledBack = lastScrollY.current - currentY > 80; // scrolled up 80px
+      const reachedDepth = maxScrollY.current >= 0.30; // had reached 30% depth
+      const isMobile = window.innerWidth < 768;
+
+      if (isMobile && scrolledBack && reachedDepth && !exitFired.current) {
+        exitFired.current = true;
+        setShowExitPopup(true);
+      }
+
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const fireConversionEvents = () => {
