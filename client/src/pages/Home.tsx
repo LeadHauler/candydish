@@ -410,17 +410,18 @@ export default function Home() {
             </div>
 
             {/* ── RIGHT: Mike image + stat card panel (desktop only) ── */}
-            <div className="hidden lg:flex flex-col gap-4 pl-8">
-              {/* Mike image — sits above the blue block */}
-              <div className="flex justify-center">
+            <div className="hidden lg:flex flex-col pl-8" style={{ gap: 0 }}>
+              {/* Mike image — flush to top, overlaps the card below */}
+              <div className="relative z-10 -mb-16">
                 <img
                   src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/mike-hero_69b4daf8.png"
                   alt="Mike from LeadHauler"
-                  className="w-full max-w-sm object-contain drop-shadow-xl"
+                  className="w-full object-contain object-bottom drop-shadow-2xl"
+                  style={{ maxHeight: '520px' }}
                 />
               </div>
-              {/* Big stat card */}
-              <div ref={stat312.ref} className="rounded-2xl bg-primary p-8 text-primary-foreground shadow-2xl">
+              {/* Big stat card — Mike overlaps from above */}
+              <div ref={stat312.ref} className="relative rounded-2xl bg-primary px-8 pb-8 pt-20 text-primary-foreground shadow-2xl">
                 <p className="text-6xl font-black text-accent mb-2">{stat312.count}%</p>
                 <p className="text-lg font-semibold mb-1">Average lead increase</p>
                 <p className="text-primary-foreground/70 text-sm">Across active LeadHauler System clients in their first 90 days.</p>
