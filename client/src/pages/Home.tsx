@@ -359,7 +359,7 @@ export default function Home() {
               </div>
 
               {/* Headline — controlled line-break so each sentence sits on its own line */}
-              <h1 className="text-[2.6rem] leading-[1.08] sm:text-6xl sm:leading-[1.06] lg:text-6xl xl:text-7xl font-extrabold text-foreground tracking-tight mb-6">
+              <h1 className="text-[2.6rem] leading-[1.15] sm:text-6xl sm:leading-[1.12] lg:text-6xl xl:text-7xl text-foreground tracking-tight mb-6" style={{ fontFamily: "'Permanent Marker', cursive" }}>
                 We Haul In<br className="hidden sm:block" /> the Leads.<br />
                 <span className="text-primary">You Haul Out<br className="hidden sm:block" /> the Junk.</span>
               </h1>
