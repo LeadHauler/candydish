@@ -409,35 +409,14 @@ export default function Home() {
               </div>
             </div>
 
-            {/* ── RIGHT: Mike image + stat card panel (desktop only) ── */}
-            <div className="hidden lg:flex flex-col pl-8" style={{ gap: 0 }}>
-              {/* Mike image — large, above the card, only feet slightly overlap */}
-              <div className="relative z-10" style={{ marginBottom: '-32px' }}>
-                <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/mike-hero_69b4daf8.png"
-                  alt="Mike from LeadHauler"
-                  className="w-full object-contain object-bottom drop-shadow-2xl"
-                  style={{ height: '580px' }}
-                />
-              </div>
-              {/* Big stat card — sits cleanly below Mike */}
-              <div ref={stat312.ref} className="relative rounded-2xl bg-primary px-8 pb-8 pt-10 text-primary-foreground shadow-2xl">
-                <p className="text-6xl font-black text-accent mb-2">{stat312.count}%</p>
-                <p className="text-lg font-semibold mb-1">Average lead increase</p>
-                <p className="text-primary-foreground/70 text-sm">Across active LeadHauler System clients in their first 90 days.</p>
-              </div>
-              {/* Social proof strip */}
-              <div className="rounded-2xl bg-accent/10 border border-accent/20 p-5 flex items-center gap-4">
-                <div className="flex -space-x-2">
-                   <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/hero-avatar-mike-Ub4UZgCBy7TE2AVBpybWaY.webp" alt="Mike" className="w-9 h-9 rounded-full border-2 border-background object-cover" />
-                   <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/hero-avatar-jason-QEsVpNmgzTvnvzDQ5hrzuq.webp" alt="Jason" className="w-9 h-9 rounded-full border-2 border-background object-cover" />
-                   <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/hero-avatar-derek-grnTXPDz5UVywfW3nNMfjD.webp" alt="Derek" className="w-9 h-9 rounded-full border-2 border-background object-cover" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">Trusted by junk haulers nationwide</p>
-                  <p className="text-xs text-muted-foreground">Solo operators to multi-truck fleets</p>
-                </div>
-              </div>
+            {/* ── RIGHT: Mike fills entire right side of hero ── */}
+            <div className="hidden lg:flex items-end justify-center self-stretch">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/mike-hero_69b4daf8.png"
+                alt="Mike from LeadHauler"
+                className="w-full object-contain object-bottom drop-shadow-2xl"
+                style={{ maxHeight: '700px', height: '100%' }}
+              />
             </div>
 
           </div>
