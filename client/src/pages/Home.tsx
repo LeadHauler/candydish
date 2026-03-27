@@ -409,13 +409,13 @@ export default function Home() {
               </div>
             </div>
 
-            {/* ── RIGHT: Mike flush to bottom, fills full column height ── */}
+            {/* ── RIGHT: Mike flush to bottom, shifted left to close gap ── */}
             <div className="hidden lg:block relative self-stretch">
               <img
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/mike-hero-1800_8e7d360b.png"
                 alt="Mike from LeadHauler"
-                className="absolute bottom-0 left-0 w-full object-contain object-bottom drop-shadow-2xl"
-                style={{ maxHeight: '110%' }}
+                className="absolute bottom-0 object-contain object-bottom drop-shadow-2xl"
+                style={{ maxHeight: '110%', width: '110%', left: '-10%' }}
               />
             </div>
 
