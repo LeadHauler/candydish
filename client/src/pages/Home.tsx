@@ -412,7 +412,7 @@ export default function Home() {
             {/* ── RIGHT: Mike fills entire right side of hero, as large as possible ── */}
             <div className="hidden lg:flex items-end justify-center self-stretch overflow-visible">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/mike-hero_69b4daf8.png"
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/mike-hero-1800_8e7d360b.png"
                 alt="Mike from LeadHauler"
                 className="w-full object-contain object-bottom drop-shadow-2xl"
                 style={{ height: 'auto', maxWidth: '100%', display: 'block' }}
