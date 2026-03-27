@@ -409,26 +409,21 @@ export default function Home() {
               </div>
             </div>
 
-            {/* ── RIGHT: stat card panel (desktop only) ── */}
+            {/* ── RIGHT: Mike image + stat card panel (desktop only) ── */}
             <div className="hidden lg:flex flex-col gap-4 pl-8">
+              {/* Mike image — sits above the blue block */}
+              <div className="flex justify-center">
+                <img
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/mike-hero_69b4daf8.png"
+                  alt="Mike from LeadHauler"
+                  className="w-full max-w-sm object-contain drop-shadow-xl"
+                />
+              </div>
               {/* Big stat card */}
               <div ref={stat312.ref} className="rounded-2xl bg-primary p-8 text-primary-foreground shadow-2xl">
                 <p className="text-6xl font-black text-accent mb-2">{stat312.count}%</p>
                 <p className="text-lg font-semibold mb-1">Average lead increase</p>
                 <p className="text-primary-foreground/70 text-sm">Across active LeadHauler System clients in their first 90 days.</p>
-              </div>
-              {/* Two smaller cards */}
-              <div className="grid grid-cols-2 gap-4">
-                <div ref={stat14.ref} className="rounded-2xl bg-card border border-border p-6 shadow-sm">
-                  <p className="text-4xl font-black text-primary mb-1">{stat14.count}</p>
-                  <p className="text-sm font-semibold text-foreground">Days to first lead</p>
-                  <p className="text-xs text-muted-foreground mt-1">Guaranteed or we work free.</p>
-                </div>
-                <div ref={stat7.ref} className="rounded-2xl bg-card border border-border p-6 shadow-sm">
-                  <p className="text-4xl font-black text-primary mb-1">{stat7.count}</p>
-                  <p className="text-sm font-semibold text-foreground">Channels managed</p>
-                  <p className="text-xs text-muted-foreground mt-1">All done for you, every day.</p>
-                </div>
               </div>
               {/* Social proof strip */}
               <div className="rounded-2xl bg-accent/10 border border-accent/20 p-5 flex items-center gap-4">
