@@ -348,10 +348,10 @@ export default function Home() {
 
         <div className="container relative">
           {/* Two-column layout on desktop: text left, visual right */}
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch pt-10 pb-16 sm:pt-14 sm:pb-24 lg:pt-16 lg:pb-16">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch pt-10 pb-16 sm:pt-14 sm:pb-24 lg:pt-16 lg:pb-0">
 
             {/* ── LEFT: copy ── */}
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-start pb-16 lg:pb-16">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/20 text-accent-foreground text-xs font-semibold mb-6 border border-accent/30">
                 <Zap className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
@@ -409,13 +409,13 @@ export default function Home() {
               </div>
             </div>
 
-            {/* ── RIGHT: Mike fills entire right side of hero, as large as possible ── */}
-            <div className="hidden lg:flex items-end justify-center self-stretch overflow-visible">
+            {/* ── RIGHT: Mike flush to bottom, fills full column height ── */}
+            <div className="hidden lg:block relative self-stretch">
               <img
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/mike-hero-1800_8e7d360b.png"
                 alt="Mike from LeadHauler"
-                className="w-full object-contain object-bottom drop-shadow-2xl"
-                style={{ height: 'auto', maxWidth: '100%', display: 'block' }}
+                className="absolute bottom-0 left-0 w-full object-contain object-bottom drop-shadow-2xl"
+                style={{ maxHeight: '110%' }}
               />
             </div>
 
