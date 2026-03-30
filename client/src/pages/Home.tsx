@@ -638,9 +638,9 @@ export default function Home() {
                 features: [
                   "Google Ads management (up to $1,500 ad spend)",
                   "Local SEO optimization",
-                  "Google Business Profile management",
+                  "Google Business Profile audit & management.",
                   "Full access to our local partnership outreach tool.",
-                  "Full access to our JunkSnap quoting tool.",
+                  "Full access to our FlatHaul quick quote tool.",
                   "Remarketing & re-engagement campaigns",
                   "Monthly performance report",
                 ],
