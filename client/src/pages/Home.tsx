@@ -632,7 +632,7 @@ export default function Home() {
             {[
               {
                 name: "Starter",
-                price: "$997",
+                price: "$80",
                 period: "/mo",
                 desc: "Perfect for new or small junk removal operations ready to grow.",
                 features: [
@@ -649,7 +649,7 @@ export default function Home() {
               },
               {
                 name: "Growth",
-                price: "$1,997",
+                price: "$200",
                 period: "/mo",
                 desc: "For established operators ready to dominate their local market.",
                 features: [
@@ -665,7 +665,7 @@ export default function Home() {
               },
               {
                 name: "Dominator",
-                price: "$3,497",
+                price: "$500",
                 period: "/mo",
                 desc: "For multi-truck operations or owners expanding to new markets.",
                 features: [
@@ -729,12 +729,16 @@ export default function Home() {
                   <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" />
                   <span>First leads in 14 days — or we work free</span>
                 </div>
+                <p className={`text-center text-xs mt-1 ${plan.highlight ? "text-primary-foreground/50" : "text-muted-foreground/70"}`}>
+                  No contract. Cancel anytime.
+                </p>
               </div>
             ))}
           </div>
-          <p className="text-center text-sm text-muted-foreground mt-8">
-            Ad spend is billed separately and goes directly to Google/Meta — we never mark it up.
-          </p>
+          <div className="text-center mt-8 space-y-1">
+            <p className="text-sm text-muted-foreground">Ad spend is billed separately and goes directly to Google/Meta — we never mark it up.</p>
+            <p className="text-sm font-semibold text-foreground">All packages require a $997 one-time setup fee.</p>
+          </div>
         </div>
       </section>
 
