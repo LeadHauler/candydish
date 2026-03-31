@@ -648,7 +648,7 @@ export default function Home() {
                   "Local SEO optimization",
                   "Google Business Profile audit & management.",
                   "Full access to our local partnership outreach tool.",
-                  "Full access to our FlatHaul quick quote tool.",
+                  "Full access to our Speed-to-lead quick quote tool.",
                   "Remarketing & re-engagement campaigns",
                   "Monthly performance report",
                 ],
