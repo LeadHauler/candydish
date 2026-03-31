@@ -172,6 +172,14 @@ const faqs = [
     q: "How do I know what I'm paying for?",
     a: "You get a live reporting dashboard showing every lead, every call, and every dollar spent. Full transparency, always.",
   },
+  {
+    q: "What is the Speed-to-Lead tool?",
+    a: "Speed-to-Lead is LeadHauler's automated response system included in every package. The moment a new lead comes in — whether from a Google Ad, your website form, a Facebook ad, or a text — the system fires an immediate, personalized follow-up message back to that prospect within minutes. You set your pricing parameters and preferred message once during onboarding; Speed-to-Lead handles every response from there. No more missed leads because you were on a job or off the clock.",
+  },
+  {
+    q: "How does Speed-to-Lead help me win more jobs?",
+    a: "Studies consistently show that the first company to respond to a lead wins the job up to 78% of the time. Most junk removal operators call back an hour later — or not at all. Speed-to-Lead puts you in front of every prospect within minutes, every time, automatically. That speed signals professionalism, builds instant trust, and dramatically increases your close rate without any extra effort on your part. It is the single highest-leverage tool we include in every LeadHauler plan.",
+  },
 ];
 
 export default function Home() {
