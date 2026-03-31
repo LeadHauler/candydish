@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Tactics from "./pages/Tactics";
 import FreeGuide from "./pages/FreeGuide";
+import SpeedToLead from "./pages/SpeedToLead";
 import ThankYou from "./pages/ThankYou";
 
 function Router() {
@@ -15,6 +16,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/tactics" component={Tactics} />
       <Route path="/free-guide-djpkcaah8tne" component={FreeGuide} />
+      <Route path="/speed-to-lead-xk9m2pqr7" component={SpeedToLead} />
       <Route path="/thank-you" component={ThankYou} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
