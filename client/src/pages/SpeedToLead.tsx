@@ -340,6 +340,17 @@ export default function SpeedToLead() {
             you're on a job, driving, or off the clock.
           </p>
 
+          {/* Video embed */}
+          <div className="mb-10 rounded-2xl overflow-hidden shadow-lg" style={{ position: "relative", width: "100%", height: 0, paddingBottom: "100%" }}>
+            <iframe
+              allow="fullscreen"
+              allowFullScreen
+              src="https://streamable.com/e/crcfcf?loop=0"
+              style={{ border: "none", width: "100%", height: "100%", position: "absolute", left: 0, top: 0, overflow: "hidden" }}
+              title="Speed-to-Lead Demo"
+            />
+          </div>
+
           {/* Stats row */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
             {stats.map(({ icon: Icon, value, label }) => (
