@@ -223,7 +223,7 @@ export default function EightChannels() {
   const submit = trpc.contact.submitGuide.useMutation({
     onSuccess: () => {
       fireConversionEvents();
-      navigate("/thank-you");
+      navigate("/thank-you-channels");
     },
     onError: (err: { message?: string }) => {
       toast.error(err.message || "Something went wrong. Please try again.");
