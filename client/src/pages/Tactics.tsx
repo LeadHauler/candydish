@@ -606,6 +606,26 @@ const tactics = [
     readTime: "6 min read",
     ctaLine: "LeadHauler builds your entire lead conversion system — from the first automated response to the follow-up sequence to the review request — so you close more of the leads you're already paying to generate.",
   },
+  {
+    id: 30,
+    icon: TrendingUp,
+    category: "Growth",
+    tag: "Pricing",
+    tagColor: "bg-orange-100 text-orange-700",
+    title: "The Never-Discount Rule",
+    summary:
+      "Once you set your price, do not lower it. Discounting teaches customers that your prices are negotiable — and that lesson spreads. Every time you drop your rate to close a job, you erode your margin, signal desperation, and train the market to expect a deal. The operators who protect their pricing win more in the long run, not less.",
+    tips: [
+      "Never lower the price — add value instead. When a customer pushes back on price, the instinct is to drop the number. Resist it. The moment you discount, you've confirmed that your original price was inflated, and you've opened the door to every future negotiation. Instead, hold the price and add something that costs you little but feels meaningful to the customer. Throw in an extra small item at no charge. Add a broom sweep of an adjacent area. Offer a faster arrival window. Include a donation receipt for tax-deductible items. The cost to you is minimal. The impact on your close rate is significant — and your price integrity stays intact.",
+      "Understand what the objection is actually about. Most price objections are not really about price. They're about uncertainty. The customer isn't sure they're getting a fair deal, or they're not sure you're the right company, or they've been burned before by a contractor who charged more than the quote. When you hear 'that's a little high,' the right response is not to lower the number — it's to reduce the uncertainty. Reinforce your guarantee. Mention your reviews. Remind them that your price is all-inclusive with no surprise fees at the end. Addressing the real objection closes more jobs than any discount ever will.",
+      "Know your floor and never go below it. Every job has a minimum that makes it worth running the truck. Calculate yours: fuel, dump fees, labor, time, overhead. That number is your floor. Never quote below it, and never discount below it. Operators who don't know their floor end up doing jobs that cost them money to complete — and they wonder why they're busy but not profitable. Knowing your floor gives you the confidence to hold your price, because you know exactly what you're protecting.",
+      "Use scarcity and availability as a close instead of price. If a customer is on the fence, the most effective close is not a lower price — it's a tighter window. 'We actually have a slot open this afternoon, but I can't hold it past noon.' This creates urgency without touching your margin. The customer's decision calculus shifts from 'is this worth $275?' to 'do I want to lose this slot?' Availability is a real constraint in a service business. Use it honestly and it becomes one of your most powerful closing tools.",
+      "Document your value-adds so they feel deliberate, not desperate. When you add value instead of discounting, the way you deliver it matters. Don't say 'I'll throw in the extra item' in a way that sounds like you're scrambling. Say: 'What I can do is include the removal of that extra piece at no charge — that's something we do for customers who book same-day.' Framing the value-add as a deliberate gesture rather than a concession keeps you in control of the conversation and reinforces that your pricing is firm and fair.",
+      "Track your close rate at full price — it's higher than you think. Many operators assume they need to discount to compete. The data rarely supports this. Track your close rate for 30 days without discounting and compare it to the 30 days before. Most operators find that their full-price close rate is within a few percentage points of their discounted close rate — but their margin is dramatically higher. The jobs you lose by holding price are almost always the jobs that would have been the most difficult customers anyway. Protecting your price protects your business.",
+    ],
+    readTime: "5 min read",
+    ctaLine: "LeadHauler trains your team on pricing confidence and builds the follow-up systems that close leads at full price — so you stop leaving margin on the table and start running a more profitable operation.",
+  },
 ];
 
 const CATEGORIES = [
