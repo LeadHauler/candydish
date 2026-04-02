@@ -374,9 +374,7 @@ export default function Home() {
 
               {/* Body copy */}
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl">
-                LeadHauler is the only complete, done-for-you marketing system built exclusively for junk removal businesses. We handle{" "}
-                <strong className="text-foreground font-semibold">everything</strong>{" "}
-                — ads, SEO, website, landing pages, social media, reviews, and local referral pipelines — so your phone rings and your schedule stays full.
+                LeadHauler is the only complete, done-for-you, 8 channel marketing system built exclusively for junk removal businesses — covering everything from lead generation and local SEO to ads, referrals, and follow-up automation — so your phone rings and your schedule stays full.
               </p>
 
               {/* CTAs */}
