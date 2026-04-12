@@ -356,7 +356,7 @@ export default function Home() {
 
         <div className="container relative">
           {/* Two-column layout on desktop: text left, visual right */}
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch pt-10 pb-16 sm:pt-14 sm:pb-24 lg:pt-16 lg:pb-0">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch pt-10 pb-16 sm:pt-14 sm:pb-24 lg:pt-16 lg:pb-10">
 
             {/* ── LEFT: copy ── */}
             <div className="flex flex-col items-start pb-16 lg:pb-16">
@@ -416,7 +416,7 @@ export default function Home() {
             </div>
 
             {/* ── RIGHT: Mike flush to bottom, shifted left to close gap ── */}
-            <div className="hidden lg:flex items-center justify-center" style={{ marginLeft: '-8%' }}>
+            <div className="hidden lg:flex items-center justify-center" style={{ marginLeft: '-4%', paddingLeft: '2%' }}>
               <div
                 style={{
                   position: 'relative',
