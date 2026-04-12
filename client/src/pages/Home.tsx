@@ -372,6 +372,36 @@ export default function Home() {
                 <span className="text-primary">You Haul Out<br className="hidden sm:block" /> the Junk.</span>
               </h1>
 
+              {/* Mobile-only video — shown between headline and body copy */}
+              <div className="block lg:hidden w-full mb-6 mt-2">
+                <div
+                  style={{
+                    position: 'relative',
+                    width: '100%',
+                    height: 0,
+                    paddingBottom: '100%',
+                    borderRadius: '0.75rem',
+                    overflow: 'hidden',
+                    boxShadow: '0 6px 24px rgba(0,0,0,0.15)',
+                  }}
+                >
+                  <iframe
+                    allow="fullscreen"
+                    allowFullScreen
+                    src="https://streamable.com/e/azn80q?loop=0"
+                    style={{
+                      border: 'none',
+                      width: '100%',
+                      height: '100%',
+                      position: 'absolute',
+                      left: 0,
+                      top: 0,
+                      overflow: 'hidden',
+                    }}
+                  />
+                </div>
+              </div>
+
               {/* Body copy */}
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl">
                 LeadHauler is the only complete, done-for-you, 8 channel marketing system built exclusively for junk removal businesses — covering everything from lead generation and local SEO to ads, referrals, and follow-up automation — so your phone rings and your schedule stays full.
