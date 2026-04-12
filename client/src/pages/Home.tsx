@@ -416,7 +416,7 @@ export default function Home() {
             </div>
 
             {/* ── RIGHT: Mike flush to bottom, shifted left to close gap ── */}
-            <div className="hidden lg:flex items-center justify-center">
+            <div className="hidden lg:flex items-center justify-center" style={{ marginLeft: '-8%' }}>
               <div
                 style={{
                   position: 'relative',
