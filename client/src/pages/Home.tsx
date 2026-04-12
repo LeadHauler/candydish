@@ -416,13 +416,33 @@ export default function Home() {
             </div>
 
             {/* ── RIGHT: Mike flush to bottom, shifted left to close gap ── */}
-            <div className="hidden lg:block relative self-stretch">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/mike-hero-1800_8e7d360b.png"
-                alt="Mike from LeadHauler"
-                className="absolute bottom-0 object-contain object-bottom drop-shadow-2xl"
-                style={{ maxHeight: '110%', width: '110%', left: '-10%' }}
-              />
+            <div className="hidden lg:flex items-center justify-center">
+              <div
+                style={{
+                  position: 'relative',
+                  width: '100%',
+                  height: 0,
+                  paddingBottom: '100%',
+                  borderRadius: '1rem',
+                  overflow: 'hidden',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.18)',
+                }}
+              >
+                <iframe
+                  allow="fullscreen"
+                  allowFullScreen
+                  src="https://streamable.com/e/azn80q?loop=0"
+                  style={{
+                    border: 'none',
+                    width: '100%',
+                    height: '100%',
+                    position: 'absolute',
+                    left: 0,
+                    top: 0,
+                    overflow: 'hidden',
+                  }}
+                />
+              </div>
             </div>
 
           </div>
