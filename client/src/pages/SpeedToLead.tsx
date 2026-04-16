@@ -164,7 +164,7 @@ const stats = [
 const plans = [
   {
     name: "Starter",
-    price: "$1,800",
+    price: "$1800",
     highlight: false,
     features: [
       "Speed-to-Lead tool included",
@@ -177,7 +177,7 @@ const plans = [
   },
   {
     name: "Growth",
-    price: "$2,500",
+    price: "$2500",
     highlight: true,
     badge: "Most Popular",
     features: [
@@ -193,7 +193,7 @@ const plans = [
   },
   {
     name: "Dominator",
-    price: "$5,500",
+    price: "$5500",
     highlight: false,
     features: [
       "Speed-to-Lead tool included",
