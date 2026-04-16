@@ -688,7 +688,7 @@ export default function Home() {
             {[
               {
                 name: "Starter",
-                price: "$80",
+                price: "$1,800",
                 period: "/mo",
                 desc: "Perfect for new or small junk removal operations ready to grow.",
                 features: [
@@ -705,7 +705,7 @@ export default function Home() {
               },
               {
                 name: "Growth",
-                price: "$200",
+                price: "$2,500",
                 period: "/mo",
                 desc: "For established operators ready to dominate their local market.",
                 features: [
@@ -721,7 +721,7 @@ export default function Home() {
               },
               {
                 name: "Dominator",
-                price: "$500",
+                price: "$5,500",
                 period: "/mo",
                 desc: "For multi-truck operations or owners expanding to new markets.",
                 features: [
