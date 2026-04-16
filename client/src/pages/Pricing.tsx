@@ -1,7 +1,106 @@
-import { useState } from "react";
-import { CheckCircle2, ShieldCheck, Zap, ArrowRight, Star } from "lucide-react";
+import { useState, useMemo } from "react";
+import { CheckCircle2, ShieldCheck, Zap, ArrowRight, Star, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+
+function RoiCalculator() {
+  const [jobValue, setJobValue] = useState(350);
+  const [bookingRate, setBookingRate] = useState(35);
+  const [jobsWanted, setJobsWanted] = useState(30);
+  const [cpl, setCpl] = useState(60);
+  const [margin, setMargin] = useState(55);
+
+  const calc = useMemo(() => {
+    const leadsNeeded = Math.ceil(jobsWanted / (bookingRate / 100));
+    const adSpend = leadsNeeded * cpl;
+    const revenue = jobsWanted * jobValue;
+    const grossProfit = revenue * (margin / 100);
+    const roi = adSpend > 0 ? ((grossProfit - adSpend) / adSpend) * 100 : 0;
+    return { leadsNeeded, adSpend, revenue, grossProfit, roi };
+  }, [jobValue, bookingRate, jobsWanted, cpl, margin]);
+
+  const fmt = (n: number) => n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+
+  return (
+    <div className="mt-10 rounded-2xl border border-border bg-card shadow-md overflow-hidden">
+      <div className="bg-primary/10 border-b border-border px-6 py-4 flex items-center gap-2">
+        <Calculator className="w-5 h-5 text-primary" />
+        <h3 className="font-bold text-foreground text-lg">ROI Calculator</h3>
+        <span className="ml-auto text-xs text-muted-foreground">Adjust the sliders to estimate your results</span>
+      </div>
+      <div className="p-6 grid md:grid-cols-2 gap-8">
+        {/* Inputs */}
+        <div className="space-y-5">
+          {[
+            { label: "Jobs wanted per month", value: jobsWanted, set: setJobsWanted, min: 5, max: 200, step: 5, fmt: (v: number) => `${v} jobs` },
+            { label: "Average job value", value: jobValue, set: setJobValue, min: 100, max: 2000, step: 50, fmt: (v: number) => `$${v}` },
+            { label: "Booking rate", value: bookingRate, set: setBookingRate, min: 10, max: 80, step: 5, fmt: (v: number) => `${v}%` },
+            { label: "Cost per lead (CPL)", value: cpl, set: setCpl, min: 20, max: 200, step: 5, fmt: (v: number) => `$${v}` },
+            { label: "Gross margin", value: margin, set: setMargin, min: 20, max: 80, step: 5, fmt: (v: number) => `${v}%` },
+          ].map(({ label, value, set, min, max, step, fmt: fmtVal }) => (
+            <div key={label}>
+              <div className="flex justify-between mb-1">
+                <label className="text-sm font-medium text-foreground">{label}</label>
+                <span className="text-sm font-bold text-primary">{fmtVal(value)}</span>
+              </div>
+              <input
+                type="range"
+                min={min} max={max} step={step}
+                value={value}
+                onChange={(e) => set(Number(e.target.value))}
+                className="w-full accent-primary h-2 rounded-full cursor-pointer"
+              />
+              <div className="flex justify-between text-xs text-muted-foreground mt-0.5">
+                <span>{fmtVal(min)}</span><span>{fmtVal(max)}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Results */}
+        <div className="flex flex-col gap-4">
+          <div className="grid grid-cols-2 gap-3">
+            {[
+              { label: "Leads needed", value: `${calc.leadsNeeded}`, sub: "per month" },
+              { label: "Est. ad spend", value: fmt(calc.adSpend), sub: "per month" },
+              { label: "Est. revenue", value: fmt(calc.revenue), sub: "per month" },
+              { label: "Est. gross profit", value: fmt(calc.grossProfit), sub: "after margin" },
+            ].map(({ label, value, sub }) => (
+              <div key={label} className="rounded-xl bg-muted/50 border border-border p-4 text-center">
+                <p className="text-xs text-muted-foreground mb-1">{label}</p>
+                <p className="text-xl font-black text-foreground">{value}</p>
+                <p className="text-xs text-muted-foreground">{sub}</p>
+              </div>
+            ))}
+          </div>
+          <div className={`rounded-xl p-4 text-center border ${
+            calc.roi >= 100 ? "bg-green-50 border-green-200" :
+            calc.roi >= 0 ? "bg-amber-50 border-amber-200" :
+            "bg-red-50 border-red-200"
+          }`}>
+            <p className="text-xs font-semibold text-muted-foreground mb-1">Estimated ROI on Ad Spend</p>
+            <p className={`text-3xl font-black ${
+              calc.roi >= 100 ? "text-green-600" :
+              calc.roi >= 0 ? "text-amber-600" :
+              "text-red-600"
+            }`}>{calc.roi.toFixed(0)}%</p>
+            <p className="text-xs text-muted-foreground mt-1">
+              {calc.roi >= 200 ? "Strong returns — ready to scale" :
+               calc.roi >= 100 ? "Solid — room to grow" :
+               calc.roi >= 0 ? "Marginal — improve booking rate first" :
+               "Negative — review capacity before spending more"}
+            </p>
+          </div>
+          <a href="#contact">
+            <Button className="w-full bg-primary text-primary-foreground font-bold">
+              Get My Free Strategy Call →
+            </Button>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const plans = [
   {
@@ -216,6 +315,9 @@ export default function Pricing() {
             <p className="font-semibold text-foreground">
               LeadHauler can deliver the leads — but your systems and crew need to be ready to turn those leads into revenue.
             </p>
+
+            {/* ── ROI CALCULATOR ── */}
+            <RoiCalculator />
           </div>
         </div>
       </section>
