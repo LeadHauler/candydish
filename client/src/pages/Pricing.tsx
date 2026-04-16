@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { CheckCircle2, ShieldCheck, Zap, ArrowRight, Star, Calculator } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Zap, ArrowRight, Star, Calculator, Phone, Mail, Facebook, Youtube, Clock, BarChart2, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
@@ -324,41 +324,45 @@ export default function Pricing() {
       </section>
 
       {/* ── CONTACT FORM ── */}
-      <section id="contact" className="py-16 bg-foreground text-background">
+      <section id="contact" className="py-16 bg-background">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto items-start">
             {/* Left */}
             <div>
-              <p className="text-xs font-bold tracking-widest uppercase text-amber-400 mb-3">Get Started Today</p>
-              <h2 className="text-3xl sm:text-4xl font-black mb-4 leading-tight">
+              <p className="text-xs font-bold tracking-widest uppercase text-amber-500 mb-3">Get Started Today</p>
+              <h2 className="text-3xl sm:text-4xl font-black mb-4 leading-tight text-foreground">
                 Ready to stop guessing and<br className="hidden sm:block" /> start growing?
               </h2>
-              <p className="text-background/70 mb-8 text-base leading-relaxed">
-                Book a free strategy call. We'll review your market, your current setup, and show you exactly what a LeadHauler campaign would look like for your business — no obligation.
+              <p className="text-muted-foreground mb-8 text-base leading-relaxed">
+                Book a free 30-minute strategy call. We'll review your current marketing, show you what your competitors are doing, and give you a custom growth plan — no obligation.
               </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-4 mb-8">
                 {[
-                  "30-minute call, no sales pressure",
-                  "Free competitive analysis included",
-                  "No long-term contracts",
-                  "First leads in 14 days or we work free",
+                  { icon: <Clock className="w-4 h-4" />, text: "30-minute call, no sales pressure" },
+                  { icon: <BarChart2 className="w-4 h-4" />, text: "Free competitor analysis included" },
+                  { icon: <Shield className="w-4 h-4" />, text: "No contracts, cancel anytime" },
+                  { icon: <Zap className="w-4 h-4" />, text: "First leads within 14 days of launch" },
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-sm text-background/80">
-                    <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                    {item}
+                  <li key={item.text} className="flex items-center gap-3 text-sm text-foreground">
+                    <span className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground flex-shrink-0">{item.icon}</span>
+                    {item.text}
                   </li>
                 ))}
               </ul>
-              <div className="flex flex-col gap-2 text-sm text-background/60">
-                <span>📞 (608) 719 - 4381</span>
-                <span>✉ hello@leadhauler.com</span>
+              <div className="pt-6 border-t border-border flex flex-wrap gap-6 text-sm text-muted-foreground">
+                <a href="tel:+15087156385" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                  <Phone className="w-4 h-4" /> (508) 715-6385
+                </a>
+                <a href="mailto:hello@leadhauler.com" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                  <Mail className="w-4 h-4" /> hello@leadhauler.com
+                </a>
               </div>
             </div>
 
             {/* Right — form */}
-            <div className="bg-background text-foreground rounded-2xl p-6 shadow-2xl">
+            <div className="bg-card text-foreground rounded-2xl p-6 shadow-xl border border-border">
               <h3 className="text-lg font-bold mb-1">Book Your Free Strategy Call</h3>
-              <p className="text-sm text-muted-foreground mb-5">Takes less than 2 minutes to get started.</p>
+              <p className="text-sm text-muted-foreground mb-5">Takes 60 seconds. We'll call you.</p>
 
               {submitted ? (
                 <div className="text-center py-8">
@@ -424,8 +428,86 @@ export default function Pricing() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="bg-foreground border-t border-background/10 py-6 text-center text-background/40 text-xs">
-        © {new Date().getFullYear()} LeadHauler. All rights reserved.
+      <footer className="bg-primary text-primary-foreground pt-14 pb-8 border-t border-primary/20">
+        <div className="container">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+            <div className="lg:col-span-1">
+              <div className="mb-4">
+                <img
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler_top-removebg-preview_eb70e94b.png"
+                  alt="LeadHauler"
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
+              <p className="text-primary-foreground/55 text-sm leading-relaxed">
+                The complete, done-for-you marketing system built exclusively for junk removal businesses.
+              </p>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-primary-foreground/40 mb-4">Navigation</p>
+              <ul className="space-y-2.5 text-sm">
+                {[
+                  { label: "Services", href: "/#services" },
+                  { label: "Results", href: "/#results" },
+                  { label: "How It Works", href: "/#process" },
+                  { label: "Pricing", href: "/pricing" },
+                  { label: "FAQ", href: "/#faq" },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">{link.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-primary-foreground/40 mb-4">Resources</p>
+              <ul className="space-y-2.5 text-sm">
+                {[
+                  { label: "Tactics & Tips", href: "/tactics" },
+                  { label: "Get a Free Strategy Call", href: "#contact" },
+                  { label: "Client Results", href: "/#results" },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">{link.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-primary-foreground/40 mb-4">Contact</p>
+              <ul className="space-y-2.5 text-sm text-primary-foreground/65">
+                <li>
+                  <a href="tel:+15087156385" className="hover:text-primary-foreground transition-colors flex items-center gap-2">
+                    <Phone className="w-3.5 h-3.5 flex-shrink-0" />
+                    (508) 715-6385
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:hello@leadhauler.com" className="hover:text-primary-foreground transition-colors flex items-center gap-2">
+                    <Mail className="w-3.5 h-3.5 flex-shrink-0" />
+                    hello@leadhauler.com
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/leadhauler" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors flex items-center gap-2">
+                    <Facebook className="w-3.5 h-3.5 flex-shrink-0" />
+                    facebook.com/leadhauler
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/@LeadHauler" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors flex items-center gap-2">
+                    <Youtube className="w-3.5 h-3.5 flex-shrink-0" />
+                    youtube.com/@LeadHauler
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/40">
+            <span>© {new Date().getFullYear()} LeadHauler System. All rights reserved.</span>
+            <span>Done-for-you marketing exclusively for junk haulers.</span>
+          </div>
+        </div>
       </footer>
     </div>
   );
