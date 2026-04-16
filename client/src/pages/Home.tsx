@@ -267,7 +267,7 @@ export default function Home() {
     { label: "Services", href: "#services" },
     { label: "Results", href: "#results" },
     { label: "Tactics", href: "/tactics" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "Pricing", href: "/pricing" },
     { label: "FAQ", href: "#faq" },
   ];
 
@@ -971,7 +971,7 @@ export default function Home() {
                   { label: "Services", href: "#services" },
                   { label: "Results", href: "#results" },
                   { label: "How It Works", href: "#process" },
-                  { label: "Pricing", href: "#pricing" },
+                  { label: "Pricing", href: "/pricing" },
                   { label: "FAQ", href: "#faq" },
                 ].map((link) => (
                   <li key={link.label}>
