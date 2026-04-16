@@ -98,6 +98,7 @@ function RoiCalculator() {
           </a>
         </div>
       </div>
+      <p className="text-xs text-center text-muted-foreground px-6 pb-4">Estimates are illustrative. Actual results vary by market, competition, and conversion performance.</p>
     </div>
   );
 }
