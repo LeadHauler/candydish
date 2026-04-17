@@ -91,9 +91,33 @@ function RoiCalculator() {
                "Negative — review capacity before spending more"}
             </p>
           </div>
+          {/* Plan Recommendation */}
+          {(() => {
+            const rec =
+              jobsWanted <= 20 && calc.adSpend <= 1200
+                ? { name: "Starter", price: "$800", color: "border-border bg-muted/30", badge: "bg-muted text-muted-foreground", reason: "Your volume and ad spend fit comfortably within the Starter tier — a great starting point to prove the model before scaling." }
+                : jobsWanted <= 40 && calc.adSpend <= 2500
+                ? { name: "Growth", price: "$1200", color: "border-primary/40 bg-primary/5", badge: "bg-primary text-primary-foreground", reason: "Based on your targets, Growth gives you the ad management capacity, LSAs, and website optimisation needed to hit these numbers." }
+                : { name: "Dominator", price: "$2500", color: "border-amber-400/50 bg-amber-50/40", badge: "bg-amber-500 text-white", reason: "Your goals require multi-channel scale. Dominator covers unlimited ad spend management, multi-location SEO, and daily content to support this volume." };
+            return (
+              <div className={`rounded-xl border-2 p-4 ${rec.color}`}>
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Recommended Plan</p>
+                  <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full ${rec.badge}`}>{rec.name}</span>
+                </div>
+                <p className="text-2xl font-black text-foreground">{rec.price}<span className="text-sm font-medium text-muted-foreground">/mo</span></p>
+                <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{rec.reason}</p>
+                <a href="#contact" className="mt-3 block">
+                  <Button size="sm" className="w-full bg-primary text-primary-foreground font-bold">
+                    Get Started with {rec.name} →
+                  </Button>
+                </a>
+              </div>
+            );
+          })()}
           <a href="#contact">
-            <Button className="w-full bg-primary text-primary-foreground font-bold">
-              Get My Free Strategy Call →
+            <Button variant="outline" className="w-full font-semibold text-sm">
+              Book a Free Strategy Call Instead
             </Button>
           </a>
         </div>

@@ -148,6 +148,31 @@ export default function RoiLanding() {
                 </p>
               </div>
 
+              {/* Plan Recommendation */}
+              {(() => {
+                const rec =
+                  jobsWanted <= 20 && calc.adSpend <= 1200
+                    ? { name: "Starter", price: "$800", borderColor: "border-border", badgeBg: "bg-muted text-muted-foreground", reason: "Your volume and ad spend fit comfortably within the Starter tier — a great starting point to prove the model before scaling." }
+                    : jobsWanted <= 40 && calc.adSpend <= 2500
+                    ? { name: "Growth", price: "$1200", borderColor: "border-primary", badgeBg: "bg-primary text-primary-foreground", reason: "Based on your targets, Growth gives you the ad management capacity, LSAs, and website optimisation needed to hit these numbers." }
+                    : { name: "Dominator", price: "$2500", borderColor: "border-amber-400", badgeBg: "bg-amber-500 text-white", reason: "Your goals require multi-channel scale. Dominator covers unlimited ad spend management, multi-location SEO, and daily content to support this volume." };
+                return (
+                  <div className={`rounded-xl border-2 p-5 bg-white ${rec.borderColor}`}>
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Recommended Plan</p>
+                      <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full ${rec.badgeBg}`}>{rec.name}</span>
+                    </div>
+                    <p className="text-2xl font-black text-foreground">{rec.price}<span className="text-sm font-medium text-muted-foreground">/mo</span></p>
+                    <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{rec.reason}</p>
+                    <a href="/#contact" className="mt-3 block">
+                      <Button className="w-full bg-primary text-primary-foreground font-bold">
+                        Get Started with {rec.name} <ArrowRight className="w-4 h-4 ml-1" />
+                      </Button>
+                    </a>
+                  </div>
+                );
+              })()}
+
               <p className="text-xs text-center text-muted-foreground">
                 Estimates are illustrative. Actual results vary by market, competition, and conversion performance.
               </p>
