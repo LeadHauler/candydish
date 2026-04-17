@@ -106,7 +106,7 @@ function RoiCalculator() {
 const plans = [
   {
     name: "Starter",
-    price: "$1800",
+    price: "$800",
     period: "/mo",
     desc: "Perfect for new or small junk removal operations ready to grow.",
     features: [
@@ -123,7 +123,7 @@ const plans = [
   },
   {
     name: "Growth",
-    price: "$2500",
+    price: "$1200",
     period: "/mo",
     badge: "Most Popular",
     desc: "For established operators ready to dominate their local market.",
@@ -140,7 +140,7 @@ const plans = [
   },
   {
     name: "Dominator",
-    price: "$5500",
+    price: "$2500",
     period: "/mo",
     desc: "For multi-truck operations or owners expanding to new markets.",
     features: [
