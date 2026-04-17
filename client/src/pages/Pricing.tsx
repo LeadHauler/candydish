@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { CheckCircle2, ShieldCheck, Zap, ArrowRight, Star, Calculator, Phone, Mail, Facebook, Youtube, Clock, BarChart2, Shield } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Zap, ArrowRight, Star, Calculator, Phone, Mail, Facebook, Youtube, Clock, BarChart2, Shield, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
@@ -159,6 +159,18 @@ const plans = [
 export default function Pricing() {
   const [form, setForm] = useState({ name: "", business: "", phone: "", city: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const isMobileDevice =
+    typeof navigator !== "undefined" &&
+    /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+  const navLinks = [
+    { label: "Services", href: "/#services" },
+    { label: "Results", href: "/#results" },
+    { label: "Tactics", href: "/tactics" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "FAQ", href: "/#faq" },
+  ];
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -169,29 +181,77 @@ export default function Pricing() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* ── NAV ── */}
-      <header className="border-b border-border/50 bg-background/95 backdrop-blur sticky top-0 z-50">
-        <div className="container flex items-center justify-between h-16">
-          <a href="/" className="flex items-center gap-2">
-            <span className="text-xl font-black tracking-tight">
-              <span className="text-foreground">Lead</span>
-              <span className="text-amber-500">Hauler</span>
-            </span>
-            <span className="hidden sm:block text-xs text-muted-foreground font-medium tracking-widest uppercase ml-1">Marketing for Junk Removal</span>
+      <nav className="border-b border-border bg-card/90 backdrop-blur-sm sticky top-0 z-40">
+        <div className="container flex items-center justify-between h-20">
+          {/* Logo */}
+          <a href="/" className="flex items-center">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler_top-removebg-preview_eb70e94b.png"
+              alt="LeadHauler — Marketing for Junk Removal"
+              className="h-12 md:h-14 lg:h-[72px] w-auto object-contain"
+            />
           </a>
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-            <a href="/#services" className="hover:text-foreground transition-colors">Services</a>
-            <a href="/#results" className="hover:text-foreground transition-colors">Results</a>
-            <a href="/tactics" className="hover:text-foreground transition-colors">Tactics</a>
-            <a href="/pricing" className="text-foreground font-semibold">Pricing</a>
-            <a href="/#faq" className="hover:text-foreground transition-colors">FAQ</a>
-          </nav>
-          <a href="#contact">
-            <Button size="sm" className="bg-primary text-primary-foreground font-bold px-5">
-              Get Free Strategy Call <ArrowRight className="w-4 h-4 ml-1" />
+
+          {/* Desktop nav links */}
+          <div className="hidden md:flex items-center gap-5 text-sm font-medium text-muted-foreground">
+            {navLinks.map((l) => (
+              <a key={l.label} href={l.href} className={`hover:text-foreground transition-colors${l.href === "/pricing" ? " text-foreground font-semibold" : ""}`}>{l.label}</a>
+            ))}
+          </div>
+
+          {/* Desktop CTA */}
+          <a href="#contact" className="hidden md:block">
+            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
+              Get Free Strategy Call
+              <ArrowRight className="w-4 h-4 ml-1.5" />
             </Button>
           </a>
+
+          {/* Mobile: phone + hamburger */}
+          {isMobileDevice && (
+            <div className="flex items-center gap-2">
+              <a href="tel:+15087156385">
+                <Button size="sm" variant="outline" className="bg-background px-2.5">
+                  <Phone className="w-4 h-4 text-primary" />
+                </Button>
+              </a>
+              <Button
+                size="sm"
+                variant="outline"
+                className="bg-background px-2.5"
+                onClick={() => setMobileNavOpen(!mobileNavOpen)}
+                aria-label="Toggle menu"
+              >
+                {mobileNavOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+              </Button>
+            </div>
+          )}
         </div>
-      </header>
+
+        {/* Mobile dropdown menu */}
+        {isMobileDevice && mobileNavOpen && (
+          <div className="border-t border-border bg-card px-4 py-4 space-y-1">
+            {navLinks.map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                onClick={() => setMobileNavOpen(false)}
+                className="block px-3 py-2.5 rounded-lg text-sm font-medium text-foreground hover:bg-muted transition-colors"
+              >
+                {l.label}
+              </a>
+            ))}
+            <div className="pt-2">
+              <a href="#contact" onClick={() => setMobileNavOpen(false)}>
+                <Button className="w-full bg-primary text-primary-foreground font-semibold">
+                  Get your first leads in 14 days
+                  <ArrowRight className="w-4 h-4 ml-1.5" />
+                </Button>
+              </a>
+            </div>
+          </div>
+        )}
+      </nav>
 
       {/* ── HERO ── */}
       <section className="pt-16 pb-10 text-center">
