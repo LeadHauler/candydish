@@ -793,7 +793,7 @@ export default function Home() {
           </div>
           <div className="text-center mt-8 space-y-1">
             <p className="text-sm text-muted-foreground">Ad spend is billed separately and goes directly to Google/Meta — we never mark it up.</p>
-            <p className="text-sm font-semibold text-foreground">All packages require a $997 one-time setup fee.</p>
+            <p className="text-sm font-semibold text-foreground">All packages require a $997 one-time onboarding fee.</p>
           </div>
         </div>
       </section>

@@ -434,7 +434,7 @@ export default function SpeedToLead() {
               Speed-to-Lead is included in all plans.
             </h2>
             <p className="text-muted-foreground text-sm mb-8">
-              No long-term contracts. Cancel anytime. All packages require a $997 one-time setup fee.
+              No long-term contracts. Cancel anytime. All packages require a $997 one-time onboarding fee.
             </p>
 
             <div className="space-y-4">
