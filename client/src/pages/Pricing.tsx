@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 function RoiCalculator() {
-  const [jobValue, setJobValue] = useState(350);
-  const [bookingRate, setBookingRate] = useState(35);
-  const [jobsWanted, setJobsWanted] = useState(30);
-  const [cpl, setCpl] = useState(60);
+  const [jobValue, setJobValue] = useState(425);
+  const [bookingRate, setBookingRate] = useState(40);
+  const [jobsWanted, setJobsWanted] = useState(25);
+  const [cpl, setCpl] = useState(45);
   const [margin, setMargin] = useState(55);
 
   const calc = useMemo(() => {
