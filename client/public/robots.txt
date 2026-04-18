@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /speed-to-lead-xk9m2pqr7
+Disallow: /8-channels-m4n7vw2x
+Disallow: /roi-calculator-p9q3xt5k
+Disallow: /thank-you-channels
+Disallow: /free-guide
+
+Sitemap: https://leadhauler.com/sitemap.xml
