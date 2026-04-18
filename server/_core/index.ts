@@ -1,9 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import { createServer } from "http";
-import fs from "fs";
 import net from "net";
-import path from "path";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { registerOAuthRoutes } from "./oauth";
 import { appRouter } from "../routers";
@@ -45,23 +43,6 @@ async function startServer() {
       createContext,
     })
   );
-  // Serve sitemap.xml with correct content type before Vite/static catch-all
-  app.get("/sitemap.xml", (_req, res) => {
-    const sitemapPath = path.resolve(
-      import.meta.dirname,
-      "../..",
-      "client",
-      "public",
-      "sitemap.xml"
-    );
-    if (fs.existsSync(sitemapPath)) {
-      res.setHeader("Content-Type", "application/xml");
-      res.sendFile(sitemapPath);
-    } else {
-      res.status(404).send("sitemap.xml not found");
-    }
-  });
-
   // development mode uses Vite, production mode uses static files
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);
