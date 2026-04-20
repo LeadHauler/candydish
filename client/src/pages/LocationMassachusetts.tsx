@@ -223,7 +223,7 @@ export default function LocationMassachusetts() {
     <div className="min-h-screen bg-background text-foreground">
       {/* ── NAV ── */}
       <nav className="border-b border-border bg-card/90 backdrop-blur-sm sticky top-0 z-40">
-        <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
           <Link href="/">
             <img
               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler_top-removebg-preview_eb70e94b.png"
