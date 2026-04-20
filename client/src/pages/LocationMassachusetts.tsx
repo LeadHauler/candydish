@@ -226,9 +226,9 @@ export default function LocationMassachusetts() {
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
           <Link href="/">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler-logo-Cxrv3Nt5bJnYRPdZmMXaEA.webp"
-              alt="LeadHauler"
-              className="h-8 w-auto"
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler_top-removebg-preview_eb70e94b.png"
+              alt="LeadHauler — Marketing for Junk Removal"
+              className="h-12 md:h-14 lg:h-[72px] w-auto object-contain"
             />
           </Link>
           <div className="hidden md:flex items-center gap-5 text-sm font-medium text-muted-foreground">
@@ -607,9 +607,9 @@ export default function LocationMassachusetts() {
             <div>
               <Link href="/">
                 <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler-logo-Cxrv3Nt5bJnYRPdZmMXaEA.webp"
-                  alt="LeadHauler"
-                  className="h-7 w-auto mb-2"
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663189932034/JBPbRyHCe55ySNBJ7tAau7/leadhauler_top-removebg-preview_eb70e94b.png"
+                  alt="LeadHauler — Marketing for Junk Removal"
+                  className="h-10 w-auto object-contain mb-2"
                 />
               </Link>
               <p className="text-xs text-primary-foreground/60">
