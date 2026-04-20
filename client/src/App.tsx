@@ -13,6 +13,7 @@ import RoiLanding from "./pages/RoiLanding";
 import ThankYouChannels from "./pages/ThankYouChannels";
 import ThankYou from "./pages/ThankYou";
 import Pricing from "./pages/Pricing";
+import LocationMassachusetts from "./pages/LocationMassachusetts";
 
 function Router() {
   return (
@@ -26,6 +27,7 @@ function Router() {
       <Route path="/thank-you-channels" component={ThankYouChannels} />
       <Route path="/thank-you" component={ThankYou} />
       <Route path="/pricing" component={Pricing} />
+      <Route path="/locations/massachusetts" component={LocationMassachusetts} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
